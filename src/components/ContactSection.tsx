@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock, MessageCircle, Send, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
+import { AnimatedSection } from "@/hooks/useScrollAnimation";
 
 const COACHING = {
   name: "Sucheta's Math Class",
@@ -85,7 +86,7 @@ export function ContactSection() {
 
       <div className="container relative">
         {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 stagger-children">
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-bold uppercase tracking-wider border border-secondary/20">
             <MessageCircle className="w-4 h-4" />
             Get Started
@@ -98,123 +99,125 @@ export function ContactSection() {
             Fill the form and we'll respond with the best plan based on level and weak chapters.
             Parents can add last test marks for faster planning.
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Contact Grid */}
         <div className="grid lg:grid-cols-5 gap-8">
           {/* Form - takes 3 columns */}
-          <div className="lg:col-span-3 p-6 md:p-8 rounded-3xl bg-card/80 border-2 border-border/50 shadow-lg">
-            <h3 className="text-2xl font-heading font-bold text-foreground mb-6">Send Enquiry</h3>
-            
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid sm:grid-cols-2 gap-5">
+          <AnimatedSection animation="fade-left" delay={100} className="lg:col-span-3">
+            <div className="p-6 md:p-8 rounded-3xl bg-card/80 border-2 border-border/50 shadow-lg h-full">
+              <h3 className="text-2xl font-heading font-bold text-foreground mb-6">Send Enquiry</h3>
+              
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <Label htmlFor="name" className="font-bold text-foreground mb-2 block">Parent/Student Name *</Label>
+                    <Input 
+                      id="name" 
+                      placeholder="e.g., Mr. Sen / Ananya" 
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="h-12"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="phone" className="font-bold text-foreground mb-2 block">Phone / WhatsApp *</Label>
+                    <Input 
+                      id="phone" 
+                      placeholder="e.g., 9XXXXXXXXX" 
+                      inputMode="numeric"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="h-12"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <Label className="font-bold text-foreground mb-2 block">Class / Level *</Label>
+                    <Select value={formData.level} onValueChange={(v) => setFormData({ ...formData, level: v })}>
+                      <SelectTrigger className="h-12">
+                        <SelectValue placeholder="Select class" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {classLevels.map((level) => (
+                          <SelectItem key={level} value={level}>{level}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label className="font-bold text-foreground mb-2 block">Board *</Label>
+                    <Select value={formData.board} onValueChange={(v) => setFormData({ ...formData, board: v })}>
+                      <SelectTrigger className="h-12">
+                        <SelectValue placeholder="Select board" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {boards.map((board) => (
+                          <SelectItem key={board} value={board}>{board}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <Label className="font-bold text-foreground mb-2 block">Subject(s) *</Label>
+                    <Select value={formData.subject} onValueChange={(v) => setFormData({ ...formData, subject: v })}>
+                      <SelectTrigger className="h-12">
+                        <SelectValue placeholder="Select subject" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {subjects.map((subject) => (
+                          <SelectItem key={subject} value={subject}>{subject}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label className="font-bold text-foreground mb-2 block">Mode *</Label>
+                    <Select value={formData.mode} onValueChange={(v) => setFormData({ ...formData, mode: v })}>
+                      <SelectTrigger className="h-12">
+                        <SelectValue placeholder="Select mode" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {modes.map((mode) => (
+                          <SelectItem key={mode} value={mode}>{mode}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+
                 <div>
-                  <Label htmlFor="name" className="font-bold text-foreground mb-2 block">Parent/Student Name *</Label>
-                  <Input 
-                    id="name" 
-                    placeholder="e.g., Mr. Sen / Ananya" 
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="h-12"
+                  <Label htmlFor="message" className="font-bold text-foreground mb-2 block">Your message (optional)</Label>
+                  <Textarea 
+                    id="message" 
+                    placeholder="Weak chapters, last test marks, exam goal, preferred time..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="min-h-[120px] resize-none"
                   />
                 </div>
-                <div>
-                  <Label htmlFor="phone" className="font-bold text-foreground mb-2 block">Phone / WhatsApp *</Label>
-                  <Input 
-                    id="phone" 
-                    placeholder="e.g., 9XXXXXXXXX" 
-                    inputMode="numeric"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="h-12"
-                  />
-                </div>
-              </div>
 
-              <div className="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <Label className="font-bold text-foreground mb-2 block">Class / Level *</Label>
-                  <Select value={formData.level} onValueChange={(v) => setFormData({ ...formData, level: v })}>
-                    <SelectTrigger className="h-12">
-                      <SelectValue placeholder="Select class" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {classLevels.map((level) => (
-                        <SelectItem key={level} value={level}>{level}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <Button type="submit" size="lg">
+                    <Send className="w-4 h-4 mr-2" />
+                    Send Enquiry
+                  </Button>
+                  <Button type="button" size="lg" variant="secondary" onClick={() => openWhatsApp(makeLeadMessage())}>
+                    <MessageCircle className="w-4 h-4 mr-2" />
+                    WhatsApp Directly
+                  </Button>
                 </div>
-                <div>
-                  <Label className="font-bold text-foreground mb-2 block">Board *</Label>
-                  <Select value={formData.board} onValueChange={(v) => setFormData({ ...formData, board: v })}>
-                    <SelectTrigger className="h-12">
-                      <SelectValue placeholder="Select board" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {boards.map((board) => (
-                        <SelectItem key={board} value={board}>{board}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <Label className="font-bold text-foreground mb-2 block">Subject(s) *</Label>
-                  <Select value={formData.subject} onValueChange={(v) => setFormData({ ...formData, subject: v })}>
-                    <SelectTrigger className="h-12">
-                      <SelectValue placeholder="Select subject" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {subjects.map((subject) => (
-                        <SelectItem key={subject} value={subject}>{subject}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <Label className="font-bold text-foreground mb-2 block">Mode *</Label>
-                  <Select value={formData.mode} onValueChange={(v) => setFormData({ ...formData, mode: v })}>
-                    <SelectTrigger className="h-12">
-                      <SelectValue placeholder="Select mode" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {modes.map((mode) => (
-                        <SelectItem key={mode} value={mode}>{mode}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-
-              <div>
-                <Label htmlFor="message" className="font-bold text-foreground mb-2 block">Your message (optional)</Label>
-                <Textarea 
-                  id="message" 
-                  placeholder="Weak chapters, last test marks, exam goal, preferred time..."
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="min-h-[120px] resize-none"
-                />
-              </div>
-
-              <div className="flex flex-wrap gap-3 pt-2">
-                <Button type="submit" size="lg" className="font-bold shadow-primary">
-                  <Send className="w-4 h-4 mr-2" />
-                  Send Enquiry
-                </Button>
-                <Button type="button" size="lg" variant="outline" className="font-bold" onClick={() => openWhatsApp(makeLeadMessage())}>
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  WhatsApp Directly
-                </Button>
-              </div>
-            </form>
-          </div>
+              </form>
+            </div>
+          </AnimatedSection>
 
           {/* Contact details - takes 2 columns */}
-          <div className="lg:col-span-2 space-y-6">
+          <AnimatedSection animation="fade-right" delay={200} className="lg:col-span-2 space-y-6">
             {/* Contact cards */}
             <div className="grid grid-cols-2 gap-4">
               {contactCards.map((card, i) => (
@@ -248,12 +251,12 @@ export function ContactSection() {
             <div className="p-5 rounded-2xl bg-gradient-to-r from-secondary/10 to-primary/10 border border-border/50">
               <h4 className="font-bold text-foreground mb-2">Prefer WhatsApp?</h4>
               <p className="text-sm text-muted-foreground mb-4">Get a quick response. Just click below!</p>
-              <Button onClick={() => openWhatsApp(COACHING.defaultWhatsAppText)} className="w-full font-bold" variant="secondary">
+              <Button onClick={() => openWhatsApp(COACHING.defaultWhatsAppText)} className="w-full" variant="secondary">
                 <MessageCircle className="w-4 h-4 mr-2" />
                 Chat on WhatsApp
               </Button>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>
