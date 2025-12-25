@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
-import { MapPin, Phone, Mail, Clock, Copy, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, MessageCircle, Send, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 
 const COACHING = {
@@ -68,89 +68,75 @@ export function ContactSection() {
     openWhatsApp(makeLeadMessage());
   };
 
-  const copyTemplate = async () => {
-    const template = "Hi! I'm looking for 1:1 coaching for Class __ (Board __). Subject: __. Mode: __. Weak topics: __. Preferred time: __.";
-    await navigator.clipboard.writeText(template);
-    toast.success("Template copied!");
-  };
+  const contactCards = [
+    { icon: Phone, label: "Call / WhatsApp", value: COACHING.displayPhone, href: `tel:${COACHING.phoneE164}`, color: "primary" },
+    { icon: Mail, label: "Email", value: COACHING.email, href: `mailto:${COACHING.email}`, color: "secondary" },
+    { icon: MapPin, label: "Location", value: COACHING.address, href: null, color: "primary" },
+    { icon: Clock, label: "Timings", value: "By appointment (limited slots)", href: null, color: "secondary" },
+  ];
 
   return (
-    <section id="contact" className="py-16 md:py-20">
-      <div className="container">
-        {/* Header */}
-        <div className="grid lg:grid-cols-2 gap-6 items-center mb-8">
-          <div className="stagger-children">
-            <p className="kicker">Contact</p>
-            <h2 className="mt-3 text-2xl md:text-3xl font-heading font-black text-foreground">
-              <span className="chalk-underline">Book a counselling call</span> (Kolkata + Online)
-            </h2>
-            <p className="mt-3 text-muted-foreground leading-relaxed">
-              Fill the form and we'll respond with the best plan based on level and weak chapters.
-              Parents can add last test marks for faster planning.
-            </p>
-          </div>
+    <section id="contact" className="py-16 md:py-24 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+      </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            <div className="relative rounded-2xl overflow-hidden border border-border shadow-md min-h-[180px]">
-              <img 
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=60"
-                alt="Chat on phone"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute bottom-2 left-2 right-2 p-3 rounded-xl bg-card/90 backdrop-blur-lg border border-border/50 shadow-sm">
-                <b className="block text-sm text-foreground">Quick on WhatsApp</b>
-                <span className="block text-xs text-muted-foreground font-semibold">Fast response</span>
-              </div>
-            </div>
-            <div className="relative rounded-2xl overflow-hidden border border-border shadow-md min-h-[180px]">
-              <img 
-                src="https://images.unsplash.com/photo-1587614382346-acbfa6b5b6ee?auto=format&fit=crop&w=1200&q=60"
-                alt="Call support"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute bottom-2 left-2 right-2 p-3 rounded-xl bg-card/90 backdrop-blur-lg border border-border/50 shadow-sm">
-                <b className="block text-sm text-foreground">Call & confirm</b>
-                <span className="block text-xs text-muted-foreground font-semibold">Check slot availability</span>
-              </div>
-            </div>
-          </div>
+      <div className="container relative">
+        {/* Section header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 stagger-children">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-bold uppercase tracking-wider border border-secondary/20">
+            <MessageCircle className="w-4 h-4" />
+            Get Started
+          </span>
+          <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl font-heading font-black text-foreground leading-tight">
+            Book your{" "}
+            <span className="text-primary">FREE counselling call</span>
+          </h2>
+          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+            Fill the form and we'll respond with the best plan based on level and weak chapters.
+            Parents can add last test marks for faster planning.
+          </p>
         </div>
 
         {/* Contact Grid */}
-        <div className="grid lg:grid-cols-2 gap-5">
-          {/* Form */}
-          <div className="tile-ice glass-ring p-5 md:p-6 rounded-2xl border border-border/50 shadow-sm">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid lg:grid-cols-5 gap-8">
+          {/* Form - takes 3 columns */}
+          <div className="lg:col-span-3 p-6 md:p-8 rounded-3xl bg-card/80 border-2 border-border/50 shadow-lg">
+            <h3 className="text-2xl font-heading font-bold text-foreground mb-6">Send Enquiry</h3>
+            
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <Label htmlFor="name" className="font-bold text-muted-foreground">Parent/Student Name</Label>
+                  <Label htmlFor="name" className="font-bold text-foreground mb-2 block">Parent/Student Name *</Label>
                   <Input 
                     id="name" 
                     placeholder="e.g., Mr. Sen / Ananya" 
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="mt-1.5"
+                    className="h-12"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="phone" className="font-bold text-muted-foreground">Phone / WhatsApp</Label>
+                  <Label htmlFor="phone" className="font-bold text-foreground mb-2 block">Phone / WhatsApp *</Label>
                   <Input 
                     id="phone" 
                     placeholder="e.g., 9XXXXXXXXX" 
                     inputMode="numeric"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="mt-1.5"
+                    className="h-12"
                   />
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <Label className="font-bold text-muted-foreground">Class / Level</Label>
+                  <Label className="font-bold text-foreground mb-2 block">Class / Level *</Label>
                   <Select value={formData.level} onValueChange={(v) => setFormData({ ...formData, level: v })}>
-                    <SelectTrigger className="mt-1.5">
-                      <SelectValue placeholder="Select" />
+                    <SelectTrigger className="h-12">
+                      <SelectValue placeholder="Select class" />
                     </SelectTrigger>
                     <SelectContent>
                       {classLevels.map((level) => (
@@ -160,10 +146,10 @@ export function ContactSection() {
                   </Select>
                 </div>
                 <div>
-                  <Label className="font-bold text-muted-foreground">Board</Label>
+                  <Label className="font-bold text-foreground mb-2 block">Board *</Label>
                   <Select value={formData.board} onValueChange={(v) => setFormData({ ...formData, board: v })}>
-                    <SelectTrigger className="mt-1.5">
-                      <SelectValue placeholder="Select" />
+                    <SelectTrigger className="h-12">
+                      <SelectValue placeholder="Select board" />
                     </SelectTrigger>
                     <SelectContent>
                       {boards.map((board) => (
@@ -174,12 +160,12 @@ export function ContactSection() {
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <Label className="font-bold text-muted-foreground">Subject(s)</Label>
+                  <Label className="font-bold text-foreground mb-2 block">Subject(s) *</Label>
                   <Select value={formData.subject} onValueChange={(v) => setFormData({ ...formData, subject: v })}>
-                    <SelectTrigger className="mt-1.5">
-                      <SelectValue placeholder="Select" />
+                    <SelectTrigger className="h-12">
+                      <SelectValue placeholder="Select subject" />
                     </SelectTrigger>
                     <SelectContent>
                       {subjects.map((subject) => (
@@ -189,10 +175,10 @@ export function ContactSection() {
                   </Select>
                 </div>
                 <div>
-                  <Label className="font-bold text-muted-foreground">Mode</Label>
+                  <Label className="font-bold text-foreground mb-2 block">Mode *</Label>
                   <Select value={formData.mode} onValueChange={(v) => setFormData({ ...formData, mode: v })}>
-                    <SelectTrigger className="mt-1.5">
-                      <SelectValue placeholder="Select" />
+                    <SelectTrigger className="h-12">
+                      <SelectValue placeholder="Select mode" />
                     </SelectTrigger>
                     <SelectContent>
                       {modes.map((mode) => (
@@ -204,88 +190,50 @@ export function ContactSection() {
               </div>
 
               <div>
-                <Label htmlFor="message" className="font-bold text-muted-foreground">Your message (optional)</Label>
+                <Label htmlFor="message" className="font-bold text-foreground mb-2 block">Your message (optional)</Label>
                 <Textarea 
                   id="message" 
                   placeholder="Weak chapters, last test marks, exam goal, preferred time..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="mt-1.5 min-h-[100px]"
+                  className="min-h-[120px] resize-none"
                 />
               </div>
 
-              <div className="flex flex-wrap gap-2.5 pt-2">
-                <Button type="submit" className="font-bold shadow-primary">Send Enquiry</Button>
-                <Button type="button" variant="outline" className="font-bold" onClick={() => openWhatsApp(makeLeadMessage())}>
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  Send on WhatsApp
+              <div className="flex flex-wrap gap-3 pt-2">
+                <Button type="submit" size="lg" className="font-bold shadow-primary">
+                  <Send className="w-4 h-4 mr-2" />
+                  Send Enquiry
                 </Button>
-                <Button type="button" variant="ghost" className="font-bold" asChild>
-                  <a href={`tel:${COACHING.phoneE164}`}>
-                    <Phone className="w-4 h-4 mr-2" />
-                    Call Now
-                  </a>
+                <Button type="button" size="lg" variant="outline" className="font-bold" onClick={() => openWhatsApp(makeLeadMessage())}>
+                  <MessageCircle className="w-4 h-4 mr-2" />
+                  WhatsApp Directly
                 </Button>
               </div>
             </form>
           </div>
 
-          {/* Contact Details */}
-          <div className="tile-cream glass-ring p-5 md:p-6 rounded-2xl border border-border/50 shadow-sm">
-            <h3 className="font-heading font-bold text-foreground text-lg">Contact Details</h3>
-            <p className="mt-2 text-muted-foreground">
-              Kolkata (offline) + Online sessions available. Share class, board, and subjects to confirm slots.
-            </p>
-
-            <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-4" />
-
-            <div className="flex flex-col gap-3">
-              <div className="flex gap-3 items-start p-3 rounded-2xl bg-card/60 border border-border/50 shadow-xs">
-                <div className="w-6 h-6 rounded-lg bg-secondary/15 border border-secondary/25 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <MapPin className="w-3.5 h-3.5 text-secondary" />
+          {/* Contact details - takes 2 columns */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Contact cards */}
+            <div className="grid grid-cols-2 gap-4">
+              {contactCards.map((card, i) => (
+                <div 
+                  key={i}
+                  className={`p-5 rounded-2xl bg-gradient-to-br from-${card.color}/10 via-card to-card border border-border/50 shadow-sm hover:shadow-md transition-shadow ${card.href ? "cursor-pointer" : ""}`}
+                  onClick={() => card.href && window.open(card.href, card.href.startsWith("tel") ? "_self" : "_blank")}
+                >
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br from-${card.color} to-${card.color}/70 flex items-center justify-center text-primary-foreground shadow-md mb-3`}>
+                    <card.icon className="w-6 h-6" />
+                  </div>
+                  <span className="block text-xs font-bold text-muted-foreground uppercase tracking-wider">{card.label}</span>
+                  <span className="block text-sm font-semibold text-foreground mt-1">{card.value}</span>
                 </div>
-                <div>
-                  <strong className="block text-foreground font-semibold">Location</strong>
-                  <span className="block text-sm text-muted-foreground mt-0.5">{COACHING.address}</span>
-                </div>
-              </div>
-
-              <a href={`tel:${COACHING.phoneE164}`} className="flex gap-3 items-start p-3 rounded-2xl bg-card/60 border border-border/50 shadow-xs hover:bg-card transition-colors">
-                <div className="w-6 h-6 rounded-lg bg-secondary/15 border border-secondary/25 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Phone className="w-3.5 h-3.5 text-secondary" />
-                </div>
-                <div>
-                  <strong className="block text-foreground font-semibold">Phone / WhatsApp</strong>
-                  <span className="block text-sm text-muted-foreground mt-0.5">{COACHING.displayPhone}</span>
-                </div>
-              </a>
-
-              <a href={`mailto:${COACHING.email}`} className="flex gap-3 items-start p-3 rounded-2xl bg-card/60 border border-border/50 shadow-xs hover:bg-card transition-colors">
-                <div className="w-6 h-6 rounded-lg bg-secondary/15 border border-secondary/25 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Mail className="w-3.5 h-3.5 text-secondary" />
-                </div>
-                <div>
-                  <strong className="block text-foreground font-semibold">Email</strong>
-                  <span className="block text-sm text-muted-foreground mt-0.5">{COACHING.email}</span>
-                </div>
-              </a>
-
-              <div className="flex gap-3 items-start p-3 rounded-2xl bg-card/60 border border-border/50 shadow-xs">
-                <div className="w-6 h-6 rounded-lg bg-secondary/15 border border-secondary/25 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Clock className="w-3.5 h-3.5 text-secondary" />
-                </div>
-                <div>
-                  <strong className="block text-foreground font-semibold">Timings</strong>
-                  <span className="block text-sm text-muted-foreground mt-0.5">By appointment (limited 1:1 slots)</span>
-                </div>
-              </div>
+              ))}
             </div>
 
-            <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-4" />
-
             {/* Map */}
-            <p className="kicker text-xs mb-3">Map</p>
-            <div className="rounded-2xl overflow-hidden border border-border shadow-sm glass-ring">
+            <div className="rounded-2xl overflow-hidden border-2 border-border/50 shadow-lg">
               <iframe
                 title="Location map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.691201789417!2d88.37257827508058!3d22.6652991794258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89da1f8973297%3A0x8e7ccc5a2ffa3eb3!2sMaa%20Basanti%20Varieties!5e0!3m2!1sen!2sit!4v1766610099780!5m2!1sen!2sit"
@@ -296,24 +244,14 @@ export function ContactSection() {
               />
             </div>
 
-            <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-4" />
-
-            {/* Quick template */}
-            <div className="tile-cloud glass-ring p-4 rounded-xl border border-border/50">
-              <p className="kicker text-xs">Quick WhatsApp message</p>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Hi! I'm looking for 1:1 coaching for Class __ (Board __). Subject: __. Mode: __. Weak topics: __. Preferred time: __.
-              </p>
-              <div className="flex flex-wrap gap-2.5 mt-3">
-                <Button size="sm" variant="outline" onClick={copyTemplate} className="font-bold">
-                  <Copy className="w-3.5 h-3.5 mr-2" />
-                  Copy
-                </Button>
-                <Button size="sm" onClick={() => openWhatsApp(COACHING.defaultWhatsAppText)} className="font-bold shadow-primary">
-                  <MessageCircle className="w-3.5 h-3.5 mr-2" />
-                  WhatsApp This
-                </Button>
-              </div>
+            {/* Quick WhatsApp */}
+            <div className="p-5 rounded-2xl bg-gradient-to-r from-secondary/10 to-primary/10 border border-border/50">
+              <h4 className="font-bold text-foreground mb-2">Prefer WhatsApp?</h4>
+              <p className="text-sm text-muted-foreground mb-4">Get a quick response. Just click below!</p>
+              <Button onClick={() => openWhatsApp(COACHING.defaultWhatsAppText)} className="w-full font-bold" variant="secondary">
+                <MessageCircle className="w-4 h-4 mr-2" />
+                Chat on WhatsApp
+              </Button>
             </div>
           </div>
         </div>

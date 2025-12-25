@@ -1,166 +1,187 @@
 import { Button } from "@/components/ui/button";
+import { Check, Star, Sparkles, ArrowRight, Zap } from "lucide-react";
 
 const plans = [
   {
-    name: "Classes 7–10 (Boards)",
+    name: "Classes 7–10",
+    subtitle: "Board Foundation",
     price: "₹750",
     priceLabel: "/ Maths",
-    otherPrices: "Physics ₹500 • Chemistry ₹500 • Biology ₹500",
-    bundle: { price: "₹2000", label: "(All subjects)" },
+    otherPrices: ["Physics ₹500", "Chemistry ₹500", "Biology ₹500"],
+    bundle: { price: "₹2000", label: "All subjects" },
     features: [
       "Foundation building + school exam prep",
       "Daily practice sessions + Q&A sessions",
-      "Weekly test series for better fill up of knowledge gaps",
-      "Personalized notes per student + formula sheets + practice",
+      "Weekly test series for knowledge gaps",
+      "Personalized notes + formula sheets",
     ],
-    bg: "tile-ice",
+    gradient: "from-primary/20 via-card to-card",
+    accent: "primary",
     popular: false,
   },
   {
-    name: "Classes 11–12 (Boards)",
+    name: "Classes 11–12",
+    subtitle: "Board Mastery",
     price: "₹1000",
     priceLabel: "/ Maths",
-    otherPrices: "Physics ₹750 • Chemistry ₹750 • Biology ₹750",
-    bundle: { price: "₹2500", label: "(All subjects)" },
+    otherPrices: ["Physics ₹750", "Chemistry ₹750", "Biology ₹750"],
+    bundle: { price: "₹2500", label: "All subjects" },
     features: [
       "Board-focused numericals + speed building",
       "Concept clarity → problem-solving confidence",
       "Weekly tests + revision schedule",
-      "Personalized notes + formula sheets + practice",
+      "Personalized notes + formula sheets",
     ],
-    bg: "tile-mist",
+    gradient: "from-secondary/20 via-card to-card",
+    accent: "secondary",
     popular: true,
   },
   {
-    name: "BSc in Mathematics (Pass / Hons)",
+    name: "BSc Mathematics",
+    subtitle: "University Level",
     price: "From ₹2000",
     priceLabel: "/ month",
-    otherPrices: "Topic-wise support + university exam prep",
+    otherPrices: ["Topic-wise support + university prep"],
     bundle: null,
     features: [
-      "Calculus, Algebra, Real Analysis, Linear Algebra, etc. (as per syllabus)",
+      "Calculus, Algebra, Real Analysis, Linear Algebra",
       "Proof-writing + problem sets",
       "University exam pattern practice",
       "1:1 doubt clearing + structured plan",
     ],
-    bg: "tile-cream",
+    gradient: "from-primary/10 via-card to-secondary/10",
+    accent: "primary",
     popular: false,
   },
 ];
 
 export function PricingSection() {
   return (
-    <section id="courses" className="py-16 md:py-20">
-      <div className="container">
-        {/* Header */}
-        <div className="grid lg:grid-cols-2 gap-6 items-center mb-8">
-          <div className="stagger-children">
-            <p className="kicker">Courses & fees</p>
-            <h2 className="mt-3 text-2xl md:text-3xl font-heading font-black text-foreground">
-              <span className="chalk-underline">Choose your class level</span> — pay per subject or take the full bundle
-            </h2>
-            <p className="mt-3 text-muted-foreground leading-relaxed">
-              1:1 private coaching • CBSE/ICSE/WBBSE • Kolkata offline + online.
-            </p>
-            <div className="flex flex-wrap gap-3 mt-5">
-              <Button asChild className="font-bold shadow-primary">
-                <a href="#contact">Enquire & get plan</a>
-              </Button>
-              <Button variant="ghost" asChild className="font-bold">
-                <a href="#process">See how we teach</a>
-              </Button>
-            </div>
-          </div>
+    <section id="courses" className="py-16 md:py-24 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+      </div>
 
-          <div className="relative rounded-2xl overflow-hidden border border-border shadow-md min-h-[200px] lg:max-w-md lg:ml-auto">
-            <img 
-              src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=60"
-              alt="Books and study setup"
-              className="w-full h-full object-cover min-h-[200px]"
-            />
-            <div className="absolute bottom-3 left-3 right-3 p-4 rounded-xl bg-card/90 backdrop-blur-lg border border-border/50 shadow-md">
-              <b className="block text-foreground">Clear packages</b>
-              <span className="block mt-0.5 text-sm text-muted-foreground font-semibold">Parents understand. Students focus.</span>
-            </div>
-          </div>
+      <div className="container relative">
+        {/* Section header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 stagger-children">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-bold uppercase tracking-wider border border-secondary/20">
+            <Sparkles className="w-4 h-4" />
+            Courses & Pricing
+          </span>
+          <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl font-heading font-black text-foreground leading-tight">
+            Transparent pricing,{" "}
+            <span className="text-primary">real value</span>
+          </h2>
+          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+            1:1 private coaching • CBSE/ICSE/WBBSE • Kolkata offline + online.
+            Choose your level and subjects — no hidden fees.
+          </p>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Pricing cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {plans.map((plan, i) => (
             <div 
               key={i} 
-              className={`${plan.bg} glass-ring rounded-2xl border shadow-md overflow-hidden relative transition-transform hover:-translate-y-1 ${
-                plan.popular ? "border-primary/30 shadow-primary" : "border-border/50"
+              className={`relative rounded-3xl bg-gradient-to-br ${plan.gradient} border-2 shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 ${
+                plan.popular ? "border-secondary lg:scale-105 lg:z-10" : "border-border/50"
               }`}
             >
-              {/* Glow effect */}
-              <div 
-                className="absolute -top-20 -right-20 w-48 h-48 rounded-full pointer-events-none blur-2xl"
-                style={{ 
-                  background: "radial-gradient(circle at 30% 30%, hsla(210, 70%, 60%, 0.35), transparent 62%)" 
-                }}
-              />
-              
-              <div className="relative">
-                <div className="p-5 pb-3">
-                  <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-bold text-foreground bg-card/70 border border-border/50 backdrop-blur-sm">
-                    {plan.name}
+              {/* Popular badge */}
+              {plan.popular && (
+                <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-secondary to-primary py-2 text-center">
+                  <span className="inline-flex items-center gap-2 text-sm font-bold text-primary-foreground uppercase tracking-wider">
+                    <Star className="w-4 h-4 fill-current" />
+                    Most Popular
+                    <Star className="w-4 h-4 fill-current" />
                   </span>
-                  <div className="mt-3 text-3xl font-black text-foreground">
-                    {plan.price} <small className="text-base text-muted-foreground font-bold">{plan.priceLabel}</small>
+                </div>
+              )}
+
+              <div className={`p-6 md:p-8 ${plan.popular ? "pt-14" : ""}`}>
+                {/* Plan header */}
+                <div className="mb-6">
+                  <span className={`inline-block px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider bg-${plan.accent}/10 text-${plan.accent} border border-${plan.accent}/20`}>
+                    {plan.subtitle}
+                  </span>
+                  <h3 className="mt-3 text-2xl font-heading font-black text-foreground">{plan.name}</h3>
+                </div>
+
+                {/* Price */}
+                <div className="mb-6">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-4xl md:text-5xl font-black text-foreground">{plan.price}</span>
+                    <span className="text-muted-foreground font-bold">{plan.priceLabel}</span>
                   </div>
-                  <p className="mt-2 text-sm text-muted-foreground font-semibold">{plan.otherPrices}</p>
-                </div>
-
-                <div className="px-5 pb-4">
-                  <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-3" />
-                  
-                  {plan.bundle && (
-                    <div className="flex items-baseline gap-3 mb-3">
-                      <h3 className="font-heading font-bold text-foreground">Bundle</h3>
-                      <div className="ml-auto text-lg font-black text-foreground">
-                        {plan.bundle.price} <span className="text-sm text-muted-foreground font-bold">{plan.bundle.label}</span>
-                      </div>
-                    </div>
-                  )}
-                  
-                  <ul className="space-y-2 text-sm text-muted-foreground list-disc pl-5 marker:text-primary">
-                    {plan.features.map((feature, j) => (
-                      <li key={j}>{feature}</li>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {plan.otherPrices.map((price, j) => (
+                      <span key={j} className="px-2 py-1 rounded-lg text-xs font-semibold bg-card/80 border border-border/50 text-muted-foreground">
+                        {price}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
                 </div>
 
-                <div className="p-5 pt-3 flex flex-wrap gap-2.5">
-                  <Button asChild className="font-bold shadow-primary">
-                    <a href="#contact">{plan.popular ? "Most Popular • Enquire" : "Enquire Now"}</a>
-                  </Button>
-                  <Button variant={plan.popular ? "ghost" : "outline"} asChild className="font-bold">
-                    <a href={plan.popular ? "#process" : "#contact"}>
-                      {plan.popular ? "See How It Works" : "Request Counselling"}
-                    </a>
-                  </Button>
-                </div>
+                {/* Bundle */}
+                {plan.bundle && (
+                  <div className={`p-4 rounded-2xl bg-${plan.accent}/10 border border-${plan.accent}/20 mb-6`}>
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-foreground flex items-center gap-2">
+                        <Zap className={`w-4 h-4 text-${plan.accent}`} />
+                        Bundle Deal
+                      </span>
+                      <span className="text-xl font-black text-foreground">{plan.bundle.price}</span>
+                    </div>
+                    <span className="text-sm text-muted-foreground">{plan.bundle.label}</span>
+                  </div>
+                )}
+
+                {/* Features */}
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((feature, j) => (
+                    <li key={j} className="flex items-start gap-3">
+                      <div className={`w-5 h-5 rounded-full bg-${plan.accent}/20 border border-${plan.accent}/30 flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                        <Check className={`w-3 h-3 text-${plan.accent}`} />
+                      </div>
+                      <span className="text-muted-foreground text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <Button 
+                  asChild 
+                  className={`w-full font-bold text-base ${plan.popular ? "shadow-primary" : ""}`}
+                  variant={plan.popular ? "default" : "outline"}
+                  size="lg"
+                >
+                  <a href="#contact" className="flex items-center justify-center gap-2">
+                    {plan.popular ? "Get Started" : "Enquire Now"}
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </Button>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Custom Plan CTA */}
-        <div className="tile-cream glass-ring rounded-2xl border border-border/50 shadow-md p-5 mt-6">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <b className="block text-lg text-foreground">Want a custom plan?</b>
-              <p className="mt-1 text-muted-foreground">
-                Share class, board, and weak chapters — get a clear improvement roadmap.
+        {/* Custom plan CTA */}
+        <div className="mt-12 p-6 md:p-8 rounded-3xl bg-gradient-to-r from-primary/10 via-card to-secondary/10 border border-border/50 shadow-lg">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="text-center md:text-left">
+              <h3 className="text-2xl font-heading font-bold text-foreground">Need a custom plan?</h3>
+              <p className="mt-2 text-muted-foreground">
+                Share class, board, and weak chapters — get a clear improvement roadmap tailored for you.
               </p>
             </div>
-            <div className="flex flex-wrap gap-2.5">
-              <Button asChild className="font-bold shadow-primary">
-                <a href="#contact">Get a Custom Study Plan</a>
+            <div className="flex flex-wrap gap-3">
+              <Button size="lg" asChild className="font-bold shadow-primary">
+                <a href="#contact">Get Custom Plan</a>
               </Button>
-              <Button variant="ghost" asChild className="font-bold">
+              <Button size="lg" variant="outline" asChild className="font-bold">
                 <a href="#contact">WhatsApp Now</a>
               </Button>
             </div>

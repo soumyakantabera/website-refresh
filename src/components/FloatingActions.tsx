@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Phone, MessageCircle } from "lucide-react";
+import { Phone, MessageCircle, ArrowUp } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const COACHING = {
   phoneE164: "+919874088765",
@@ -8,6 +9,16 @@ const COACHING = {
 };
 
 export function FloatingActions() {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 500);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const openWhatsApp = () => {
     const msg = encodeURIComponent(COACHING.defaultWhatsAppText);
     const phone = COACHING.phoneE164.replace(/\+/g, "").trim();
@@ -18,51 +29,63 @@ export function FloatingActions() {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       {/* Desktop Floating Buttons */}
-      <div className="fixed right-4 bottom-4 z-40 hidden md:flex flex-col gap-2.5 items-end">
+      <div className="fixed right-6 bottom-6 z-40 hidden md:flex flex-col gap-3 items-end">
+        {/* Scroll to top */}
+        <button 
+          onClick={scrollToTop}
+          className={`w-12 h-12 rounded-full bg-card/95 border border-border shadow-lg backdrop-blur-xl flex items-center justify-center hover:-translate-y-1 transition-all cursor-pointer ${
+            showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+          }`}
+        >
+          <ArrowUp className="w-5 h-5 text-muted-foreground" />
+        </button>
+
+        {/* WhatsApp */}
         <button 
           onClick={openWhatsApp}
-          className="flex items-center gap-3 px-4 py-3 rounded-full bg-card/95 border border-border shadow-lg backdrop-blur-xl hover:-translate-y-0.5 transition-transform cursor-pointer glass-ring"
+          className="group flex items-center gap-3 pl-5 pr-4 py-3 rounded-full bg-secondary text-secondary-foreground shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer"
         >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-secondary to-primary flex items-center justify-center text-primary-foreground shadow-md">
+          <span className="font-bold text-sm">WhatsApp Now</span>
+          <div className="w-10 h-10 rounded-full bg-secondary-foreground/20 flex items-center justify-center">
             <MessageCircle className="w-5 h-5" />
-          </div>
-          <div className="text-left">
-            <b className="block text-sm text-foreground leading-tight">WhatsApp Now</b>
-            <span className="block text-xs text-muted-foreground font-semibold">Fast response</span>
           </div>
         </button>
 
+        {/* Call */}
         <a 
           href={`tel:${COACHING.phoneE164}`}
-          className="flex items-center gap-3 px-4 py-3 rounded-full bg-card/95 border border-border shadow-lg backdrop-blur-xl hover:-translate-y-0.5 transition-transform cursor-pointer glass-ring"
+          className="group flex items-center gap-3 pl-5 pr-4 py-3 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer"
         >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-secondary to-primary flex items-center justify-center text-primary-foreground shadow-md">
+          <span className="font-bold text-sm">Call Now</span>
+          <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center">
             <Phone className="w-5 h-5" />
-          </div>
-          <div className="text-left">
-            <b className="block text-sm text-foreground leading-tight">Call Now</b>
-            <span className="block text-xs text-muted-foreground font-semibold">Check slots</span>
           </div>
         </a>
       </div>
 
       {/* Mobile Bottom Bar */}
-      <div className="fixed left-3 right-3 bottom-3 z-50 md:hidden flex gap-2.5 p-2.5 rounded-2xl bg-card/95 border border-border shadow-xl backdrop-blur-xl glass-ring">
-        <Button onClick={scrollToContact} className="flex-1 font-bold shadow-primary">
-          Book
-        </Button>
-        <Button onClick={openWhatsApp} variant="outline" className="flex-1 font-bold">
-          <MessageCircle className="w-4 h-4 mr-2" />
-          WhatsApp
-        </Button>
-        <Button variant="outline" className="font-bold px-3" asChild>
-          <a href={`tel:${COACHING.phoneE164}`}>
-            <Phone className="w-4 h-4" />
-          </a>
-        </Button>
+      <div className="fixed left-4 right-4 bottom-4 z-50 md:hidden">
+        <div className="flex gap-2 p-2 rounded-2xl bg-card/95 border border-border shadow-xl backdrop-blur-xl">
+          <Button onClick={scrollToContact} className="flex-1 font-bold shadow-primary h-12">
+            Book Now
+          </Button>
+          <Button onClick={openWhatsApp} variant="secondary" className="flex-1 font-bold h-12">
+            <MessageCircle className="w-4 h-4 mr-2" />
+            WhatsApp
+          </Button>
+          <Button variant="outline" className="font-bold h-12 px-4" asChild>
+            <a href={`tel:${COACHING.phoneE164}`}>
+              <Phone className="w-4 h-4" />
+            </a>
+          </Button>
+        </div>
       </div>
     </>
   );
