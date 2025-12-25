@@ -1,3 +1,4 @@
+import { HelpCircle, Plus, Minus } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -6,77 +7,110 @@ import {
 } from "@/components/ui/accordion";
 
 const faqs = [
-  {
-    group: "lilac",
-    items: [
-      { q: "Is it really 1:1 coaching?", a: "Yes, sessions are 1:1 so pace and focus are exactly as per the student's level and board pattern." },
-      { q: "How do you handle weak basics?", a: "We diagnose gaps, rebuild fundamentals, then move to board-style questions with daily practice targets." },
-      { q: "Online coaching possible?", a: "Yes. Online sessions are available for Classes 7–12 and BSc Mathematics as per slot availability." },
-      { q: "Do you provide notes and worksheets?", a: "Yes. Personalized notes, formula sheets, and curated practice sets are provided based on weak areas." },
-    ]
+  { 
+    q: "Is it really 1:1 coaching?", 
+    a: "Yes, sessions are 1:1 so pace and focus are exactly as per the student's level and board pattern. This ensures personalized attention and faster progress." 
   },
-  {
-    group: "cream",
-    items: [
-      { q: "What about tests and progress tracking?", a: "Weekly tests are conducted, and feedback is shared to fix mistakes and close gaps consistently." },
-      { q: "Which boards do you cover?", a: "CBSE, ICSE, and WBBSE — with board-aligned practice and exam-oriented revision." },
-      { q: "Can you help for final exam revision?", a: "Yes. A focused revision plan with formula sheets, mixed practice, and timed tests is available." },
-      { q: "How do we start?", a: "Click \"Book Counselling\", share class/board/subjects, and we'll confirm the best plan and slot." },
-    ]
-  }
+  { 
+    q: "How do you handle weak basics?", 
+    a: "We diagnose gaps, rebuild fundamentals, then move to board-style questions with daily practice targets. No rushing ahead until basics are strong." 
+  },
+  { 
+    q: "Is online coaching possible?", 
+    a: "Yes. Online sessions are available for Classes 7–12 and BSc Mathematics as per slot availability. Same quality, just virtual!" 
+  },
+  { 
+    q: "Do you provide notes and worksheets?", 
+    a: "Yes. Personalized notes, formula sheets, and curated practice sets are provided based on weak areas identified during sessions." 
+  },
+  { 
+    q: "What about tests and progress tracking?", 
+    a: "Weekly tests are conducted, and feedback is shared to fix mistakes and close gaps consistently. Parents get regular updates too." 
+  },
+  { 
+    q: "Which boards do you cover?", 
+    a: "CBSE, ICSE, and WBBSE — with board-aligned practice and exam-oriented revision for each." 
+  },
+  { 
+    q: "Can you help with final exam revision?", 
+    a: "Yes. A focused revision plan with formula sheets, mixed practice, and timed tests is available for exam preparation." 
+  },
+  { 
+    q: "How do we start?", 
+    a: "Click 'Book Counselling', share class/board/subjects, and we'll confirm the best plan and slot. It's that simple!" 
+  },
 ];
 
 export function FAQSection() {
   return (
-    <section id="faq" className="py-16 md:py-20">
-      <div className="container">
-        {/* Header */}
-        <div className="grid lg:grid-cols-2 gap-6 items-center mb-8">
-          <div className="stagger-children">
-            <p className="kicker">FAQ</p>
-            <h2 className="mt-3 text-2xl md:text-3xl font-heading font-black text-foreground">
-              <span className="chalk-underline">Common questions</span> from parents & students
-            </h2>
-            <p className="mt-3 text-muted-foreground leading-relaxed">
-              If your child is weak in basics or feels "maths is scary", our system is designed to fix it.
-            </p>
-          </div>
+    <section id="faq" className="py-16 md:py-24 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+      </div>
 
-          <div className="relative rounded-2xl overflow-hidden border border-border shadow-md min-h-[200px] lg:max-w-md lg:ml-auto">
-            <img 
-              src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1400&q=60"
-              alt="Question and answer"
-              className="w-full h-full object-cover min-h-[200px]"
-            />
-            <div className="absolute bottom-3 left-3 right-3 p-4 rounded-xl bg-card/90 backdrop-blur-lg border border-border/50 shadow-md">
-              <b className="block text-foreground">Doubts welcome</b>
-              <span className="block mt-0.5 text-sm text-muted-foreground font-semibold">No hesitation, ask freely</span>
-            </div>
-          </div>
+      <div className="container relative">
+        {/* Section header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 stagger-children">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider border border-primary/20">
+            <HelpCircle className="w-4 h-4" />
+            FAQ
+          </span>
+          <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl font-heading font-black text-foreground leading-tight">
+            Got questions?{" "}
+            <span className="text-primary">We've got answers</span>
+          </h2>
+          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+            Everything parents and students commonly ask before joining. If you don't find your answer, just WhatsApp us!
+          </p>
         </div>
 
-        {/* FAQ Accordions */}
-        <div className="grid lg:grid-cols-2 gap-5">
-          {faqs.map((group, gi) => (
-            <div key={gi} className={`tile-${group.group} glass-ring p-4 md:p-5 rounded-2xl border border-border/50 shadow-sm`}>
-              <Accordion type="single" collapsible className="w-full">
-                {group.items.map((faq, i) => (
-                  <AccordionItem 
-                    key={i} 
-                    value={`${gi}-${i}`}
-                    className="bg-card/70 rounded-xl border border-border/50 mb-2.5 last:mb-0 shadow-xs overflow-hidden"
-                  >
-                    <AccordionTrigger className="px-4 py-3.5 text-left font-bold text-foreground hover:no-underline hover:bg-card/50">
-                      {faq.q}
-                    </AccordionTrigger>
-                    <AccordionContent className="px-4 pb-4 pt-0 text-muted-foreground">
-                      {faq.a}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          ))}
+        {/* FAQ Grid */}
+        <div className="max-w-4xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-4">
+            {faqs.map((faq, i) => (
+              <AccordionItem 
+                key={i} 
+                value={`faq-${i}`}
+                className="group border-2 border-border/50 rounded-2xl bg-card/80 shadow-sm hover:shadow-md transition-shadow overflow-hidden data-[state=open]:border-primary/30 data-[state=open]:shadow-lg"
+              >
+                <AccordionTrigger className="px-6 py-5 text-left font-bold text-foreground hover:no-underline hover:text-primary transition-colors [&>svg]:hidden">
+                  <div className="flex items-center gap-4 w-full">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-data-[state=open]:bg-primary group-data-[state=open]:text-primary-foreground transition-colors">
+                      <span className="font-black text-primary group-data-[state=open]:text-primary-foreground">{i + 1}</span>
+                    </div>
+                    <span className="flex-1 text-lg">{faq.q}</span>
+                    <div className="w-8 h-8 rounded-lg bg-muted/50 flex items-center justify-center flex-shrink-0">
+                      <Plus className="w-4 h-4 group-data-[state=open]:hidden" />
+                      <Minus className="w-4 h-4 hidden group-data-[state=open]:block text-primary" />
+                    </div>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-6 pt-0">
+                  <div className="pl-14 text-muted-foreground text-base leading-relaxed">
+                    {faq.a}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+
+        {/* Still have questions? */}
+        <div className="mt-12 text-center">
+          <div className="inline-block p-6 md:p-8 rounded-3xl bg-gradient-to-r from-primary/10 via-card to-secondary/10 border border-border/50 shadow-lg">
+            <h3 className="text-xl font-heading font-bold text-foreground mb-2">Still have questions?</h3>
+            <p className="text-muted-foreground mb-4">We're happy to help. WhatsApp us for a quick response.</p>
+            <a 
+              href="https://wa.me/919874088765?text=Hi!%20I%20have%20a%20question%20about%20the%20coaching."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-secondary text-secondary-foreground font-bold hover:opacity-90 transition-opacity shadow-md"
+            >
+              💬 WhatsApp Us
+            </a>
+          </div>
         </div>
       </div>
     </section>

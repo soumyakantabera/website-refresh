@@ -1,168 +1,181 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-teacher.jpg";
+import { Star, Users, Award, CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
 
-const heroPoints = [
-  { title: "Personalized Notes", desc: "Made for your child's gaps + board pattern", bg: "tile-mist" },
-  { title: "Daily Practice + Q&A", desc: "Consistency = marks (with accountability)", bg: "tile-ice" },
-  { title: "Weekly Tests", desc: "Track progress and fix weak areas early", bg: "tile-lilac" },
-  { title: "Formula Sheets", desc: "Quick revision before school tests/exams", bg: "tile-sand" },
+const trustBadges = [
+  { icon: Users, label: "1:1 Private", desc: "Focused attention" },
+  { icon: Award, label: "Expert Teacher", desc: "MSc Mathematics" },
+  { icon: Star, label: "Proven Results", desc: "Score improvement" },
 ];
 
-const stats = [
-  { value: "1:1", label: "Private coaching (focused attention)" },
-  { value: "Boards", label: "CBSE • ICSE • WBBSE aligned" },
-  { value: "Hybrid", label: "Kolkata + online batches" },
-  { value: "Goal", label: "Concept clarity + score improvement" },
+const heroPoints = [
+  { icon: "📝", title: "Personalized Notes", desc: "Made for your child's gaps + board pattern" },
+  { icon: "📊", title: "Daily Practice + Q&A", desc: "Consistency = marks (with accountability)" },
+  { icon: "📈", title: "Weekly Tests", desc: "Track progress and fix weak areas early" },
+  { icon: "📋", title: "Formula Sheets", desc: "Quick revision before school tests/exams" },
 ];
 
 export function HeroSection() {
   return (
-    <section id="top" className="py-14 md:py-16">
-      <div className="container">
-        <div className="grid lg:grid-cols-[1.12fr_0.88fr] gap-6 items-stretch">
-          {/* Main Hero Card */}
-          <div className="slide-left bg-card/90 rounded-2xl border border-border shadow-lg overflow-hidden relative">
-            <div 
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background: `
-                  radial-gradient(900px 420px at 10% 0%, hsla(210, 70%, 60%, 0.16), transparent 60%),
-                  radial-gradient(900px 420px at 92% 10%, hsla(210, 60%, 42%, 0.12), transparent 56%)
-                `
-              }}
-            />
-            <div className="relative p-6 md:p-7 stagger-children">
-              {/* Pills */}
-              <div className="flex flex-wrap gap-2.5 mb-5">
-                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-bold text-muted-foreground bg-gradient-to-r from-primary/10 to-primary/5 border border-border backdrop-blur-sm">
-                  <span className="w-2 h-2 rounded-full bg-secondary shadow-[0_0_0_4px_hsla(175,45%,42%,0.15)]" />
-                  Kolkata (Offline) + Online • 1:1 Private Coaching
+    <section id="top" className="relative py-8 md:py-12 overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-primary/5 to-secondary/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container relative">
+        {/* Top announcement bar */}
+        <div className="flex justify-center mb-8 slide-up">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-primary/15 via-secondary/10 to-primary/15 border border-primary/20 backdrop-blur-sm">
+            <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-primary-foreground">
+              <Sparkles className="w-3.5 h-3.5" />
+            </span>
+            <span className="text-sm font-bold text-foreground">Limited 1:1 slots available for January batch</span>
+            <ArrowRight className="w-4 h-4 text-primary" />
+          </div>
+        </div>
+
+        {/* Main hero content */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left content */}
+          <div className="space-y-6 stagger-children">
+            {/* Board badges */}
+            <div className="flex flex-wrap gap-2">
+              {["CBSE", "ICSE", "WBBSE"].map((board) => (
+                <span key={board} className="px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
+                  {board}
                 </span>
-                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-bold text-muted-foreground bg-gradient-to-r from-primary/10 to-primary/5 border border-border backdrop-blur-sm">
-                  CBSE • ICSE • WBBSE
-                </span>
-              </div>
+              ))}
+              <span className="px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider bg-secondary/10 text-secondary border border-secondary/20">
+                Classes 7-12 + BSc
+              </span>
+            </div>
 
-              {/* Headline */}
-              <h1 className="text-3xl sm:text-4xl md:text-[2.75rem] font-heading font-black text-foreground leading-tight">
-                <span className="chalk-underline">Strong Basics</span> → Better Marks → Confident Exams
-              </h1>
+            {/* Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-foreground leading-[1.1] tracking-tight">
+              <span className="text-primary">Strong Basics</span> →{" "}
+              <span className="relative inline-block">
+                Better Marks
+                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
+                  <path d="M2 8c30-6 60-6 90 0s60 6 90 0" stroke="hsl(var(--secondary))" strokeWidth="4" strokeLinecap="round" />
+                </svg>
+              </span>{" "}
+              → Confident Exams
+            </h1>
 
-              <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-                Personalized coaching for Classes <b className="text-foreground">7–12</b> and <b className="text-foreground">BSc Mathematics</b>.
-                We don't just "teach chapters" — we build clarity, daily practice habits, and exam-ready confidence.
-              </p>
+            {/* Subheadline */}
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
+              Personalized 1:1 coaching for Classes <b className="text-foreground">7–12</b> and <b className="text-foreground">BSc Mathematics</b>.
+              We don't just "teach chapters" — we build clarity, daily practice habits, and exam-ready confidence.
+            </p>
 
-              {/* Action Buttons */}
-              <div className="flex flex-wrap gap-3 mt-6">
-                <Button size="lg" asChild className="font-bold shadow-primary">
-                  <a href="#contact">📞 Book a FREE Counselling Call</a>
-                </Button>
-                <Button size="lg" variant="outline" asChild className="font-bold">
-                  <a href="#courses">💰 See Course Fees</a>
-                </Button>
-                <Button size="lg" variant="ghost" asChild className="font-bold">
-                  <a href="#process">✅ How the Plan Works</a>
-                </Button>
-              </div>
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-3">
+              <Button size="lg" asChild className="font-bold shadow-primary group text-base">
+                <a href="#contact" className="flex items-center gap-2">
+                  📞 Book FREE Counselling
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" asChild className="font-bold text-base">
+                <a href="#courses">💰 View Course Fees</a>
+              </Button>
+            </div>
 
-              {/* Hero Points Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6">
-                {heroPoints.map((point, i) => (
-                  <div key={i} className={`${point.bg} glass-ring p-4 rounded-2xl border border-border/50 shadow-sm`}>
-                    <strong className="block text-foreground font-bold">{point.title}</strong>
-                    <span className="block mt-1 text-sm text-muted-foreground font-semibold">{point.desc}</span>
+            {/* Trust badges */}
+            <div className="flex flex-wrap gap-4 pt-4">
+              {trustBadges.map((badge, i) => (
+                <div key={i} className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-card/80 border border-border/50 shadow-sm backdrop-blur-sm">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary-foreground shadow-md">
+                    <badge.icon className="w-5 h-5" />
                   </div>
-                ))}
-              </div>
-
-              {/* Stats Strip */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6">
-                {stats.map((stat, i) => (
-                  <div key={i} className="tile-cloud glass-ring p-4 rounded-2xl border border-border/50 shadow-sm">
-                    <b className="block text-xl font-black text-foreground">{stat.value}</b>
-                    <span className="block mt-1 text-sm text-muted-foreground font-semibold">{stat.label}</span>
+                  <div>
+                    <b className="block text-sm text-foreground">{badge.label}</b>
+                    <span className="block text-xs text-muted-foreground">{badge.desc}</span>
                   </div>
-                ))}
-              </div>
-
-              <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-5" />
-              
-              <p className="text-muted-foreground">
-                <b className="text-foreground">Limited slots</b> to keep 1:1 quality high. Book a counselling call to check availability.
-              </p>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Side Column */}
-          <div className="slide-right flex flex-col gap-4">
-            {/* Hero Image */}
-            <div className="relative rounded-2xl overflow-hidden border border-border shadow-md min-h-[220px]">
+          {/* Right visual */}
+          <div className="relative slide-right">
+            {/* Main image card */}
+            <div className="relative rounded-3xl overflow-hidden border-2 border-border/50 shadow-xl">
               <img 
                 src={heroImage}
                 alt="Teacher explaining mathematical concepts"
-                className="w-full h-full object-cover min-h-[220px]"
+                className="w-full h-[400px] md:h-[500px] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/25 to-transparent pointer-events-none" />
-              <div className="absolute bottom-3 left-3 right-3 p-4 rounded-xl bg-card/90 backdrop-blur-lg border border-border/50 shadow-md">
-                <b className="block text-foreground">Modern 1:1 Coaching</b>
-                <span className="block mt-0.5 text-sm text-muted-foreground font-semibold">Clear plan • Daily practice • Weekly tracking</span>
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
+              
+              {/* Floating stats card */}
+              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-card/95 backdrop-blur-xl border border-border/50 shadow-lg">
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  <div>
+                    <b className="block text-2xl font-black text-primary">1:1</b>
+                    <span className="text-xs text-muted-foreground font-semibold">Private</span>
+                  </div>
+                  <div className="border-x border-border/50">
+                    <b className="block text-2xl font-black text-primary">Hybrid</b>
+                    <span className="text-xs text-muted-foreground font-semibold">Online + Offline</span>
+                  </div>
+                  <div>
+                    <b className="block text-2xl font-black text-primary">Goal</b>
+                    <span className="text-xs text-muted-foreground font-semibold">Score Better</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating badge top right */}
+              <div className="absolute top-4 right-4 px-4 py-2 rounded-full bg-secondary text-secondary-foreground font-bold text-sm shadow-lg animate-float">
+                ⭐ Kolkata + Online
               </div>
             </div>
 
-            {/* Badges */}
-            <div className="tile-ice glass-ring p-4 rounded-2xl border border-border/50 shadow-sm flex gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-lg shadow-primary flex-shrink-0">
-                🎓
-              </div>
-              <div>
-                <h3 className="font-heading font-bold text-foreground">Teacher + Strong Academic Background</h3>
-                <p className="mt-1 text-sm text-muted-foreground font-medium">
-                  BSc Mathematics (Hons.) from Sa Jaipuria College, Kolkata (CU) — First Class • MSc Pure Mathematics from Lady Brabourne College • Currently a high school Mathematics teacher
-                </p>
+            {/* Decorative elements */}
+            <div className="absolute -top-4 -left-4 w-24 h-24 bg-primary/20 rounded-full blur-xl" />
+            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-secondary/20 rounded-full blur-xl" />
+          </div>
+        </div>
+
+        {/* Hero points grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
+          {heroPoints.map((point, i) => (
+            <div 
+              key={i} 
+              className="group relative p-5 rounded-2xl bg-card/80 border border-border/50 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm overflow-hidden"
+            >
+              {/* Hover gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+              
+              <div className="relative">
+                <span className="text-3xl">{point.icon}</span>
+                <h3 className="mt-3 font-heading font-bold text-foreground">{point.title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{point.desc}</p>
               </div>
             </div>
+          ))}
+        </div>
 
-            <div className="tile-mist glass-ring p-4 rounded-2xl border border-border/50 shadow-sm flex gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-lg shadow-primary flex-shrink-0">
-                🧠
-              </div>
-              <div>
-                <h3 className="font-heading font-bold text-foreground">"Concept First" Method</h3>
-                <p className="mt-1 text-sm text-muted-foreground font-medium">
-                  Step-by-step explanation, then mixed practice to handle tricky board questions confidently.
-                </p>
-              </div>
+        {/* Teacher credentials */}
+        <div className="mt-8 p-6 rounded-3xl bg-gradient-to-r from-primary/10 via-card to-secondary/10 border border-border/50 shadow-md">
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-3xl shadow-lg">
+              🎓
             </div>
-
-            <div className="tile-lilac glass-ring p-4 rounded-2xl border border-border/50 shadow-sm flex gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-lg shadow-primary flex-shrink-0">
-                📈
-              </div>
-              <div>
-                <h3 className="font-heading font-bold text-foreground">Parents Love This</h3>
-                <p className="mt-1 text-sm text-muted-foreground font-medium">
-                  Clear progress updates + tests so you always know what improved and what needs work.
-                </p>
-              </div>
-            </div>
-
-            {/* Promise Card */}
-            <div className="tile-sand glass-ring p-5 rounded-2xl border border-border/50 shadow-md">
-              <p className="kicker text-xs">Simple promise</p>
-              <h3 className="mt-2 font-heading font-bold text-foreground text-lg">Not magic. Just the right system.</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                With regular classes + daily practice + weekly tests, students build accuracy, speed, and confidence.
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="font-heading font-bold text-xl text-foreground">Taught by Qualified Expert</h3>
+              <p className="mt-1 text-muted-foreground">
+                BSc Mathematics (Hons.) from Sa Jaipuria College, Kolkata (CU) — First Class • MSc Pure Mathematics from Lady Brabourne College • Currently a high school Mathematics teacher
               </p>
-              <div className="flex flex-wrap gap-2.5 mt-4">
-                <Button size="sm" asChild className="font-bold shadow-primary">
-                  <a href="#contact">Start Counselling</a>
-                </Button>
-                <Button size="sm" variant="ghost" asChild className="font-bold">
-                  <a href="#faq">Common Questions</a>
-                </Button>
-              </div>
             </div>
+            <Button size="lg" asChild className="font-bold shadow-primary">
+              <a href="#contact">Get Started</a>
+            </Button>
           </div>
         </div>
       </div>

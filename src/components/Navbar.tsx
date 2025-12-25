@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, X, Phone, ArrowRight } from "lucide-react";
 
 const navLinks = [
   { href: "#why", label: "Why Us" },
@@ -14,29 +14,46 @@ const navLinks = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-border">
-      <div className="container flex items-center justify-between py-3.5 gap-4">
+    <header 
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? "backdrop-blur-xl bg-background/90 border-b border-border shadow-sm" 
+          : "bg-transparent"
+      }`}
+    >
+      <div className="container flex items-center justify-between py-4 gap-4">
         {/* Logo */}
-        <a href="#top" className="flex items-center gap-3">
+        <a href="#top" className="flex items-center gap-3 group">
           <div 
-            className="w-10 h-10 rounded-xl flex-shrink-0 shadow-md"
+            className="w-11 h-11 rounded-xl flex-shrink-0 shadow-md group-hover:shadow-lg transition-shadow"
             style={{
               background: "conic-gradient(from 215deg, hsl(210, 60%, 42%), hsl(210, 70%, 60%), hsl(175, 45%, 42%), hsl(210, 60%, 42%))"
             }}
           >
-            <div className="w-full h-full rounded-xl" style={{ 
+            <div className="w-full h-full rounded-xl flex items-center justify-center" style={{ 
               background: "linear-gradient(180deg, rgba(247,245,239,0.35), rgba(247,245,239,0.92))",
               margin: "2px",
               width: "calc(100% - 4px)",
               height: "calc(100% - 4px)",
               borderRadius: "10px"
-            }} />
+            }}>
+              <span className="text-lg font-black text-primary">SM</span>
+            </div>
           </div>
           <div>
-            <span className="block font-heading font-bold text-foreground">Sucheta's Math Class</span>
-            <span className="block text-sm text-muted-foreground font-semibold">1:1 Coaching • Kolkata + Online</span>
+            <span className="block font-heading font-bold text-foreground text-lg">Sucheta's Math Class</span>
+            <span className="block text-xs text-muted-foreground font-semibold">1:1 Coaching • Kolkata + Online</span>
           </div>
         </a>
 
@@ -46,7 +63,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="px-3 py-2 rounded-lg text-muted-foreground font-semibold hover:text-foreground hover:bg-card/70 transition-colors border border-transparent hover:border-border"
+              className="px-4 py-2 rounded-lg text-muted-foreground font-semibold hover:text-foreground hover:bg-card/80 transition-all border border-transparent hover:border-border/50"
             >
               {link.label}
             </a>
@@ -54,65 +71,78 @@ export function Navbar() {
         </nav>
 
         {/* CTA Buttons */}
-        <div className="hidden md:flex items-center gap-2.5">
+        <div className="hidden md:flex items-center gap-3">
           <Button variant="outline" size="sm" asChild className="font-bold">
             <a href="#courses">View Fees</a>
           </Button>
-          <Button size="sm" asChild className="font-bold shadow-primary">
-            <a href="#contact">Book a Call</a>
+          <Button size="sm" asChild className="font-bold shadow-primary group">
+            <a href="#contact" className="flex items-center gap-2">
+              Book a Call
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+            </a>
           </Button>
         </div>
 
         {/* Mobile Menu */}
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild className="lg:hidden">
-            <Button variant="outline" size="sm">
+            <Button variant="outline" size="sm" className="font-bold">
               <Menu className="h-4 w-4 mr-2" />
               Menu
             </Button>
           </SheetTrigger>
-          <SheetContent className="w-[340px] sm:w-[400px]">
-            <SheetHeader>
-              <SheetTitle className="flex items-center gap-3">
-                <div 
-                  className="w-9 h-9 rounded-xl flex-shrink-0"
-                  style={{
-                    background: "conic-gradient(from 215deg, hsl(210, 60%, 42%), hsl(210, 70%, 60%), hsl(175, 45%, 42%), hsl(210, 60%, 42%))"
-                  }}
-                />
-                <div className="text-left">
-                  <div className="font-heading font-bold">Sucheta's Math Class</div>
-                  <div className="text-sm text-muted-foreground font-medium">Kolkata + Online • 1:1</div>
-                </div>
-              </SheetTitle>
-            </SheetHeader>
-            
-            <div className="mt-6 space-y-3">
-              <div className="tile-cream rounded-2xl p-4 border border-border/50 glass-ring">
-                <nav className="flex flex-col gap-2">
+          <SheetContent className="w-[320px] sm:w-[400px] p-0">
+            <div className="h-full flex flex-col bg-gradient-to-b from-background to-accent/20">
+              <SheetHeader className="p-6 border-b border-border/50">
+                <SheetTitle className="flex items-center gap-3">
+                  <div 
+                    className="w-10 h-10 rounded-xl flex-shrink-0"
+                    style={{
+                      background: "conic-gradient(from 215deg, hsl(210, 60%, 42%), hsl(210, 70%, 60%), hsl(175, 45%, 42%), hsl(210, 60%, 42%))"
+                    }}
+                  />
+                  <div className="text-left">
+                    <div className="font-heading font-bold">Sucheta's Math Class</div>
+                    <div className="text-sm text-muted-foreground font-medium">Kolkata + Online</div>
+                  </div>
+                </SheetTitle>
+              </SheetHeader>
+              
+              <div className="flex-1 p-6 space-y-6 overflow-auto">
+                <nav className="space-y-2">
                   {navLinks.map((link) => (
                     <a
                       key={link.href}
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="px-4 py-3 rounded-xl bg-card/50 border border-border/50 text-foreground font-semibold hover:bg-card transition-colors"
+                      className="flex items-center justify-between px-4 py-3.5 rounded-xl bg-card/80 border border-border/50 text-foreground font-semibold hover:bg-card hover:border-border transition-all"
                     >
                       {link.label}
+                      <ArrowRight className="w-4 h-4 text-muted-foreground" />
                     </a>
                   ))}
-                  <Button asChild className="mt-2 font-bold shadow-primary">
+                </nav>
+
+                <div className="space-y-3">
+                  <Button asChild className="w-full font-bold shadow-primary" size="lg">
                     <a href="#contact" onClick={() => setOpen(false)}>
-                      Contact / Book Now
+                      Book Counselling
                     </a>
                   </Button>
-                </nav>
-              </div>
+                  <Button variant="outline" asChild className="w-full font-bold" size="lg">
+                    <a href="tel:+919874088765" onClick={() => setOpen(false)}>
+                      <Phone className="w-4 h-4 mr-2" />
+                      Call Now
+                    </a>
+                  </Button>
+                </div>
 
-              <div className="tile-ice rounded-2xl p-4 border border-border/50 glass-ring">
-                <p className="kicker text-xs mb-2">Quick tip</p>
-                <p className="text-sm text-muted-foreground">
-                  Parents: share last test marks + weak chapters — you'll get a faster custom plan.
-                </p>
+                <div className="p-4 rounded-2xl bg-primary/5 border border-primary/10">
+                  <p className="text-xs font-bold text-primary uppercase tracking-wider mb-1">Quick tip</p>
+                  <p className="text-sm text-muted-foreground">
+                    Share last test marks + weak chapters for a faster custom plan.
+                  </p>
+                </div>
               </div>
             </div>
           </SheetContent>
