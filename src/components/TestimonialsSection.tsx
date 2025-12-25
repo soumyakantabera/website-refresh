@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Star, Quote, ArrowRight, MessageSquare } from "lucide-react";
+import { AnimatedSection } from "@/hooks/useScrollAnimation";
 
 const testimonials = [
   {
@@ -45,7 +46,7 @@ export function TestimonialsSection() {
 
       <div className="container relative">
         {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 stagger-children">
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider border border-primary/20">
             <MessageSquare className="w-4 h-4" />
             Real Feedback
@@ -57,77 +58,80 @@ export function TestimonialsSection() {
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
             Confidence comes from clarity + practice + tests. Here's what parents and students say.
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Stats bar */}
-        <div className="grid grid-cols-3 gap-4 mb-12 max-w-2xl mx-auto">
-          {stats.map((stat, i) => (
-            <div key={i} className="text-center p-4 rounded-2xl bg-card/80 border border-border/50 shadow-sm">
-              <b className="block text-3xl md:text-4xl font-black text-primary">{stat.value}</b>
-              <span className="text-sm text-muted-foreground font-semibold">{stat.label}</span>
-            </div>
-          ))}
-        </div>
+        <AnimatedSection delay={100}>
+          <div className="grid grid-cols-3 gap-4 mb-12 max-w-2xl mx-auto">
+            {stats.map((stat, i) => (
+              <div key={i} className="text-center p-4 rounded-2xl bg-card/80 border border-border/50 shadow-sm">
+                <b className="block text-3xl md:text-4xl font-black text-primary">{stat.value}</b>
+                <span className="text-sm text-muted-foreground font-semibold">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        </AnimatedSection>
 
         {/* Testimonials grid */}
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, i) => (
-            <div 
-              key={i} 
-              className="group relative p-6 md:p-8 rounded-3xl bg-card/80 border-2 border-border/50 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden"
-            >
-              {/* Decorative gradient */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-              
-              <div className="relative">
-                {/* Quote icon */}
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary-foreground shadow-md mb-4">
-                  <Quote className="w-6 h-6" />
-                </div>
-
-                {/* Rating */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, j) => (
-                    <Star key={j} className="w-5 h-5 text-primary fill-primary" />
-                  ))}
-                </div>
-
-                {/* Highlight badge */}
-                <span className="inline-block px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider mb-4">
-                  {testimonial.highlight}
-                </span>
-
-                {/* Quote */}
-                <p className="text-foreground text-lg leading-relaxed mb-6">"{testimonial.text}"</p>
-
-                {/* Author */}
-                <div className="flex items-center gap-4 pt-4 border-t border-border/50">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center text-lg font-bold text-foreground">
-                    {testimonial.author[0]}
+            <AnimatedSection key={i} delay={200 + i * 150} animation="scale">
+              <div 
+                className="group relative p-6 md:p-8 rounded-3xl bg-card/80 border-2 border-border/50 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden h-full"
+              >
+                {/* Decorative gradient */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                
+                <div className="relative">
+                  {/* Quote icon */}
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary-foreground shadow-md mb-4">
+                    <Quote className="w-6 h-6" />
                   </div>
-                  <div>
-                    <b className="block text-foreground font-bold">{testimonial.author}</b>
-                    <span className="block text-sm text-muted-foreground">{testimonial.class} • {testimonial.location}</span>
+
+                  {/* Rating */}
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, j) => (
+                      <Star key={j} className="w-5 h-5 text-primary fill-primary" />
+                    ))}
+                  </div>
+
+                  {/* Highlight badge */}
+                  <span className="inline-block px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider mb-4">
+                    {testimonial.highlight}
+                  </span>
+
+                  {/* Quote */}
+                  <p className="text-foreground text-lg leading-relaxed mb-6">"{testimonial.text}"</p>
+
+                  {/* Author */}
+                  <div className="flex items-center gap-4 pt-4 border-t border-border/50">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center text-lg font-bold text-foreground">
+                      {testimonial.author[0]}
+                    </div>
+                    <div>
+                      <b className="block text-foreground font-bold">{testimonial.author}</b>
+                      <span className="block text-sm text-muted-foreground">{testimonial.class} • {testimonial.location}</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="mt-16 text-center">
+        <AnimatedSection className="mt-16 text-center" delay={700}>
           <div className="inline-block p-6 md:p-8 rounded-3xl bg-gradient-to-r from-primary/10 via-card to-secondary/10 border border-border/50 shadow-lg">
             <h3 className="text-2xl font-heading font-bold text-foreground mb-2">Ready to start your journey?</h3>
             <p className="text-muted-foreground mb-6">Book a counselling call and get a clear study plan for the next 30 days.</p>
-            <Button size="lg" asChild className="font-bold shadow-primary text-base">
+            <Button size="lg" asChild className="text-base">
               <a href="#contact" className="flex items-center gap-2">
                 Book Counselling
                 <ArrowRight className="w-4 h-4" />
               </a>
             </Button>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

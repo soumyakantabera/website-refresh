@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { AnimatedSection } from "@/hooks/useScrollAnimation";
 
 const faqs = [
   { 
@@ -52,7 +53,7 @@ export function FAQSection() {
 
       <div className="container relative">
         {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 stagger-children">
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider border border-primary/20">
             <HelpCircle className="w-4 h-4" />
             FAQ
@@ -64,41 +65,43 @@ export function FAQSection() {
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
             Everything parents and students commonly ask before joining. If you don't find your answer, just WhatsApp us!
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* FAQ Grid */}
-        <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, i) => (
-              <AccordionItem 
-                key={i} 
-                value={`faq-${i}`}
-                className="group border-2 border-border/50 rounded-2xl bg-card/80 shadow-sm hover:shadow-md transition-shadow overflow-hidden data-[state=open]:border-primary/30 data-[state=open]:shadow-lg"
-              >
-                <AccordionTrigger className="px-6 py-5 text-left font-bold text-foreground hover:no-underline hover:text-primary transition-colors [&>svg]:hidden">
-                  <div className="flex items-center gap-4 w-full">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-data-[state=open]:bg-primary group-data-[state=open]:text-primary-foreground transition-colors">
-                      <span className="font-black text-primary group-data-[state=open]:text-primary-foreground">{i + 1}</span>
+        <AnimatedSection delay={100}>
+          <div className="max-w-4xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, i) => (
+                <AccordionItem 
+                  key={i} 
+                  value={`faq-${i}`}
+                  className="group border-2 border-border/50 rounded-2xl bg-card/80 shadow-sm hover:shadow-md transition-shadow overflow-hidden data-[state=open]:border-primary/30 data-[state=open]:shadow-lg"
+                >
+                  <AccordionTrigger className="px-6 py-5 text-left font-bold text-foreground hover:no-underline hover:text-primary transition-colors [&>svg]:hidden">
+                    <div className="flex items-center gap-4 w-full">
+                      <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-data-[state=open]:bg-primary group-data-[state=open]:text-primary-foreground transition-colors">
+                        <span className="font-black text-primary group-data-[state=open]:text-primary-foreground">{i + 1}</span>
+                      </div>
+                      <span className="flex-1 text-lg">{faq.q}</span>
+                      <div className="w-8 h-8 rounded-lg bg-muted/50 flex items-center justify-center flex-shrink-0">
+                        <Plus className="w-4 h-4 group-data-[state=open]:hidden" />
+                        <Minus className="w-4 h-4 hidden group-data-[state=open]:block text-primary" />
+                      </div>
                     </div>
-                    <span className="flex-1 text-lg">{faq.q}</span>
-                    <div className="w-8 h-8 rounded-lg bg-muted/50 flex items-center justify-center flex-shrink-0">
-                      <Plus className="w-4 h-4 group-data-[state=open]:hidden" />
-                      <Minus className="w-4 h-4 hidden group-data-[state=open]:block text-primary" />
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-6 pt-0">
+                    <div className="pl-14 text-muted-foreground text-base leading-relaxed">
+                      {faq.a}
                     </div>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-6 pt-0">
-                  <div className="pl-14 text-muted-foreground text-base leading-relaxed">
-                    {faq.a}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </AnimatedSection>
 
         {/* Still have questions? */}
-        <div className="mt-12 text-center">
+        <AnimatedSection className="mt-12 text-center" delay={300}>
           <div className="inline-block p-6 md:p-8 rounded-3xl bg-gradient-to-r from-primary/10 via-card to-secondary/10 border border-border/50 shadow-lg">
             <h3 className="text-xl font-heading font-bold text-foreground mb-2">Still have questions?</h3>
             <p className="text-muted-foreground mb-4">We're happy to help. WhatsApp us for a quick response.</p>
@@ -111,7 +114,7 @@ export function FAQSection() {
               💬 WhatsApp Us
             </a>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

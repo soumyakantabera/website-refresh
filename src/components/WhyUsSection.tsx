@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import studyNotesImage from "@/assets/study-notes.jpg";
 import onlineClassImage from "@/assets/online-class.jpg";
 import { CheckCircle2, Target, Brain, TrendingUp, Users, BookOpen, Clock, BarChart3 } from "lucide-react";
+import { AnimatedSection, StaggeredContainer } from "@/hooks/useScrollAnimation";
 
 const studentBenefits = [
   { icon: Brain, title: "Clear understanding", desc: "Not rote. We explain 'why' behind every concept." },
@@ -28,7 +29,7 @@ export function WhyUsSection() {
 
       <div className="container relative">
         {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 stagger-children">
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider border border-primary/20">
             <CheckCircle2 className="w-4 h-4" />
             Why Choose Us
@@ -46,113 +47,121 @@ export function WhyUsSection() {
             Math isn't "hard" — it's just taught wrong most of the time. Our approach: concept clarity → mixed practice → weekly tests.
             Parents see progress. Students gain confidence.
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Visual showcase */}
         <div className="grid md:grid-cols-2 gap-6 mb-16">
-          <div className="group relative rounded-3xl overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-xl transition-shadow">
-            <img 
-              src={studyNotesImage}
-              alt="Student studying with personalized notes"
-              className="w-full h-[300px] object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6">
-              <span className="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase mb-2">
-                Personalized
-              </span>
-              <h3 className="text-2xl font-heading font-bold text-primary-foreground">Clear, Custom Notes</h3>
-              <p className="mt-1 text-primary-foreground/80 text-sm">Tailored to each student's weak areas</p>
+          <AnimatedSection animation="fade-left">
+            <div className="group relative rounded-3xl overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-xl transition-shadow">
+              <img 
+                src={studyNotesImage}
+                alt="Student studying with personalized notes"
+                className="w-full h-[300px] object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <span className="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase mb-2">
+                  Personalized
+                </span>
+                <h3 className="text-2xl font-heading font-bold text-primary-foreground">Clear, Custom Notes</h3>
+                <p className="mt-1 text-primary-foreground/80 text-sm">Tailored to each student's weak areas</p>
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
           
-          <div className="group relative rounded-3xl overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-xl transition-shadow">
-            <img 
-              src={onlineClassImage}
-              alt="Online tutoring session"
-              className="w-full h-[300px] object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6">
-              <span className="inline-block px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-bold uppercase mb-2">
-                Flexible
-              </span>
-              <h3 className="text-2xl font-heading font-bold text-primary-foreground">Online + Offline</h3>
-              <p className="mt-1 text-primary-foreground/80 text-sm">Same quality coaching, anywhere</p>
+          <AnimatedSection animation="fade-right" delay={100}>
+            <div className="group relative rounded-3xl overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-xl transition-shadow">
+              <img 
+                src={onlineClassImage}
+                alt="Online tutoring session"
+                className="w-full h-[300px] object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <span className="inline-block px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-bold uppercase mb-2">
+                  Flexible
+                </span>
+                <h3 className="text-2xl font-heading font-bold text-primary-foreground">Online + Offline</h3>
+                <p className="mt-1 text-primary-foreground/80 text-sm">Same quality coaching, anywhere</p>
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
 
         {/* Benefits grid */}
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Student Benefits */}
-          <div className="relative p-6 md:p-8 rounded-3xl bg-gradient-to-br from-primary/10 via-card to-card border border-border/50 shadow-lg overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
-            <div className="relative">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider border border-primary/20 mb-4">
-                <BookOpen className="w-3.5 h-3.5" />
-                For Students
-              </div>
-              <h3 className="text-2xl font-heading font-bold text-foreground mb-6">What changes after joining</h3>
-              <div className="space-y-4">
-                {studentBenefits.map((benefit, i) => (
-                  <div 
-                    key={i} 
-                    className="flex gap-4 items-start p-4 rounded-2xl bg-card/80 border border-border/50 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground shadow-md flex-shrink-0">
-                      <benefit.icon className="w-6 h-6" />
+          <AnimatedSection animation="fade-left" delay={200}>
+            <div className="relative p-6 md:p-8 rounded-3xl bg-gradient-to-br from-primary/10 via-card to-card border border-border/50 shadow-lg overflow-hidden h-full">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
+              <div className="relative">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider border border-primary/20 mb-4">
+                  <BookOpen className="w-3.5 h-3.5" />
+                  For Students
+                </div>
+                <h3 className="text-2xl font-heading font-bold text-foreground mb-6">What changes after joining</h3>
+                <div className="space-y-4">
+                  {studentBenefits.map((benefit, i) => (
+                    <div 
+                      key={i} 
+                      className="flex gap-4 items-start p-4 rounded-2xl bg-card/80 border border-border/50 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+                    >
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground shadow-md flex-shrink-0">
+                        <benefit.icon className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <strong className="block text-foreground font-bold text-lg">{benefit.title}</strong>
+                        <span className="block text-muted-foreground mt-0.5">{benefit.desc}</span>
+                      </div>
                     </div>
-                    <div>
-                      <strong className="block text-foreground font-bold text-lg">{benefit.title}</strong>
-                      <span className="block text-muted-foreground mt-0.5">{benefit.desc}</span>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
 
           {/* Parent Benefits */}
-          <div className="relative p-6 md:p-8 rounded-3xl bg-gradient-to-br from-secondary/10 via-card to-card border border-border/50 shadow-lg overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-2xl" />
-            <div className="relative">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider border border-secondary/20 mb-4">
-                <Users className="w-3.5 h-3.5" />
-                For Parents
-              </div>
-              <h3 className="text-2xl font-heading font-bold text-foreground mb-6">You'll see progress clearly</h3>
-              <div className="space-y-4">
-                {parentBenefits.map((benefit, i) => (
-                  <div 
-                    key={i} 
-                    className="flex gap-4 items-start p-4 rounded-2xl bg-card/80 border border-border/50 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary to-secondary/70 flex items-center justify-center text-secondary-foreground shadow-md flex-shrink-0">
-                      <benefit.icon className="w-6 h-6" />
+          <AnimatedSection animation="fade-right" delay={300}>
+            <div className="relative p-6 md:p-8 rounded-3xl bg-gradient-to-br from-secondary/10 via-card to-card border border-border/50 shadow-lg overflow-hidden h-full">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-2xl" />
+              <div className="relative">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider border border-secondary/20 mb-4">
+                  <Users className="w-3.5 h-3.5" />
+                  For Parents
+                </div>
+                <h3 className="text-2xl font-heading font-bold text-foreground mb-6">You'll see progress clearly</h3>
+                <div className="space-y-4">
+                  {parentBenefits.map((benefit, i) => (
+                    <div 
+                      key={i} 
+                      className="flex gap-4 items-start p-4 rounded-2xl bg-card/80 border border-border/50 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+                    >
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary to-secondary/70 flex items-center justify-center text-secondary-foreground shadow-md flex-shrink-0">
+                        <benefit.icon className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <strong className="block text-foreground font-bold text-lg">{benefit.title}</strong>
+                        <span className="block text-muted-foreground mt-0.5">{benefit.desc}</span>
+                      </div>
                     </div>
-                    <div>
-                      <strong className="block text-foreground font-bold text-lg">{benefit.title}</strong>
-                      <span className="block text-muted-foreground mt-0.5">{benefit.desc}</span>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
 
         {/* CTA */}
-        <div className="mt-12 text-center">
+        <AnimatedSection className="mt-12 text-center" delay={400}>
           <div className="inline-flex flex-wrap justify-center gap-4">
-            <Button size="lg" asChild className="font-bold shadow-primary text-base">
+            <Button size="lg" asChild className="text-base">
               <a href="#contact">📞 Book Counselling</a>
             </Button>
-            <Button size="lg" variant="outline" asChild className="font-bold text-base">
+            <Button size="lg" variant="outline" asChild className="text-base">
               <a href="#courses">See Fees</a>
             </Button>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );
