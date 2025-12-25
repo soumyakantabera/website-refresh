@@ -48,39 +48,42 @@ export function FloatingActions() {
         </button>
 
         {/* WhatsApp */}
-        <button 
+        <Button 
           onClick={openWhatsApp}
-          className="group flex items-center gap-3 pl-5 pr-4 py-3 rounded-full bg-secondary text-secondary-foreground shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer"
+          variant="whatsapp"
+          size="lg"
+          className="rounded-full pl-5 pr-4"
         >
-          <span className="font-bold text-sm">WhatsApp Now</span>
-          <div className="w-10 h-10 rounded-full bg-secondary-foreground/20 flex items-center justify-center">
-            <MessageCircle className="w-5 h-5" />
+          <span>WhatsApp Now</span>
+          <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center ml-2">
+            <MessageCircle className="w-4 h-4" />
           </div>
-        </button>
+        </Button>
 
-        {/* Call */}
-        <a 
-          href={`tel:${COACHING.phoneE164}`}
-          className="group flex items-center gap-3 pl-5 pr-4 py-3 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer"
+        {/* Book Counselling */}
+        <Button 
+          onClick={scrollToContact}
+          size="lg"
+          className="rounded-full pl-5 pr-4"
         >
-          <span className="font-bold text-sm">Call Now</span>
-          <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center">
-            <Phone className="w-5 h-5" />
+          <span>Book Counselling</span>
+          <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center ml-2">
+            <Phone className="w-4 h-4" />
           </div>
-        </a>
+        </Button>
       </div>
 
       {/* Mobile Bottom Bar */}
       <div className="fixed left-4 right-4 bottom-4 z-50 md:hidden">
         <div className="flex gap-2 p-2 rounded-2xl bg-card/95 border border-border shadow-xl backdrop-blur-xl">
-          <Button onClick={scrollToContact} className="flex-1 font-bold shadow-primary h-12">
-            Book Now
+          <Button onClick={scrollToContact} className="flex-1 h-12">
+            Book Counselling
           </Button>
-          <Button onClick={openWhatsApp} variant="secondary" className="flex-1 font-bold h-12">
+          <Button onClick={openWhatsApp} variant="whatsapp" className="flex-1 h-12">
             <MessageCircle className="w-4 h-4 mr-2" />
             WhatsApp
           </Button>
-          <Button variant="outline" className="font-bold h-12 px-4" asChild>
+          <Button variant="outline" className="h-12 px-4" asChild>
             <a href={`tel:${COACHING.phoneE164}`}>
               <Phone className="w-4 h-4" />
             </a>
