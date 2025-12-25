@@ -73,14 +73,20 @@ export function HeroSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-3">
-              <Button size="lg" asChild className="font-bold shadow-primary group text-base">
+              <Button size="lg" asChild className="group text-base">
                 <a href="#contact" className="flex items-center gap-2">
                   📞 Book FREE Counselling
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
-              <Button size="lg" variant="outline" asChild className="font-bold text-base">
-                <a href="#courses">💰 View Course Fees</a>
+              <Button size="lg" variant="secondary" asChild className="text-base">
+                <a 
+                  href="https://wa.me/919874088765?text=Hi! I'm interested in 1:1 private coaching." 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  💬 WhatsApp Now
+                </a>
               </Button>
             </div>
 
@@ -173,7 +179,7 @@ export function HeroSection() {
                 BSc Mathematics (Hons.) from Sa Jaipuria College, Kolkata (CU) — First Class • MSc Pure Mathematics from Lady Brabourne College • Currently a high school Mathematics teacher
               </p>
             </div>
-            <Button size="lg" asChild className="font-bold shadow-primary">
+            <Button size="lg" asChild>
               <a href="#contact">Get Started</a>
             </Button>
           </div>

@@ -38,11 +38,11 @@ export function Navbar() {
           <div 
             className="w-11 h-11 rounded-xl flex-shrink-0 shadow-md group-hover:shadow-lg transition-shadow"
             style={{
-              background: "conic-gradient(from 215deg, hsl(210, 60%, 42%), hsl(210, 70%, 60%), hsl(175, 45%, 42%), hsl(210, 60%, 42%))"
+              background: "conic-gradient(from 215deg, hsl(270, 65%, 50%), hsl(280, 70%, 60%), hsl(25, 95%, 52%), hsl(270, 65%, 50%))"
             }}
           >
             <div className="w-full h-full rounded-xl flex items-center justify-center" style={{ 
-              background: "linear-gradient(180deg, rgba(247,245,239,0.35), rgba(247,245,239,0.92))",
+              background: "linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.92))",
               margin: "2px",
               width: "calc(100% - 4px)",
               height: "calc(100% - 4px)",
@@ -72,10 +72,10 @@ export function Navbar() {
 
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="outline" size="sm" asChild className="font-bold">
+          <Button variant="outline" size="sm" asChild>
             <a href="#courses">View Fees</a>
           </Button>
-          <Button size="sm" asChild className="font-bold shadow-primary group">
+          <Button size="sm" asChild className="group">
             <a href="#contact" className="flex items-center gap-2">
               Book a Call
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -86,19 +86,19 @@ export function Navbar() {
         {/* Mobile Menu */}
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild className="lg:hidden">
-            <Button variant="outline" size="sm" className="font-bold">
+            <Button variant="outline" size="sm">
               <Menu className="h-4 w-4 mr-2" />
               Menu
             </Button>
           </SheetTrigger>
           <SheetContent className="w-[320px] sm:w-[400px] p-0">
-            <div className="h-full flex flex-col bg-gradient-to-b from-background to-accent/20">
+            <div className="h-full flex flex-col bg-gradient-to-b from-background to-accent/10">
               <SheetHeader className="p-6 border-b border-border/50">
                 <SheetTitle className="flex items-center gap-3">
                   <div 
                     className="w-10 h-10 rounded-xl flex-shrink-0"
                     style={{
-                      background: "conic-gradient(from 215deg, hsl(210, 60%, 42%), hsl(210, 70%, 60%), hsl(175, 45%, 42%), hsl(210, 60%, 42%))"
+                      background: "conic-gradient(from 215deg, hsl(270, 65%, 50%), hsl(280, 70%, 60%), hsl(25, 95%, 52%), hsl(270, 65%, 50%))"
                     }}
                   />
                   <div className="text-left">
@@ -124,12 +124,22 @@ export function Navbar() {
                 </nav>
 
                 <div className="space-y-3">
-                  <Button asChild className="w-full font-bold shadow-primary" size="lg">
+                  <Button asChild className="w-full" size="lg">
                     <a href="#contact" onClick={() => setOpen(false)}>
                       Book Counselling
                     </a>
                   </Button>
-                  <Button variant="outline" asChild className="w-full font-bold" size="lg">
+                  <Button variant="secondary" asChild className="w-full" size="lg">
+                    <a 
+                      href="https://wa.me/919874088765?text=Hi! I'm interested in 1:1 private coaching." 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setOpen(false)}
+                    >
+                      WhatsApp Now
+                    </a>
+                  </Button>
+                  <Button variant="outline" asChild className="w-full" size="lg">
                     <a href="tel:+919874088765" onClick={() => setOpen(false)}>
                       <Phone className="w-4 h-4 mr-2" />
                       Call Now
@@ -137,7 +147,7 @@ export function Navbar() {
                   </Button>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-primary/5 border border-primary/10">
+                <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20">
                   <p className="text-xs font-bold text-primary uppercase tracking-wider mb-1">Quick tip</p>
                   <p className="text-sm text-muted-foreground">
                     Share last test marks + weak chapters for a faster custom plan.
