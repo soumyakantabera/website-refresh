@@ -1,5 +1,6 @@
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { Star, Quote, ArrowRight, MessageSquare, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star, Quote, ArrowRight, MessageSquare } from "lucide-react";
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
 import {
   Carousel,
@@ -7,6 +8,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 
 const testimonials = [
@@ -114,6 +116,66 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
   );
 }
 
+function MobileCarousel() {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
+  const scrollTo = useCallback((index: number) => {
+    api?.scrollTo(index);
+  }, [api]);
+
+  return (
+    <AnimatedSection delay={200} className="md:hidden">
+      <Carousel
+        setApi={setApi}
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        className="w-full"
+      >
+        <CarouselContent className="-ml-2 md:-ml-4">
+          {testimonials.map((testimonial, i) => (
+            <CarouselItem key={i} className="pl-2 md:pl-4 basis-[90%] sm:basis-[85%]">
+              <TestimonialCard testimonial={testimonial} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <div className="flex items-center justify-center gap-4 mt-6">
+          <CarouselPrevious className="static translate-y-0 bg-card border-border/50 hover:bg-primary hover:text-primary-foreground" />
+          <div className="flex gap-2">
+            {Array.from({ length: count }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => scrollTo(index)}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  index === current
+                    ? "bg-primary w-6"
+                    : "bg-border hover:bg-muted-foreground"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+          <CarouselNext className="static translate-y-0 bg-card border-border/50 hover:bg-primary hover:text-primary-foreground" />
+        </div>
+      </Carousel>
+    </AnimatedSection>
+  );
+}
+
 export function TestimonialsSection() {
   return (
     <section id="testimonials" className="py-16 md:py-24 relative overflow-hidden">
@@ -152,27 +214,7 @@ export function TestimonialsSection() {
         </AnimatedSection>
 
         {/* Mobile Carousel */}
-        <AnimatedSection delay={200} className="md:hidden">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {testimonials.map((testimonial, i) => (
-                <CarouselItem key={i} className="pl-2 md:pl-4 basis-[90%] sm:basis-[85%]">
-                  <TestimonialCard testimonial={testimonial} />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="flex items-center justify-center gap-4 mt-6">
-              <CarouselPrevious className="static translate-y-0 bg-card border-border/50 hover:bg-primary hover:text-primary-foreground" />
-              <CarouselNext className="static translate-y-0 bg-card border-border/50 hover:bg-primary hover:text-primary-foreground" />
-            </div>
-          </Carousel>
-        </AnimatedSection>
+        <MobileCarousel />
 
         {/* Desktop Grid */}
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
