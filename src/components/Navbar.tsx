@@ -46,15 +46,9 @@ export function Navbar() {
                 {/* Glow effect */}
                 <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-primary/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
               </div>
-              <div className="min-w-0">
-                <span className="block font-heading font-bold text-foreground text-sm sm:text-base lg:text-lg">
-                  Sucheta's Math Class
-                </span>
-                <span className="hidden sm:flex items-center gap-1.5 text-[10px] sm:text-xs text-muted-foreground font-medium">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                  1:1 Private • Kolkata + Online
-                </span>
-              </div>
+              <span className="font-heading font-bold text-foreground text-sm sm:text-base lg:text-lg">
+                Sucheta's Math Class
+              </span>
             </a>
 
             {/* Desktop Nav - Pill style */}
