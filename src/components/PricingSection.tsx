@@ -101,24 +101,24 @@ export function PricingSection() {
                   </div>
                 )}
 
-                <div className={`p-6 md:p-8 ${plan.popular ? "pt-14" : ""}`}>
+                <div className={`p-4 sm:p-6 md:p-8 ${plan.popular ? "pt-12 sm:pt-14" : ""}`}>
                   {/* Plan header */}
-                  <div className="mb-6">
-                    <span className={`inline-block px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider bg-${plan.accent}/10 text-${plan.accent} border border-${plan.accent}/20`}>
+                  <div className="mb-4 sm:mb-6">
+                    <span className={`inline-block px-2 sm:px-3 py-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-${plan.accent}/10 text-${plan.accent} border border-${plan.accent}/20`}>
                       {plan.subtitle}
                     </span>
-                    <h3 className="mt-3 text-2xl font-heading font-black text-foreground">{plan.name}</h3>
+                    <h3 className="mt-2 sm:mt-3 text-lg sm:text-2xl font-heading font-black text-foreground">{plan.name}</h3>
                   </div>
 
                   {/* Price */}
-                  <div className="mb-6">
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-4xl md:text-5xl font-black text-foreground">{plan.price}</span>
-                      <span className="text-muted-foreground font-bold">{plan.priceLabel}</span>
+                  <div className="mb-4 sm:mb-6">
+                    <div className="flex items-baseline gap-1 flex-wrap">
+                      <span className="text-2xl sm:text-4xl md:text-5xl font-black text-foreground">{plan.price}</span>
+                      <span className="text-sm sm:text-base text-muted-foreground font-bold">{plan.priceLabel}</span>
                     </div>
-                    <div className="flex flex-wrap gap-2 mt-3">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-2 sm:mt-3">
                       {plan.otherPrices.map((price, j) => (
-                        <span key={j} className="px-2 py-1 rounded-lg text-xs font-semibold bg-card/80 border border-border/50 text-muted-foreground">
+                        <span key={j} className="px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-lg text-[10px] sm:text-xs font-semibold bg-card/80 border border-border/50 text-muted-foreground">
                           {price}
                         </span>
                       ))}
