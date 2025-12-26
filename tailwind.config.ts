@@ -105,6 +105,10 @@ export default {
           "0%, 100%": { boxShadow: "0 0 20px hsl(var(--primary) / 0.3)" },
           "50%": { boxShadow: "0 0 40px hsl(var(--primary) / 0.6)" },
         },
+        "swipe": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(8px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
