@@ -32,9 +32,9 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="container flex items-center justify-between py-4 gap-4">
+      <div className="container flex items-center justify-between py-3 sm:py-4 gap-2 sm:gap-4">
         {/* Logo */}
-        <a href="#top" className="flex items-center gap-3 group">
+        <a href="#top" className="flex items-center gap-2 sm:gap-3 group min-w-0">
           <div 
             className="w-11 h-11 rounded-xl flex-shrink-0 shadow-md group-hover:shadow-lg transition-shadow"
             style={{
@@ -51,9 +51,9 @@ export function Navbar() {
               <span className="text-lg font-black text-primary">SM</span>
             </div>
           </div>
-          <div>
-            <span className="block font-heading font-bold text-foreground text-lg">Sucheta's Math Class</span>
-            <span className="block text-xs text-muted-foreground font-semibold">1:1 Coaching • Kolkata + Online</span>
+          <div className="min-w-0">
+            <span className="block font-heading font-bold text-foreground text-base sm:text-lg truncate max-w-[12rem] sm:max-w-none">Sucheta's Math Class</span>
+            <span className="hidden sm:block text-xs text-muted-foreground font-semibold truncate max-w-[12rem] sm:max-w-none">1:1 Coaching • Kolkata + Online</span>
           </div>
         </a>
 
@@ -86,9 +86,9 @@ export function Navbar() {
         {/* Mobile Menu */}
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild className="lg:hidden">
-            <Button variant="outline" size="sm">
-              <Menu className="h-4 w-4 mr-2" />
-              Menu
+            <Button variant="outline" size="sm" className="px-3">
+              <Menu className="h-4 w-4 sm:mr-2" />
+              <span className="hidden sm:inline">Menu</span>
             </Button>
           </SheetTrigger>
           <SheetContent className="w-[320px] sm:w-[400px] p-0">

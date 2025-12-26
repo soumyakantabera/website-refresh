@@ -61,14 +61,14 @@ export function Footer() {
                 Book a free counselling call and get a 30-day improvement plan. Kolkata offline + Online available.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" asChild className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-bold text-base shadow-lg">
-                <a href="#contact" className="flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+              <Button size="lg" asChild className="w-full sm:w-auto bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-bold text-base shadow-lg">
+                <a href="#contact" className="flex items-center justify-center gap-2">
                   Book Counselling
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </Button>
-              <Button size="lg" variant="outline" onClick={openWhatsApp} className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-bold text-base">
+              <Button size="lg" variant="outline" onClick={openWhatsApp} className="w-full sm:w-auto border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-bold text-base">
                 <MessageCircle className="w-4 h-4 mr-2" />
                 WhatsApp Now
               </Button>
@@ -139,9 +139,9 @@ export function Footer() {
                 <Phone className="w-4 h-4 text-primary" />
                 <span className="font-medium">{COACHING.displayPhone}</span>
               </a>
-              <a href={`mailto:${COACHING.email}`} className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
-                <Mail className="w-4 h-4 text-primary" />
-                <span className="font-medium text-sm">{COACHING.email}</span>
+              <a href={`mailto:${COACHING.email}`} className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors min-w-0">
+                <Mail className="w-4 h-4 text-primary flex-shrink-0" />
+                <span className="font-medium text-sm break-all min-w-0">{COACHING.email}</span>
               </a>
               <div className="flex items-start gap-3 text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
