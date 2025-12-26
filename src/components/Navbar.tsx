@@ -117,7 +117,7 @@ export function Navbar() {
                       </Button>
                       <Button variant="secondary" asChild className="w-full rounded-xl" size="lg">
                         <a 
-                          href="https://wa.me/919874088765?text=Hi! I'm interested in 1:1 private coaching." 
+                          href="https://wa.me/916290871215?text=Hi! I'm interested in 1:1 private coaching." 
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => setOpen(false)}
@@ -126,7 +126,7 @@ export function Navbar() {
                         </a>
                       </Button>
                       <Button variant="outline" asChild className="w-full rounded-xl" size="lg">
-                        <a href="tel:+919874088765" onClick={() => setOpen(false)}>
+                        <a href="tel:+916290871215" onClick={() => setOpen(false)}>
                           <Phone className="w-4 h-4 mr-2" />
                           Call Now
                         </a>

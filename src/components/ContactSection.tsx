@@ -10,8 +10,8 @@ import { AnimatedSection } from "@/hooks/useScrollAnimation";
 
 const COACHING = {
   name: "Sucheta's Math Class",
-  phoneE164: "+919874088765",
-  displayPhone: "+91 98740 88765",
+  phoneE164: "+916290871215",
+  displayPhone: "+91 62908 71215",
   email: "berasucheta01@gmail.com",
   address: "Near Maa Basanti Varieties, Kolkata",
   defaultWhatsAppText: "Hi! I'm interested in 1:1 private coaching. Please share available slots and fees details."
