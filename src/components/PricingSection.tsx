@@ -7,9 +7,10 @@ const plans = [
     name: "Classes 7–10",
     subtitle: "Board Foundation",
     price: "₹750",
-    priceLabel: "/ Maths",
-    otherPrices: ["Physics ₹500", "Chemistry ₹500", "Biology ₹500"],
-    bundle: { price: "₹2000", label: "All subjects" },
+    priceLabel: "/ month",
+    priceSuffix: "Maths",
+    otherPrices: ["Physics ₹500/mo", "Chemistry ₹500/mo", "Biology ₹500/mo"],
+    bundle: { price: "₹2000/mo", label: "All subjects" },
     features: [
       "Foundation building + school exam prep",
       "Daily practice sessions + Q&A sessions",
@@ -24,9 +25,10 @@ const plans = [
     name: "Classes 11–12",
     subtitle: "Board Mastery",
     price: "₹1000",
-    priceLabel: "/ Maths",
-    otherPrices: ["Physics ₹750", "Chemistry ₹750", "Biology ₹750"],
-    bundle: { price: "₹2500", label: "All subjects" },
+    priceLabel: "/ month",
+    priceSuffix: "Maths",
+    otherPrices: ["Physics ₹750/mo", "Chemistry ₹750/mo", "Biology ₹750/mo"],
+    bundle: { price: "₹2500/mo", label: "All subjects" },
     features: [
       "Board-focused numericals + speed building",
       "Concept clarity → problem-solving confidence",
@@ -42,6 +44,7 @@ const plans = [
     subtitle: "University Level",
     price: "From ₹2000",
     priceLabel: "/ month",
+    priceSuffix: null,
     otherPrices: ["Topic-wise support + university prep"],
     bundle: null,
     features: [
@@ -77,7 +80,7 @@ export function PricingSection() {
             <span className="text-primary">real value</span>
           </h2>
           <p className="mt-4 sm:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
-            1:1 private coaching • CBSE/ICSE/WBBSE • Kolkata offline + online.
+            1:1 private coaching • CBSE/ICSE/WBBSE • Kolkata offline + online. <span className="font-semibold text-foreground">All fees are per month.</span>
           </p>
         </AnimatedSection>
 
@@ -115,6 +118,9 @@ export function PricingSection() {
                     <div className="flex items-baseline gap-1 flex-wrap">
                       <span className="text-2xl sm:text-4xl md:text-5xl font-black text-foreground">{plan.price}</span>
                       <span className="text-sm sm:text-base text-muted-foreground font-bold">{plan.priceLabel}</span>
+                      {plan.priceSuffix && (
+                        <span className="text-xs sm:text-sm text-muted-foreground font-semibold">({plan.priceSuffix})</span>
+                      )}
                     </div>
                     <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-2 sm:mt-3">
                       {plan.otherPrices.map((price, j) => (
