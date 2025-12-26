@@ -82,7 +82,7 @@ export function HeroSection() {
               </Button>
               <Button size="lg" variant="secondary" asChild className="text-sm sm:text-base w-full sm:w-auto">
                 <a 
-                  href="https://wa.me/919874088765?text=Hi! I'm interested in 1:1 private coaching." 
+                  href="https://wa.me/916290871215?text=Hi! I'm interested in 1:1 private coaching." 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="justify-center"
