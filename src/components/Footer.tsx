@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin, ArrowUp, MessageCircle, ArrowRight, Sparkles } from "lucide-react";
+import { Logo } from "@/components/Logo";
 
 const COACHING = {
   phoneE164: "+919874088765",
@@ -81,12 +82,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div 
-                className="w-12 h-12 rounded-xl shadow-md"
-                style={{
-                  background: "conic-gradient(from 215deg, hsl(210, 60%, 42%), hsl(210, 70%, 60%), hsl(175, 45%, 42%), hsl(210, 60%, 42%))"
-                }}
-              />
+              <Logo size="lg" className="drop-shadow-md" />
               <div>
                 <b className="block font-heading font-bold text-foreground text-lg">Sucheta's Math Class</b>
                 <span className="block text-sm text-muted-foreground">1:1 Private Coaching</span>
