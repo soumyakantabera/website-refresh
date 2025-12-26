@@ -29,23 +29,22 @@ export function WhyUsSection() {
 
       <div className="container relative">
         {/* Section header */}
-        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider border border-primary/20">
-            <CheckCircle2 className="w-4 h-4" />
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-12 md:mb-16 px-2">
+          <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-bold uppercase tracking-wider border border-primary/20">
+            <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
             Why Choose Us
           </span>
-          <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl font-heading font-black text-foreground leading-tight">
+          <h2 className="mt-4 sm:mt-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-black text-foreground leading-tight">
             <span className="text-primary">Focused 1:1 coaching</span> that builds{" "}
             <span className="relative inline-block">
               real understanding
-              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
+              <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
                 <path d="M2 8c30-6 60-6 90 0s60 6 90 0" stroke="hsl(var(--secondary))" strokeWidth="4" strokeLinecap="round" />
               </svg>
             </span>
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
             Math isn't "hard" — it's just taught wrong most of the time. Our approach: concept clarity → mixed practice → weekly tests.
-            Parents see progress. Students gain confidence.
           </p>
         </AnimatedSection>
 
@@ -153,11 +152,11 @@ export function WhyUsSection() {
 
         {/* CTA */}
         <AnimatedSection className="mt-12 text-center" delay={400}>
-          <div className="inline-flex flex-wrap justify-center gap-4">
-            <Button size="lg" asChild className="text-base">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
+            <Button size="default" asChild className="w-full sm:w-auto text-sm sm:text-base">
               <a href="#contact">📞 Book Counselling</a>
             </Button>
-            <Button size="lg" variant="outline" asChild className="text-base">
+            <Button size="default" variant="outline" asChild className="w-full sm:w-auto text-sm sm:text-base">
               <a href="#courses">See Fees</a>
             </Button>
           </div>

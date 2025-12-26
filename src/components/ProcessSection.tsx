@@ -60,17 +60,17 @@ export function ProcessSection() {
 
       <div className="container relative">
         {/* Section header */}
-        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-bold uppercase tracking-wider border border-secondary/20">
-            <Calendar className="w-4 h-4" />
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-12 md:mb-16 px-2">
+          <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-secondary/10 text-secondary text-xs sm:text-sm font-bold uppercase tracking-wider border border-secondary/20">
+            <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
             How It Works
           </span>
-          <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl font-heading font-black text-foreground leading-tight">
+          <h2 className="mt-4 sm:mt-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-black text-foreground leading-tight">
             A <span className="text-primary">simple 4-step system</span>{" "}
             parents trust
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Clear routine + quick doubt clearing + weekly tests. Students stop panicking and start improving steadily.
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
+            Clear routine + quick doubt clearing + weekly tests.
           </p>
         </AnimatedSection>
 
@@ -174,14 +174,14 @@ export function ProcessSection() {
 
         {/* CTA */}
         <AnimatedSection className="mt-12 text-center" delay={800}>
-          <div className="inline-flex flex-wrap justify-center gap-4">
-            <Button size="lg" asChild className="text-base">
-              <a href="#contact" className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
+            <Button size="default" asChild className="w-full sm:w-auto text-sm sm:text-base">
+              <a href="#contact" className="flex items-center justify-center gap-2">
                 Start Your Journey
                 <ArrowRight className="w-4 h-4" />
               </a>
             </Button>
-            <Button size="lg" variant="outline" asChild className="text-base">
+            <Button size="default" variant="outline" asChild className="w-full sm:w-auto text-sm sm:text-base">
               <a href="#courses">Check Fees</a>
             </Button>
           </div>

@@ -53,17 +53,17 @@ export function FAQSection() {
 
       <div className="container relative">
         {/* Section header */}
-        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider border border-primary/20">
-            <HelpCircle className="w-4 h-4" />
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-12 md:mb-16 px-2">
+          <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-bold uppercase tracking-wider border border-primary/20">
+            <HelpCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
             FAQ
           </span>
-          <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl font-heading font-black text-foreground leading-tight">
+          <h2 className="mt-4 sm:mt-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-black text-foreground leading-tight">
             Got questions?{" "}
             <span className="text-primary">We've got answers</span>
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Everything parents and students commonly ask before joining. If you don't find your answer, just WhatsApp us!
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
+            If you don't find your answer, just WhatsApp us!
           </p>
         </AnimatedSection>
 
@@ -77,20 +77,20 @@ export function FAQSection() {
                   value={`faq-${i}`}
                   className="group border-2 border-border/50 rounded-2xl bg-card/80 shadow-sm hover:shadow-md transition-shadow overflow-hidden data-[state=open]:border-primary/30 data-[state=open]:shadow-lg"
                 >
-                  <AccordionTrigger className="px-6 py-5 text-left font-bold text-foreground hover:no-underline hover:text-primary transition-colors [&>svg]:hidden">
-                    <div className="flex items-center gap-4 w-full">
-                      <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-data-[state=open]:bg-primary group-data-[state=open]:text-primary-foreground transition-colors">
-                        <span className="font-black text-primary group-data-[state=open]:text-primary-foreground">{i + 1}</span>
+                  <AccordionTrigger className="px-4 sm:px-6 py-4 sm:py-5 text-left font-bold text-foreground hover:no-underline hover:text-primary transition-colors [&>svg]:hidden">
+                    <div className="flex items-center gap-3 sm:gap-4 w-full">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-data-[state=open]:bg-primary group-data-[state=open]:text-primary-foreground transition-colors">
+                        <span className="font-black text-xs sm:text-sm text-primary group-data-[state=open]:text-primary-foreground">{i + 1}</span>
                       </div>
-                      <span className="flex-1 text-lg">{faq.q}</span>
-                      <div className="w-8 h-8 rounded-lg bg-muted/50 flex items-center justify-center flex-shrink-0">
-                        <Plus className="w-4 h-4 group-data-[state=open]:hidden" />
-                        <Minus className="w-4 h-4 hidden group-data-[state=open]:block text-primary" />
+                      <span className="flex-1 text-sm sm:text-base md:text-lg">{faq.q}</span>
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-muted/50 flex items-center justify-center flex-shrink-0">
+                        <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-data-[state=open]:hidden" />
+                        <Minus className="w-3.5 h-3.5 sm:w-4 sm:h-4 hidden group-data-[state=open]:block text-primary" />
                       </div>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-6 pt-0">
-                    <div className="pl-14 text-muted-foreground text-base leading-relaxed">
+                  <AccordionContent className="px-4 sm:px-6 pb-4 sm:pb-6 pt-0">
+                    <div className="pl-11 sm:pl-14 text-muted-foreground text-sm sm:text-base leading-relaxed">
                       {faq.a}
                     </div>
                   </AccordionContent>
@@ -102,14 +102,14 @@ export function FAQSection() {
 
         {/* Still have questions? */}
         <AnimatedSection className="mt-12 text-center" delay={300}>
-          <div className="inline-block p-6 md:p-8 rounded-3xl bg-gradient-to-r from-primary/10 via-card to-secondary/10 border border-border/50 shadow-lg">
-            <h3 className="text-xl font-heading font-bold text-foreground mb-2">Still have questions?</h3>
-            <p className="text-muted-foreground mb-4">We're happy to help. WhatsApp us for a quick response.</p>
+          <div className="inline-block p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-primary/10 via-card to-secondary/10 border border-border/50 shadow-lg mx-2">
+            <h3 className="text-lg sm:text-xl font-heading font-bold text-foreground mb-2">Still have questions?</h3>
+            <p className="text-sm sm:text-base text-muted-foreground mb-4">We're happy to help. WhatsApp us!</p>
             <a 
               href="https://wa.me/919874088765?text=Hi!%20I%20have%20a%20question%20about%20the%20coaching."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-secondary text-secondary-foreground font-bold hover:opacity-90 transition-opacity shadow-md"
+              className="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-secondary text-secondary-foreground text-sm sm:text-base font-bold hover:opacity-90 transition-opacity shadow-md"
             >
               💬 WhatsApp Us
             </a>
