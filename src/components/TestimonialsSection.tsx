@@ -1,6 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { Star, Quote, ArrowRight, MessageSquare } from "lucide-react";
+import { Star, Quote, ArrowRight, MessageSquare, ChevronLeft, ChevronRight } from "lucide-react";
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const testimonials = [
   {
@@ -59,6 +66,54 @@ const stats = [
   { value: "Weekly", label: "Progress tests" },
 ];
 
+interface TestimonialCardProps {
+  testimonial: typeof testimonials[0];
+}
+
+function TestimonialCard({ testimonial }: TestimonialCardProps) {
+  return (
+    <div 
+      className="group relative p-6 md:p-8 rounded-3xl bg-card/80 border-2 border-border/50 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden h-full"
+    >
+      {/* Decorative gradient */}
+      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+      
+      <div className="relative">
+        {/* Quote icon */}
+        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary-foreground shadow-md mb-4">
+          <Quote className="w-6 h-6" />
+        </div>
+
+        {/* Rating */}
+        <div className="flex gap-1 mb-4">
+          {[...Array(testimonial.rating)].map((_, j) => (
+            <Star key={j} className="w-5 h-5 text-primary fill-primary" />
+          ))}
+        </div>
+
+        {/* Highlight badge */}
+        <span className="inline-block px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider mb-4">
+          {testimonial.highlight}
+        </span>
+
+        {/* Quote */}
+        <p className="text-foreground text-base sm:text-lg leading-relaxed mb-6">"{testimonial.text}"</p>
+
+        {/* Author */}
+        <div className="flex items-center gap-4 pt-4 border-t border-border/50">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center text-lg font-bold text-foreground">
+            {testimonial.author[0]}
+          </div>
+          <div>
+            <b className="block text-foreground font-bold">{testimonial.author}</b>
+            <span className="block text-sm text-muted-foreground">{testimonial.class} • {testimonial.location}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function TestimonialsSection() {
   return (
     <section id="testimonials" className="py-16 md:py-24 relative overflow-hidden">
@@ -96,49 +151,34 @@ export function TestimonialsSection() {
           </div>
         </AnimatedSection>
 
-        {/* Testimonials grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Mobile Carousel */}
+        <AnimatedSection delay={200} className="md:hidden">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {testimonials.map((testimonial, i) => (
+                <CarouselItem key={i} className="pl-2 md:pl-4 basis-[90%] sm:basis-[85%]">
+                  <TestimonialCard testimonial={testimonial} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex items-center justify-center gap-4 mt-6">
+              <CarouselPrevious className="static translate-y-0 bg-card border-border/50 hover:bg-primary hover:text-primary-foreground" />
+              <CarouselNext className="static translate-y-0 bg-card border-border/50 hover:bg-primary hover:text-primary-foreground" />
+            </div>
+          </Carousel>
+        </AnimatedSection>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, i) => (
-            <AnimatedSection key={i} delay={200 + i * 150} animation="scale">
-              <div 
-                className="group relative p-6 md:p-8 rounded-3xl bg-card/80 border-2 border-border/50 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden h-full"
-              >
-                {/* Decorative gradient */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                
-                <div className="relative">
-                  {/* Quote icon */}
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary-foreground shadow-md mb-4">
-                    <Quote className="w-6 h-6" />
-                  </div>
-
-                  {/* Rating */}
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, j) => (
-                      <Star key={j} className="w-5 h-5 text-primary fill-primary" />
-                    ))}
-                  </div>
-
-                  {/* Highlight badge */}
-                  <span className="inline-block px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider mb-4">
-                    {testimonial.highlight}
-                  </span>
-
-                  {/* Quote */}
-                  <p className="text-foreground text-lg leading-relaxed mb-6">"{testimonial.text}"</p>
-
-                  {/* Author */}
-                  <div className="flex items-center gap-4 pt-4 border-t border-border/50">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center text-lg font-bold text-foreground">
-                      {testimonial.author[0]}
-                    </div>
-                    <div>
-                      <b className="block text-foreground font-bold">{testimonial.author}</b>
-                      <span className="block text-sm text-muted-foreground">{testimonial.class} • {testimonial.location}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <AnimatedSection key={i} delay={200 + i * 100} animation="scale">
+              <TestimonialCard testimonial={testimonial} />
             </AnimatedSection>
           ))}
         </div>
