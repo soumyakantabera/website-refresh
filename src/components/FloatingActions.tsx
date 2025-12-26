@@ -3,8 +3,8 @@ import { Phone, MessageCircle, ArrowUp } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const COACHING = {
-  phoneE164: "+919874088765",
-  displayPhone: "+91 98740 88765",
+  phoneE164: "+916290871215",
+  displayPhone: "+91 62908 71215",
   defaultWhatsAppText: "Hi! I'm interested in 1:1 private coaching. Please share available slots and fees details."
 };
 
