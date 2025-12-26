@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { Star, Quote, ArrowRight, MessageSquare } from "lucide-react";
+import { Star, Quote, ArrowRight, MessageSquare, MoveHorizontal } from "lucide-react";
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
 import {
   Carousel,
@@ -120,6 +120,7 @@ function MobileCarousel() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  const [showHint, setShowHint] = useState(true);
 
   useEffect(() => {
     if (!api) return;
@@ -129,8 +130,17 @@ function MobileCarousel() {
 
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap());
+      setShowHint(false); // Hide hint after first interaction
     });
   }, [api]);
+
+  // Auto-hide hint after 4 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowHint(false);
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const scrollTo = useCallback((index: number) => {
     api?.scrollTo(index);
@@ -146,13 +156,25 @@ function MobileCarousel() {
         }}
         className="w-full"
       >
-        <CarouselContent className="-ml-2 md:-ml-4">
-          {testimonials.map((testimonial, i) => (
-            <CarouselItem key={i} className="pl-2 md:pl-4 basis-[90%] sm:basis-[85%]">
-              <TestimonialCard testimonial={testimonial} />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
+        <div className="relative">
+          <CarouselContent className="-ml-2 md:-ml-4">
+            {testimonials.map((testimonial, i) => (
+              <CarouselItem key={i} className="pl-2 md:pl-4 basis-[90%] sm:basis-[85%]">
+                <TestimonialCard testimonial={testimonial} />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          
+          {/* Swipe hint overlay */}
+          {showHint && (
+            <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-10">
+              <div className="bg-foreground/80 text-background px-4 py-2 rounded-full flex items-center gap-2 animate-pulse shadow-lg">
+                <MoveHorizontal className="w-5 h-5 animate-[swipe_1.5s_ease-in-out_infinite]" />
+                <span className="text-sm font-medium">Swipe to see more</span>
+              </div>
+            </div>
+          )}
+        </div>
         <div className="flex items-center justify-center gap-4 mt-6">
           <CarouselPrevious className="static translate-y-0 bg-card border-border/50 hover:bg-primary hover:text-primary-foreground" />
           <div className="flex gap-2">
