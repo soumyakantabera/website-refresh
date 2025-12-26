@@ -109,10 +109,10 @@ export function PricingSection() {
                   <div className="mb-4 sm:mb-6">
                     <span className={`inline-block px-2 sm:px-3 py-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase tracking-wider ${
                       plan.popular 
-                        ? "bg-secondary/20 text-secondary border border-secondary/30" 
+                        ? "bg-secondary text-secondary-foreground" 
                         : plan.accent === "primary" 
                           ? "bg-primary/20 text-primary border border-primary/30"
-                          : "bg-secondary/20 text-secondary border border-secondary/30"
+                          : "bg-secondary text-secondary-foreground"
                     }`}>
                       {plan.subtitle}
                     </span>
