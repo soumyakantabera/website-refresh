@@ -198,7 +198,7 @@ export function PricingSection() {
                   <a href="#contact">Get Custom Plan</a>
                 </Button>
                 <Button size="default" variant="secondary" asChild className="w-full sm:w-auto">
-                  <a href="https://wa.me/919874088765" target="_blank" rel="noopener noreferrer">WhatsApp Now</a>
+                  <a href="https://wa.me/916290871215" target="_blank" rel="noopener noreferrer">WhatsApp Now</a>
                 </Button>
               </div>
             </div>

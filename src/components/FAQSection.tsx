@@ -106,7 +106,7 @@ export function FAQSection() {
             <h3 className="text-lg sm:text-xl font-heading font-bold text-foreground mb-2">Still have questions?</h3>
             <p className="text-sm sm:text-base text-muted-foreground mb-4">We're happy to help. WhatsApp us!</p>
             <a 
-              href="https://wa.me/919874088765?text=Hi!%20I%20have%20a%20question%20about%20the%20coaching."
+              href="https://wa.me/916290871215?text=Hi!%20I%20have%20a%20question%20about%20the%20coaching."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-secondary text-secondary-foreground text-sm sm:text-base font-bold hover:opacity-90 transition-opacity shadow-md"
