@@ -108,32 +108,32 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right visual */}
-          <div className="relative slide-right">
+          {/* Right visual - hidden on mobile */}
+          <div className="relative slide-right hidden lg:block">
             {/* Main image card */}
             <div className="relative rounded-3xl overflow-hidden border-2 border-border/50 shadow-xl">
               <img 
                 src={heroImage}
                 alt="Teacher explaining mathematical concepts"
-                className="w-full h-[400px] md:h-[500px] object-cover"
+                className="w-full h-[500px] object-cover"
               />
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
               
               {/* Floating stats card */}
-              <div className="absolute bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-4 p-2 sm:p-4 rounded-xl sm:rounded-2xl bg-card/95 backdrop-blur-xl border border-border/50 shadow-lg">
-                <div className="grid grid-cols-3 gap-1 sm:gap-4 text-center">
+              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-card/95 backdrop-blur-xl border border-border/50 shadow-lg">
+                <div className="grid grid-cols-3 gap-4 text-center">
                   <div className="px-1">
-                    <b className="block text-base sm:text-2xl font-black text-primary">1:1</b>
-                    <span className="text-[10px] sm:text-xs text-muted-foreground font-semibold leading-tight block">Private</span>
+                    <b className="block text-2xl font-black text-primary">1:1</b>
+                    <span className="text-xs text-muted-foreground font-semibold leading-tight block">Private</span>
                   </div>
                   <div className="border-x border-border/50 px-1">
-                    <b className="block text-base sm:text-2xl font-black text-primary">Hybrid</b>
-                    <span className="text-[10px] sm:text-xs text-muted-foreground font-semibold leading-tight block">Online + Offline</span>
+                    <b className="block text-2xl font-black text-primary">Hybrid</b>
+                    <span className="text-xs text-muted-foreground font-semibold leading-tight block">Online + Offline</span>
                   </div>
                   <div className="px-1">
-                    <b className="block text-base sm:text-2xl font-black text-primary">Goal</b>
-                    <span className="text-[10px] sm:text-xs text-muted-foreground font-semibold leading-tight block">Score Better</span>
+                    <b className="block text-2xl font-black text-primary">Goal</b>
+                    <span className="text-xs text-muted-foreground font-semibold leading-tight block">Score Better</span>
                   </div>
                 </div>
               </div>
