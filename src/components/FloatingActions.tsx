@@ -74,16 +74,16 @@ export function FloatingActions() {
       </div>
 
       {/* Mobile Bottom Bar */}
-      <div className="fixed left-4 right-4 bottom-4 z-50 md:hidden">
-        <div className="flex gap-2 p-2 rounded-2xl bg-card/95 border border-border shadow-xl backdrop-blur-xl">
-          <Button onClick={scrollToContact} className="flex-1 h-12">
-            Book Counselling
+      <div className="fixed left-2 right-2 bottom-2 z-50 md:hidden">
+        <div className="flex gap-1.5 p-1.5 rounded-xl bg-card/95 border border-border shadow-xl backdrop-blur-xl">
+          <Button onClick={scrollToContact} className="flex-1 h-11 text-xs px-2 min-w-0">
+            <span className="truncate">Book Now</span>
           </Button>
-          <Button onClick={openWhatsApp} variant="whatsapp" className="flex-1 h-12">
-            <MessageCircle className="w-4 h-4 mr-2" />
-            WhatsApp
+          <Button onClick={openWhatsApp} variant="whatsapp" className="flex-1 h-11 text-xs px-2 min-w-0">
+            <MessageCircle className="w-3.5 h-3.5 mr-1 flex-shrink-0" />
+            <span className="truncate">WhatsApp</span>
           </Button>
-          <Button variant="outline" className="h-12 px-4" asChild>
+          <Button variant="outline" className="h-11 w-11 flex-shrink-0 p-0" asChild>
             <a href={`tel:${COACHING.phoneE164}`}>
               <Phone className="w-4 h-4" />
             </a>
