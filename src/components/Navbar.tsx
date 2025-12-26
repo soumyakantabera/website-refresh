@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { Menu, Phone, ArrowRight, Sparkles } from "lucide-react";
-
+import { Logo } from "@/components/Logo";
 const navLinks = [
   { href: "#why", label: "Why Us" },
   { href: "#courses", label: "Courses" },
@@ -26,25 +26,9 @@ export function Navbar() {
           <div className="relative flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 gap-3">
             {/* Logo */}
             <a href="#top" className="flex items-center gap-2.5 sm:gap-3 group min-w-0">
-              <div className="relative">
-                <div 
-                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl flex-shrink-0 shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-300"
-                  style={{
-                    background: "conic-gradient(from 215deg, hsl(270, 65%, 50%), hsl(280, 70%, 60%), hsl(25, 95%, 52%), hsl(270, 65%, 50%))"
-                  }}
-                >
-                  <div className="w-full h-full rounded-xl sm:rounded-2xl flex items-center justify-center" style={{ 
-                    background: "linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0.95))",
-                    margin: "2px",
-                    width: "calc(100% - 4px)",
-                    height: "calc(100% - 4px)",
-                    borderRadius: "10px"
-                  }}>
-                    <span className="text-base sm:text-lg font-black text-primary">SM</span>
-                  </div>
-                </div>
-                {/* Glow effect */}
-                <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-primary/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+              <div className="relative group-hover:scale-105 transition-transform duration-300">
+                <Logo size="md" className="drop-shadow-md" />
+                <div className="absolute inset-0 bg-primary/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity -z-10 rounded-full" />
               </div>
               <span className="font-heading font-bold text-foreground text-sm sm:text-base lg:text-lg">
                 Sucheta's Math Class
@@ -92,22 +76,7 @@ export function Navbar() {
                   {/* Header with glass effect */}
                   <SheetHeader className="p-6 border-b border-border/30 bg-card/50 backdrop-blur-sm">
                     <SheetTitle className="flex items-center gap-3">
-                      <div 
-                        className="w-11 h-11 rounded-xl flex-shrink-0 shadow-md"
-                        style={{
-                          background: "conic-gradient(from 215deg, hsl(270, 65%, 50%), hsl(280, 70%, 60%), hsl(25, 95%, 52%), hsl(270, 65%, 50%))"
-                        }}
-                      >
-                        <div className="w-full h-full rounded-xl flex items-center justify-center" style={{ 
-                          background: "linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0.95))",
-                          margin: "2px",
-                          width: "calc(100% - 4px)",
-                          height: "calc(100% - 4px)",
-                          borderRadius: "10px"
-                        }}>
-                          <span className="text-lg font-black text-primary">SM</span>
-                        </div>
-                      </div>
+                      <Logo size="sm" className="drop-shadow-md" />
                       <div className="text-left">
                         <div className="font-heading font-bold text-foreground">Sucheta's Math Class</div>
                         <div className="flex items-center gap-1.5 text-sm text-muted-foreground font-medium">
