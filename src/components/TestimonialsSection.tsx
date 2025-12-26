@@ -46,27 +46,27 @@ export function TestimonialsSection() {
 
       <div className="container relative">
         {/* Section header */}
-        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider border border-primary/20">
-            <MessageSquare className="w-4 h-4" />
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-12 md:mb-16 px-2">
+          <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-bold uppercase tracking-wider border border-primary/20">
+            <MessageSquare className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
             Real Feedback
           </span>
-          <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl font-heading font-black text-foreground leading-tight">
+          <h2 className="mt-4 sm:mt-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-black text-foreground leading-tight">
             The biggest win:{" "}
             <span className="text-primary">"Now I understand"</span>
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Confidence comes from clarity + practice + tests. Here's what parents and students say.
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
+            Confidence comes from clarity + practice + tests.
           </p>
         </AnimatedSection>
 
         {/* Stats bar */}
         <AnimatedSection delay={100}>
-          <div className="grid grid-cols-3 gap-4 mb-12 max-w-2xl mx-auto">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-12 max-w-2xl mx-auto">
             {stats.map((stat, i) => (
-              <div key={i} className="text-center p-4 rounded-2xl bg-card/80 border border-border/50 shadow-sm">
-                <b className="block text-3xl md:text-4xl font-black text-primary">{stat.value}</b>
-                <span className="text-sm text-muted-foreground font-semibold">{stat.label}</span>
+              <div key={i} className="text-center p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-card/80 border border-border/50 shadow-sm">
+                <b className="block text-xl sm:text-3xl md:text-4xl font-black text-primary">{stat.value}</b>
+                <span className="text-xs sm:text-sm text-muted-foreground font-semibold">{stat.label}</span>
               </div>
             ))}
           </div>
@@ -120,12 +120,12 @@ export function TestimonialsSection() {
         </div>
 
         {/* CTA */}
-        <AnimatedSection className="mt-16 text-center" delay={700}>
-          <div className="inline-block p-6 md:p-8 rounded-3xl bg-gradient-to-r from-primary/10 via-card to-secondary/10 border border-border/50 shadow-lg">
-            <h3 className="text-2xl font-heading font-bold text-foreground mb-2">Ready to start your journey?</h3>
-            <p className="text-muted-foreground mb-6">Book a counselling call and get a clear study plan for the next 30 days.</p>
-            <Button size="lg" asChild className="text-base">
-              <a href="#contact" className="flex items-center gap-2">
+        <AnimatedSection className="mt-12 md:mt-16 text-center" delay={700}>
+          <div className="inline-block p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-primary/10 via-card to-secondary/10 border border-border/50 shadow-lg mx-2">
+            <h3 className="text-xl sm:text-2xl font-heading font-bold text-foreground mb-2">Ready to start your journey?</h3>
+            <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">Book a counselling call and get a clear study plan.</p>
+            <Button size="default" asChild className="w-full sm:w-auto text-sm sm:text-base">
+              <a href="#contact" className="flex items-center justify-center gap-2">
                 Book Counselling
                 <ArrowRight className="w-4 h-4" />
               </a>

@@ -86,18 +86,17 @@ export function ContactSection() {
 
       <div className="container relative">
         {/* Section header */}
-        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-bold uppercase tracking-wider border border-secondary/20">
-            <MessageCircle className="w-4 h-4" />
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-12 md:mb-16 px-2">
+          <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-secondary/10 text-secondary text-xs sm:text-sm font-bold uppercase tracking-wider border border-secondary/20">
+            <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
             Get Started
           </span>
-          <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl font-heading font-black text-foreground leading-tight">
+          <h2 className="mt-4 sm:mt-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-black text-foreground leading-tight">
             Book your{" "}
             <span className="text-primary">FREE counselling call</span>
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            Fill the form and we'll respond with the best plan based on level and weak chapters.
-            Parents can add last test marks for faster planning.
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
+            Fill the form and we'll respond with the best plan.
           </p>
         </AnimatedSection>
 
@@ -202,12 +201,12 @@ export function ContactSection() {
                   />
                 </div>
 
-                <div className="flex flex-wrap gap-3 pt-2">
-                  <Button type="submit" size="lg">
+                <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                  <Button type="submit" size="default" className="w-full sm:w-auto">
                     <Send className="w-4 h-4 mr-2" />
                     Send Enquiry
                   </Button>
-                  <Button type="button" size="lg" variant="secondary" onClick={() => openWhatsApp(makeLeadMessage())}>
+                  <Button type="button" size="default" variant="secondary" className="w-full sm:w-auto" onClick={() => openWhatsApp(makeLeadMessage())}>
                     <MessageCircle className="w-4 h-4 mr-2" />
                     WhatsApp Directly
                   </Button>
@@ -217,20 +216,20 @@ export function ContactSection() {
           </AnimatedSection>
 
           {/* Contact details - takes 2 columns */}
-          <AnimatedSection animation="fade-right" delay={200} className="lg:col-span-2 space-y-6">
+          <AnimatedSection animation="fade-right" delay={200} className="lg:col-span-2 space-y-4 sm:space-y-6">
             {/* Contact cards */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-2 sm:gap-4">
               {contactCards.map((card, i) => (
                 <div 
                   key={i}
-                  className={`p-5 rounded-2xl bg-gradient-to-br from-${card.color}/10 via-card to-card border border-border/50 shadow-sm hover:shadow-md transition-shadow ${card.href ? "cursor-pointer" : ""}`}
+                  className={`p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-gradient-to-br from-${card.color}/10 via-card to-card border border-border/50 shadow-sm hover:shadow-md transition-shadow ${card.href ? "cursor-pointer" : ""}`}
                   onClick={() => card.href && window.open(card.href, card.href.startsWith("tel") ? "_self" : "_blank")}
                 >
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br from-${card.color} to-${card.color}/70 flex items-center justify-center text-primary-foreground shadow-md mb-3`}>
-                    <card.icon className="w-6 h-6" />
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-${card.color} to-${card.color}/70 flex items-center justify-center text-primary-foreground shadow-md mb-2 sm:mb-3`}>
+                    <card.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <span className="block text-xs font-bold text-muted-foreground uppercase tracking-wider">{card.label}</span>
-                  <span className="block text-sm font-semibold text-foreground mt-1">{card.value}</span>
+                  <span className="block text-[10px] sm:text-xs font-bold text-muted-foreground uppercase tracking-wider">{card.label}</span>
+                  <span className="block text-xs sm:text-sm font-semibold text-foreground mt-0.5 sm:mt-1 break-all">{card.value}</span>
                 </div>
               ))}
             </div>
