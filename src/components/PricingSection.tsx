@@ -106,9 +106,9 @@ export function PricingSection() {
                   </div>
                 )}
 
-                <div className={`p-4 sm:p-6 md:p-8 ${plan.popular ? "pt-12 sm:pt-14" : ""}`}>
+                <div className={`p-4 sm:p-6 md:p-8 ${plan.popular ? "pt-16 sm:pt-20" : ""}`}>
                   {/* Plan header */}
-                  <div className="mb-4 sm:mb-6">
+                  <div className={`mb-4 sm:mb-6 ${plan.popular ? "mt-2 sm:mt-3" : ""}`}>
                     <span className={`inline-block px-2 sm:px-3 py-1 rounded-lg text-[10px] sm:text-xs font-bold uppercase tracking-wider ${
                       plan.popular 
                         ? "bg-secondary text-secondary-foreground" 
