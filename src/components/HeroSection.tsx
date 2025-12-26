@@ -27,13 +27,13 @@ export function HeroSection() {
 
       <div className="container relative">
         {/* Top announcement bar */}
-        <div className="flex justify-center mb-8 slide-up">
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-primary/15 via-secondary/10 to-primary/15 border border-primary/20 backdrop-blur-sm">
-            <span className="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-primary-foreground">
-              <Sparkles className="w-3.5 h-3.5" />
+        <div className="flex justify-center mb-6 sm:mb-8 slide-up px-2">
+          <div className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 rounded-full bg-gradient-to-r from-primary/15 via-secondary/10 to-primary/15 border border-primary/20 backdrop-blur-sm max-w-full">
+            <span className="flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary text-primary-foreground flex-shrink-0">
+              <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             </span>
-            <span className="text-sm font-bold text-foreground">Limited 1:1 slots available for January batch</span>
-            <ArrowRight className="w-4 h-4 text-primary" />
+            <span className="text-xs sm:text-sm font-bold text-foreground truncate">Limited 1:1 slots for January batch</span>
+            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
           </div>
         </div>
 
@@ -54,15 +54,16 @@ export function HeroSection() {
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-foreground leading-[1.1] tracking-tight">
-              <span className="text-primary">Strong Basics</span> →{" "}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black text-foreground leading-[1.15] tracking-tight">
+              <span className="text-primary">Strong Basics</span>{" "}
+              <span className="hidden sm:inline">→</span>{" "}
               <span className="relative inline-block">
                 Better Marks
-                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
+                <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
                   <path d="M2 8c30-6 60-6 90 0s60 6 90 0" stroke="hsl(var(--secondary))" strokeWidth="4" strokeLinecap="round" />
                 </svg>
               </span>{" "}
-              → Confident Exams
+              <span className="hidden sm:inline">→</span> <span className="block sm:inline">Confident Exams</span>
             </h1>
 
             {/* Subheadline */}
@@ -72,18 +73,19 @@ export function HeroSection() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-3">
-              <Button size="lg" asChild className="group text-base">
-                <a href="#contact" className="flex items-center gap-2">
-                  📞 Book FREE Counselling
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button size="lg" asChild className="group text-sm sm:text-base w-full sm:w-auto">
+                <a href="#contact" className="flex items-center justify-center gap-2">
+                  <span>📞 Book FREE Counselling</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                 </a>
               </Button>
-              <Button size="lg" variant="secondary" asChild className="text-base">
+              <Button size="lg" variant="secondary" asChild className="text-sm sm:text-base w-full sm:w-auto">
                 <a 
                   href="https://wa.me/919874088765?text=Hi! I'm interested in 1:1 private coaching." 
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="justify-center"
                 >
                   💬 WhatsApp Now
                 </a>
@@ -91,15 +93,15 @@ export function HeroSection() {
             </div>
 
             {/* Trust badges */}
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="grid grid-cols-1 xs:grid-cols-3 gap-2 sm:gap-4 pt-4">
               {trustBadges.map((badge, i) => (
-                <div key={i} className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-card/80 border border-border/50 shadow-sm backdrop-blur-sm">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary-foreground shadow-md">
-                    <badge.icon className="w-5 h-5" />
+                <div key={i} className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl bg-card/80 border border-border/50 shadow-sm backdrop-blur-sm">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary-foreground shadow-md flex-shrink-0">
+                    <badge.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
-                  <div>
-                    <b className="block text-sm text-foreground">{badge.label}</b>
-                    <span className="block text-xs text-muted-foreground">{badge.desc}</span>
+                  <div className="min-w-0">
+                    <b className="block text-xs sm:text-sm text-foreground truncate">{badge.label}</b>
+                    <span className="block text-[10px] sm:text-xs text-muted-foreground truncate">{badge.desc}</span>
                   </div>
                 </div>
               ))}
@@ -168,18 +170,18 @@ export function HeroSection() {
         </div>
 
         {/* Teacher credentials */}
-        <div className="mt-8 p-6 rounded-3xl bg-gradient-to-r from-primary/10 via-card to-secondary/10 border border-border/50 shadow-md">
-          <div className="flex flex-col md:flex-row items-center gap-6">
-            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-3xl shadow-lg">
+        <div className="mt-8 p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-primary/10 via-card to-secondary/10 border border-border/50 shadow-md">
+          <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl sm:rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-2xl sm:text-3xl shadow-lg flex-shrink-0">
               🎓
             </div>
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="font-heading font-bold text-xl text-foreground">Taught by Qualified Expert</h3>
-              <p className="mt-1 text-muted-foreground">
-                BSc Mathematics (Hons.) from Sa Jaipuria College, Kolkata (CU) — First Class • MSc Pure Mathematics from Lady Brabourne College • Currently a high school Mathematics teacher
+            <div className="flex-1 text-center md:text-left min-w-0">
+              <h3 className="font-heading font-bold text-lg sm:text-xl text-foreground">Taught by Qualified Expert</h3>
+              <p className="mt-1 text-sm sm:text-base text-muted-foreground">
+                BSc Mathematics (Hons.) from Sa Jaipuria College, Kolkata (CU) — First Class • MSc Pure Mathematics from Lady Brabourne College
               </p>
             </div>
-            <Button size="lg" asChild>
+            <Button size="default" className="w-full sm:w-auto flex-shrink-0" asChild>
               <a href="#contact">Get Started</a>
             </Button>
           </div>
