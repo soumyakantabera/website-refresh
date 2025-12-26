@@ -89,8 +89,10 @@ export function PricingSection() {
           {plans.map((plan, i) => (
             <AnimatedSection key={i} delay={i * 150} animation="scale">
               <div 
-                className={`relative rounded-3xl bg-gradient-to-br ${plan.gradient} border-2 shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 h-full ${
-                  plan.popular ? "border-secondary lg:scale-105 lg:z-10" : "border-border/50"
+                className={`group relative rounded-3xl bg-gradient-to-br ${plan.gradient} border-2 overflow-hidden transition-all duration-500 ease-out h-full cursor-pointer ${
+                  plan.popular 
+                    ? "border-secondary lg:scale-105 lg:z-10 shadow-[0_20px_50px_-12px_hsl(var(--secondary)/0.35)] hover:shadow-[0_30px_60px_-12px_hsl(var(--secondary)/0.5)] hover:-translate-y-3" 
+                    : "border-border/50 shadow-lg hover:shadow-[0_25px_50px_-12px_hsl(var(--primary)/0.25)] hover:-translate-y-3 hover:border-primary/50"
                 }`}
               >
                 {/* Popular badge */}
@@ -166,13 +168,13 @@ export function PricingSection() {
                   {/* CTA */}
                   <Button 
                     asChild 
-                    className="w-full text-base"
+                    className="w-full text-base transition-transform duration-300 group-hover:scale-[1.02]"
                     variant={plan.popular ? "default" : "outline"}
                     size="lg"
                   >
                     <a href="#contact" className="flex items-center justify-center gap-2">
                       {plan.popular ? "Get Started" : "Enquire Now"}
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </a>
                   </Button>
                 </div>
