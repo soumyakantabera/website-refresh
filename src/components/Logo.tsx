@@ -15,7 +15,7 @@ export function Logo({ className = "", size = "md" }: LogoProps) {
       viewBox="0 0 48 48"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`${sizeClasses[size]} ${className}`}
+      className={`${sizeClasses[size]} ${className} transition-all duration-300 hover:scale-110 hover:rotate-6 hover:drop-shadow-lg cursor-pointer`}
     >
       <defs>
         <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
