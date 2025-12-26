@@ -4,6 +4,30 @@ import { AnimatedSection } from "@/hooks/useScrollAnimation";
 
 const testimonials = [
   {
+    text: "My daughter went from 45 marks to 92 in Class 10 boards. The personalized attention and weekly tests made all the difference. Highly recommend!",
+    author: "Ananya Mukherjee",
+    class: "Class 10 (CBSE)",
+    location: "Kolkata",
+    highlight: "45 → 92 marks",
+    rating: 5,
+  },
+  {
+    text: "Best math tuition in Kolkata. My son was struggling with Calculus in Class 12, now he tops his class. The formula sheets and daily practice really helped.",
+    author: "Rahul Sharma",
+    class: "Class 12 (CBSE)",
+    location: "Kolkata",
+    highlight: "Class topper",
+    rating: 5,
+  },
+  {
+    text: "Excellent coaching for BSc Mathematics. The proof-writing sessions and problem sets prepared me well for university exams. Very patient teacher.",
+    author: "Priya Das",
+    class: "BSc Mathematics",
+    location: "Online",
+    highlight: "University prep",
+    rating: 5,
+  },
+  {
     text: "My son was scared of maths. After weekly tests and daily practice, his accuracy improved and he feels confident now.",
     author: "Parent",
     class: "Class 9 (ICSE)",
@@ -73,7 +97,7 @@ export function TestimonialsSection() {
         </AnimatedSection>
 
         {/* Testimonials grid */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, i) => (
             <AnimatedSection key={i} delay={200 + i * 150} animation="scale">
               <div 
