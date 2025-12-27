@@ -19,7 +19,7 @@ const COACHING = {
 
 const classLevels = ["Class 7", "Class 8", "Class 9", "Class 10", "Class 11", "Class 12", "BSc Mathematics (Pass)", "BSc Mathematics (Honours)"];
 const boards = ["CBSE", "ICSE", "WBBSE", "Other / University"];
-const subjects = ["Mathematics", "Physics", "Chemistry", "Biology", "All Subjects Bundle", "BSc Maths Topics"];
+const subjects = ["Mathematics", "BSc Maths Topics"];
 const modes = ["Offline (Kolkata)", "Online"];
 
 export function ContactSection() {
