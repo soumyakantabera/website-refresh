@@ -8,10 +8,12 @@ import { FAQSection } from "@/components/FAQSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { FloatingActions } from "@/components/FloatingActions";
+import { PromoBanner } from "@/components/PromoBanner";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <PromoBanner />
       <Navbar />
       <main>
         <HeroSection />
