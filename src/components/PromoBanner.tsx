@@ -14,13 +14,13 @@ export function PromoBanner() {
       <div className="container relative flex items-center justify-center gap-2 text-sm sm:text-base font-semibold">
         <Sparkles className="w-4 h-4 flex-shrink-0 animate-pulse" />
         <span>
-          <span className="hidden sm:inline">🎉 New Year Offer: </span>
-          <span className="font-bold">First month FREE</span> for new students!
+          <span className="hidden sm:inline">📚 Limited Offer: </span>
+          <span className="font-bold">FREE Demo Session</span> — see if we're the right fit!
           <a 
             href="#contact" 
             className="ml-2 underline underline-offset-2 hover:no-underline font-bold"
           >
-            Claim Now →
+            Book Now →
           </a>
         </span>
       </div>
