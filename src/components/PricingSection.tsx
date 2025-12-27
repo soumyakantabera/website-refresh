@@ -6,11 +6,11 @@ const plans = [
   {
     name: "Classes 7–10",
     subtitle: "Board Foundation",
-    price: "₹750",
+    price: "₹1000",
     priceLabel: "/ month",
-    priceSuffix: "Maths",
-    otherPrices: ["Physics ₹500/mo", "Chemistry ₹500/mo", "Biology ₹500/mo"],
-    bundle: { price: "₹2000/mo", label: "All subjects" },
+    priceSuffix: null,
+    otherPrices: [],
+    bundle: null,
     features: [
       "Foundation building + school exam prep",
       "Daily practice sessions + Q&A sessions",
@@ -24,11 +24,11 @@ const plans = [
   {
     name: "Classes 11–12",
     subtitle: "Board Mastery",
-    price: "₹1000",
+    price: "₹1350",
     priceLabel: "/ month",
-    priceSuffix: "Maths",
-    otherPrices: ["Physics ₹750/mo", "Chemistry ₹750/mo", "Biology ₹750/mo"],
-    bundle: { price: "₹2500/mo", label: "All subjects" },
+    priceSuffix: null,
+    otherPrices: [],
+    bundle: null,
     features: [
       "Board-focused numericals + speed building",
       "Concept clarity → problem-solving confidence",
@@ -42,10 +42,10 @@ const plans = [
   {
     name: "BSc Mathematics",
     subtitle: "University Level",
-    price: "From ₹2000",
+    price: "From ₹2700",
     priceLabel: "/ month",
     priceSuffix: null,
-    otherPrices: ["Topic-wise support + university prep"],
+    otherPrices: [],
     bundle: null,
     features: [
       "Calculus, Algebra, Real Analysis, Linear Algebra",

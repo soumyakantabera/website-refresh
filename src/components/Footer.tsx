@@ -21,7 +21,7 @@ const quickLinks = [
 
 const programs = [
   { title: "Classes 7–10", desc: "CBSE / ICSE / WBBSE" },
-  { title: "Classes 11–12", desc: "Science + Maths" },
+  { title: "Classes 11–12", desc: "Mathematics" },
   { title: "BSc Mathematics", desc: "Pass / Honours" },
 ];
 
