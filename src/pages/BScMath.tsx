@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { ClassHero } from "@/components/ClassHero";
+import { RelatedLinks, BOARD_LINKS, CLASS_LINKS } from "@/components/RelatedLinks";
 import { LocationFeatures } from "@/components/LocationFeatures";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { FAQSection } from "@/components/FAQSection";
@@ -9,6 +10,8 @@ import { Footer } from "@/components/Footer";
 import { FloatingActions } from "@/components/FloatingActions";
 
 const BScMath = () => {
+  const otherClasses = CLASS_LINKS.filter(link => link.href !== "/bsc-math-tutor");
+  
   return (
     <>
       <Helmet>
@@ -31,6 +34,8 @@ const BScMath = () => {
             topics={["Real Analysis", "Linear Algebra", "Abstract Algebra", "Calculus", "Differential Equations", "Complex Analysis", "Numerical Methods"]}
             description="University-level mathematics requires expert guidance. 1:1 coaching for BSc Honours and Pass students covering Real Analysis, Linear Algebra, and all core subjects for CU, WBSU, and affiliated colleges."
           />
+          <RelatedLinks title="Browse by University" links={BOARD_LINKS} />
+          <RelatedLinks title="School Classes" links={otherClasses} />
           <LocationFeatures areaName="BSc Math students" />
           <TestimonialsSection />
           <FAQSection />

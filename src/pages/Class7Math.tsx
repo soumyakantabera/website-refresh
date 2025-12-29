@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { ClassHero } from "@/components/ClassHero";
+import { RelatedLinks, BOARD_LINKS, CLASS_LINKS } from "@/components/RelatedLinks";
 import { LocationFeatures } from "@/components/LocationFeatures";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { FAQSection } from "@/components/FAQSection";
@@ -9,6 +10,8 @@ import { Footer } from "@/components/Footer";
 import { FloatingActions } from "@/components/FloatingActions";
 
 const Class7Math = () => {
+  const otherClasses = CLASS_LINKS.filter(link => link.href !== "/class-7-math-tutor");
+  
   return (
     <>
       <Helmet>
@@ -31,6 +34,8 @@ const Class7Math = () => {
             topics={["Integers", "Fractions", "Algebra Basics", "Geometry", "Ratio & Proportion", "Data Handling"]}
             description="Build a strong mathematical foundation in Class 7. Expert 1:1 coaching covering integers, fractions, basic algebra, and geometry for CBSE, ICSE, and WBBSE students."
           />
+          <RelatedLinks title="Browse by Board" links={BOARD_LINKS} />
+          <RelatedLinks title="Other Classes" links={otherClasses} />
           <LocationFeatures areaName="Class 7 students" />
           <TestimonialsSection />
           <FAQSection />
