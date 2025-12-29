@@ -11,7 +11,7 @@ import { FloatingActions } from "@/components/FloatingActions";
 
 const BoardCU = () => {
   const bscClasses = CLASS_LINKS.filter(link => link.href === "/bsc-math-tutor");
-  const otherBoards = BOARD_LINKS.filter(link => link.href !== "/calcutta-university-bsc-math-tutor");
+  const otherBoards = BOARD_LINKS.filter(link => link.href !== "/calcutta-university-bsc-math");
 
   return (
     <>
@@ -19,10 +19,10 @@ const BoardCU = () => {
         <title>Calcutta University BSc Maths Tutor | CU Hons & Pass Coaching | Sucheta's Math Class</title>
         <meta name="description" content="Expert Calcutta University BSc Mathematics tutor in Kolkata. Honours & Pass course coaching, CU syllabus, exam preparation. 1:1 tuition for all semesters. Call +91-6290871215" />
         <meta name="keywords" content="calcutta university bsc math tutor, cu math honours coaching, cu math pass tuition, calcutta university math syllabus, bsc math tutor kolkata, cu semester exam preparation, real analysis tutor kolkata" />
-        <link rel="canonical" href="https://mathclassbysucheta.com/calcutta-university-bsc-math-tutor" />
+        <link rel="canonical" href="https://mathclassbysucheta.com/calcutta-university-bsc-math" />
         <meta property="og:title" content="Calcutta University BSc Maths Tutor | Sucheta's Math Class" />
         <meta property="og:description" content="Expert CU BSc Mathematics coaching in Kolkata. Honours & Pass. All semesters. Book free counselling!" />
-        <meta property="og:url" content="https://mathclassbysucheta.com/calcutta-university-bsc-math-tutor" />
+        <meta property="og:url" content="https://mathclassbysucheta.com/calcutta-university-bsc-math" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

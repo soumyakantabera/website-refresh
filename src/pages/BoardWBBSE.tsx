@@ -13,7 +13,7 @@ const BoardWBBSE = () => {
   const wbbseClasses = CLASS_LINKS.filter(link => 
     ["/class-7-math-tutor", "/class-8-math-tutor", "/class-9-math-tutor", "/class-10-math-tutor"].includes(link.href)
   );
-  const otherBoards = BOARD_LINKS.filter(link => link.href !== "/wbbse-madhyamik-math-tutor");
+  const otherBoards = BOARD_LINKS.filter(link => link.href !== "/wbbse-math-tutor");
 
   return (
     <>
@@ -21,7 +21,7 @@ const BoardWBBSE = () => {
         <title>Best WBBSE Math Tutor in Kolkata | Madhyamik Math Coaching | Sucheta's Math Class</title>
         <meta name="description" content="Expert WBBSE math tutor in Kolkata for Classes 5-10. Madhyamik math preparation with board-aligned syllabus, Bengali medium support. 1:1 coaching. Call +91-6290871215" />
         <meta name="keywords" content="wbbse math tutor kolkata, madhyamik math coaching, west bengal board math tuition, wbbse class 10 math, bengali medium math tutor, wbbse syllabus math, madhyamik preparation kolkata" />
-        <link rel="canonical" href="https://mathclassbysucheta.com/wbbse-madhyamik-math-tutor" />
+        <link rel="canonical" href="https://mathclassbysucheta.com/wbbse-math-tutor" />
         <meta property="og:title" content="Best WBBSE Math Tutor in Kolkata | Sucheta's Math Class" />
         <meta property="og:description" content="Expert WBBSE/Madhyamik math coaching in Kolkata. Board-aligned syllabus, previous year papers. Book free counselling!" />
         <meta property="og:url" content="https://mathclassbysucheta.com/wbbse-madhyamik-math-tutor" />
