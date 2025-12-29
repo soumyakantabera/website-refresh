@@ -125,6 +125,14 @@ export function Footer() {
                 </div>
               ))}
             </div>
+            
+            {/* Location Links */}
+            <h4 className="font-heading font-bold text-foreground mt-6 mb-3">Areas We Serve</h4>
+            <div className="flex flex-wrap gap-2">
+              <a href="/math-tutor-belghoria" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Belghoria</a>
+              <a href="/math-tutor-dunlop" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Dunlop</a>
+              <a href="/math-tutor-sodepur" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Sodepur</a>
+            </div>
           </div>
 
           {/* Contact */}
