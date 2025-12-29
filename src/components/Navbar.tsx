@@ -66,8 +66,8 @@ export function Navbar() {
 
             {/* Mobile Menu */}
             <Sheet open={open} onOpenChange={setOpen}>
-              <SheetTrigger asChild className="lg:hidden">
-                <Button variant="ghost" size="sm" className="h-10 w-10 p-0 rounded-xl bg-background/50 border border-border/30 hover:bg-background/80">
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="sm" className="lg:hidden h-10 w-10 p-0 rounded-xl bg-background/50 border border-border/30 hover:bg-background/80">
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
