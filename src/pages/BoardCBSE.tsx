@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { BoardHero } from "@/components/BoardHero";
+import { RelatedLinks, CLASS_LINKS, BOARD_LINKS } from "@/components/RelatedLinks";
 import { LocationFeatures } from "@/components/LocationFeatures";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { FAQSection } from "@/components/FAQSection";
@@ -9,6 +10,9 @@ import { Footer } from "@/components/Footer";
 import { FloatingActions } from "@/components/FloatingActions";
 
 const BoardCBSE = () => {
+  const cbseClasses = CLASS_LINKS.filter(link => !link.href.includes("bsc"));
+  const otherBoards = BOARD_LINKS.filter(link => link.href !== "/cbse-math-tutor");
+
   return (
     <>
       <Helmet>
@@ -47,6 +51,8 @@ const BoardCBSE = () => {
             subjects={["Algebra", "Geometry", "Trigonometry", "Calculus", "Statistics", "Probability", "Coordinate Geometry"]}
             description="Looking for CBSE math coaching in Kolkata? Get expert 1:1 tuition with NCERT-aligned syllabus, comprehensive board exam preparation, and sample paper practice."
           />
+          <RelatedLinks title="CBSE Classes" links={cbseClasses} />
+          <RelatedLinks title="Other Boards" links={otherBoards} />
           <LocationFeatures areaName="CBSE students in Kolkata" />
           <TestimonialsSection />
           <FAQSection />

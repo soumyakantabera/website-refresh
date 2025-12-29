@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { ClassHero } from "@/components/ClassHero";
+import { RelatedLinks, BOARD_LINKS, CLASS_LINKS } from "@/components/RelatedLinks";
 import { LocationFeatures } from "@/components/LocationFeatures";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { FAQSection } from "@/components/FAQSection";
@@ -9,6 +10,8 @@ import { Footer } from "@/components/Footer";
 import { FloatingActions } from "@/components/FloatingActions";
 
 const Class8Math = () => {
+  const otherClasses = CLASS_LINKS.filter(link => link.href !== "/class-8-math-tutor");
+  
   return (
     <>
       <Helmet>
@@ -31,6 +34,8 @@ const Class8Math = () => {
             topics={["Algebraic Expressions", "Linear Equations", "Quadrilaterals", "Mensuration", "Exponents", "Direct & Inverse Proportion"]}
             description="Prepare for board exams with strong Class 8 foundation. Expert 1:1 coaching covering algebraic expressions, linear equations, and geometry for CBSE, ICSE, and WBBSE."
           />
+          <RelatedLinks title="Browse by Board" links={BOARD_LINKS} />
+          <RelatedLinks title="Other Classes" links={otherClasses} />
           <LocationFeatures areaName="Class 8 students" />
           <TestimonialsSection />
           <FAQSection />

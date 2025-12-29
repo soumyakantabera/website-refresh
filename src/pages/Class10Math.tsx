@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { ClassHero } from "@/components/ClassHero";
+import { RelatedLinks, BOARD_LINKS, CLASS_LINKS } from "@/components/RelatedLinks";
 import { LocationFeatures } from "@/components/LocationFeatures";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { FAQSection } from "@/components/FAQSection";
@@ -9,6 +10,8 @@ import { Footer } from "@/components/Footer";
 import { FloatingActions } from "@/components/FloatingActions";
 
 const Class10Math = () => {
+  const otherClasses = CLASS_LINKS.filter(link => link.href !== "/class-10-math-tutor");
+  
   return (
     <>
       <Helmet>
@@ -31,6 +34,8 @@ const Class10Math = () => {
             topics={["Real Numbers", "Polynomials", "Quadratic Equations", "Trigonometry", "Circles", "Coordinate Geometry", "Statistics & Probability"]}
             description="Class 10 board exam is crucial. Expert 1:1 coaching with comprehensive board exam preparation, previous year papers, mock tests, and revision strategies for CBSE, ICSE, and Madhyamik."
           />
+          <RelatedLinks title="Browse by Board" links={BOARD_LINKS} />
+          <RelatedLinks title="Other Classes" links={otherClasses} />
           <LocationFeatures areaName="Class 10 students" />
           <TestimonialsSection />
           <FAQSection />

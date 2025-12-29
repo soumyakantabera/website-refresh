@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { ClassHero } from "@/components/ClassHero";
+import { RelatedLinks, BOARD_LINKS, CLASS_LINKS } from "@/components/RelatedLinks";
 import { LocationFeatures } from "@/components/LocationFeatures";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { FAQSection } from "@/components/FAQSection";
@@ -9,6 +10,8 @@ import { Footer } from "@/components/Footer";
 import { FloatingActions } from "@/components/FloatingActions";
 
 const Class9Math = () => {
+  const otherClasses = CLASS_LINKS.filter(link => link.href !== "/class-9-math-tutor");
+  
   return (
     <>
       <Helmet>
@@ -31,6 +34,8 @@ const Class9Math = () => {
             topics={["Polynomials", "Coordinate Geometry", "Linear Equations", "Triangles", "Circles", "Surface Area & Volume", "Statistics"]}
             description="Class 9 is where board exam preparation begins. Expert 1:1 coaching covering polynomials, coordinate geometry, and advanced concepts for CBSE, ICSE, and WBBSE."
           />
+          <RelatedLinks title="Browse by Board" links={BOARD_LINKS} />
+          <RelatedLinks title="Other Classes" links={otherClasses} />
           <LocationFeatures areaName="Class 9 students" />
           <TestimonialsSection />
           <FAQSection />

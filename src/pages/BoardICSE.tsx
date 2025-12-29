@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { BoardHero } from "@/components/BoardHero";
+import { RelatedLinks, CLASS_LINKS, BOARD_LINKS } from "@/components/RelatedLinks";
 import { LocationFeatures } from "@/components/LocationFeatures";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { FAQSection } from "@/components/FAQSection";
@@ -9,6 +10,9 @@ import { Footer } from "@/components/Footer";
 import { FloatingActions } from "@/components/FloatingActions";
 
 const BoardICSE = () => {
+  const icseClasses = CLASS_LINKS.filter(link => !link.href.includes("bsc"));
+  const otherBoards = BOARD_LINKS.filter(link => link.href !== "/icse-math-tutor");
+
   return (
     <>
       <Helmet>
@@ -47,6 +51,8 @@ const BoardICSE = () => {
             subjects={["Algebra", "Geometry", "Trigonometry", "Calculus", "Statistics", "Probability", "Commercial Mathematics"]}
             description="Looking for ICSE/ISC math coaching in Kolkata? Get expert 1:1 tuition with Selina and ML Aggarwal solutions, comprehensive board exam preparation, and previous year paper practice."
           />
+          <RelatedLinks title="ICSE/ISC Classes" links={icseClasses} />
+          <RelatedLinks title="Other Boards" links={otherBoards} />
           <LocationFeatures areaName="ICSE students in Kolkata" />
           <TestimonialsSection />
           <FAQSection />
