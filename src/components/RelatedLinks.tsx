@@ -35,7 +35,7 @@ export function RelatedLinks({ title, links }: RelatedLinksProps) {
   );
 }
 
-// Pre-defined link sets for reuse
+// Pre-defined link sets for reuse - MATCHING App.tsx routes exactly
 export const CLASS_LINKS = [
   { label: "Class 7 Math", href: "/class-7-math-tutor" },
   { label: "Class 8 Math", href: "/class-8-math-tutor" },
@@ -47,11 +47,11 @@ export const CLASS_LINKS = [
 ];
 
 export const BOARD_LINKS = [
-  { label: "WBBSE/Madhyamik", href: "/wbbse-madhyamik-math-tutor" },
+  { label: "WBBSE/Madhyamik", href: "/wbbse-math-tutor" },
   { label: "CBSE Board", href: "/cbse-math-tutor" },
   { label: "ICSE Board", href: "/icse-math-tutor" },
-  { label: "Calcutta University", href: "/calcutta-university-bsc-math-tutor" },
-  { label: "WBSU", href: "/west-bengal-state-university-bsc-math-tutor" },
+  { label: "Calcutta University", href: "/calcutta-university-bsc-math" },
+  { label: "WBSU", href: "/wbsu-bsc-math" },
 ];
 
 export const LOCATION_LINKS = [

@@ -8,9 +8,9 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Board Pages -->
+  <!-- Board Pages - matching App.tsx routes -->
   <url>
-    <loc>https://mathclassbysucheta.com/wbbse-madhyamik-math-tutor</loc>
+    <loc>https://mathclassbysucheta.com/wbbse-math-tutor</loc>
     <lastmod>2025-12-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -28,13 +28,13 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mathclassbysucheta.com/calcutta-university-bsc-math-tutor</loc>
+    <loc>https://mathclassbysucheta.com/calcutta-university-bsc-math</loc>
     <lastmod>2025-12-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mathclassbysucheta.com/west-bengal-state-university-bsc-math-tutor</loc>
+    <loc>https://mathclassbysucheta.com/wbsu-bsc-math</loc>
     <lastmod>2025-12-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
