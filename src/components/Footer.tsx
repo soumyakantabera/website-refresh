@@ -114,31 +114,36 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* Programs */}
+          {/* Programs & Boards */}
           <div>
-            <h4 className="font-heading font-bold text-foreground mb-4">Programs</h4>
-            <div className="space-y-3">
-              {programs.map((program, i) => (
-                <div key={i}>
-                  <b className="block text-foreground font-semibold">{program.title}</b>
-                  <span className="text-sm text-muted-foreground">{program.desc}</span>
-                </div>
-              ))}
+            <h4 className="font-heading font-bold text-foreground mb-4">By Board</h4>
+            <div className="flex flex-wrap gap-2 mb-4">
+              <a href="/wbbse-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">WBBSE</a>
+              <a href="/cbse-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">CBSE</a>
+              <a href="/icse-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">ICSE</a>
+              <a href="/calcutta-university-bsc-math" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">CU BSc</a>
+              <a href="/wbsu-bsc-math" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">WBSU BSc</a>
             </div>
             
-            {/* Location Links */}
-            <h4 className="font-heading font-bold text-foreground mt-6 mb-3">Areas We Serve</h4>
+            <h4 className="font-heading font-bold text-foreground mb-3">By Class</h4>
+            <div className="flex flex-wrap gap-2 mb-4">
+              <a href="/class-7-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Class 7</a>
+              <a href="/class-8-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Class 8</a>
+              <a href="/class-9-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Class 9</a>
+              <a href="/class-10-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Class 10</a>
+              <a href="/class-11-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Class 11</a>
+              <a href="/class-12-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Class 12</a>
+              <a href="/bsc-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">BSc Math</a>
+            </div>
+            
+            <h4 className="font-heading font-bold text-foreground mb-3">Areas We Serve</h4>
             <div className="flex flex-wrap gap-2">
-              <a href="/math-tutor-belghoria" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Belghoria</a>
-              <a href="/math-tutor-dunlop" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Dunlop</a>
-              <a href="/math-tutor-sodepur" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Sodepur</a>
-              <a href="/math-tutor-barrackpore" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Barrackpore</a>
-              <a href="/math-tutor-dum-dum" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Dum Dum</a>
-              <a href="/math-tutor-lake-town" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Lake Town</a>
-              <a href="/math-tutor-shyambazar" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Shyambazar</a>
-              <a href="/math-tutor-sinthi-more" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Sinthi More</a>
-              <a href="/math-tutor-ariadaha" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Ariadaha</a>
-              <a href="/math-tutor-sobha-bazar" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Sobha Bazar</a>
+              <a href="/math-tutor-belghoria" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Belghoria</a>
+              <a href="/math-tutor-dunlop" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Dunlop</a>
+              <a href="/math-tutor-sodepur" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Sodepur</a>
+              <a href="/math-tutor-barrackpore" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Barrackpore</a>
+              <a href="/math-tutor-dum-dum" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Dum Dum</a>
+              <a href="/math-tutor-shyambazar" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Shyambazar</a>
             </div>
           </div>
 
