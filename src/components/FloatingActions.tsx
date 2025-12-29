@@ -88,6 +88,15 @@ export function FloatingActions() {
               <Phone className="w-4 h-4" />
             </a>
           </Button>
+          {/* Mobile Scroll to Top */}
+          <button 
+            onClick={scrollToTop}
+            className={`h-11 w-11 flex-shrink-0 rounded-lg bg-muted border border-border flex items-center justify-center transition-all ${
+              showScrollTop ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            <ArrowUp className="w-4 h-4 text-muted-foreground" />
+          </button>
         </div>
       </div>
     </>
