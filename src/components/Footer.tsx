@@ -132,6 +132,13 @@ export function Footer() {
               <a href="/math-tutor-belghoria" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Belghoria</a>
               <a href="/math-tutor-dunlop" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Dunlop</a>
               <a href="/math-tutor-sodepur" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Sodepur</a>
+              <a href="/math-tutor-barrackpore" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Barrackpore</a>
+              <a href="/math-tutor-dum-dum" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Dum Dum</a>
+              <a href="/math-tutor-lake-town" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Lake Town</a>
+              <a href="/math-tutor-shyambazar" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Shyambazar</a>
+              <a href="/math-tutor-sinthi-more" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Sinthi More</a>
+              <a href="/math-tutor-ariadaha" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Ariadaha</a>
+              <a href="/math-tutor-sobha-bazar" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Sobha Bazar</a>
             </div>
           </div>
 

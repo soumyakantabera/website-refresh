@@ -9,6 +9,13 @@ import NotFound from "./pages/NotFound";
 import LocationBelghoria from "./pages/LocationBelghoria";
 import LocationDunlop from "./pages/LocationDunlop";
 import LocationSodepur from "./pages/LocationSodepur";
+import LocationBarrackpore from "./pages/LocationBarrackpore";
+import LocationDumDum from "./pages/LocationDumDum";
+import LocationLakeTown from "./pages/LocationLakeTown";
+import LocationShyambazar from "./pages/LocationShyambazar";
+import LocationSinthiMore from "./pages/LocationSinthiMore";
+import LocationAriadaha from "./pages/LocationAriadaha";
+import LocationSobhaBazar from "./pages/LocationSobhaBazar";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +31,13 @@ const App = () => (
             <Route path="/math-tutor-belghoria" element={<LocationBelghoria />} />
             <Route path="/math-tutor-dunlop" element={<LocationDunlop />} />
             <Route path="/math-tutor-sodepur" element={<LocationSodepur />} />
+            <Route path="/math-tutor-barrackpore" element={<LocationBarrackpore />} />
+            <Route path="/math-tutor-dum-dum" element={<LocationDumDum />} />
+            <Route path="/math-tutor-lake-town" element={<LocationLakeTown />} />
+            <Route path="/math-tutor-shyambazar" element={<LocationShyambazar />} />
+            <Route path="/math-tutor-sinthi-more" element={<LocationSinthiMore />} />
+            <Route path="/math-tutor-ariadaha" element={<LocationAriadaha />} />
+            <Route path="/math-tutor-sobha-bazar" element={<LocationSobhaBazar />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
