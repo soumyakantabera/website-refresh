@@ -186,12 +186,15 @@ export function Navbar() {
             </div>
 
             {/* Mobile Menu */}
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="lg:hidden h-10 w-10 p-0 rounded-xl bg-background/50 border border-border/30 hover:bg-background/80"
+              onClick={() => setOpen(true)}
+            >
+              <Menu className="h-5 w-5" />
+            </Button>
             <Sheet open={open} onOpenChange={setOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="sm" className="lg:hidden h-10 w-10 p-0 rounded-xl bg-background/50 border border-border/30 hover:bg-background/80">
-                  <Menu className="h-5 w-5" />
-                </Button>
-              </SheetTrigger>
               <SheetContent className="w-[320px] sm:w-[380px] p-0 border-l-0">
                 <div className="h-full flex flex-col bg-gradient-to-b from-background via-background to-primary/5">
                   {/* Header with glass effect */}
