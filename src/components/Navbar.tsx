@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import {
@@ -10,7 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Menu, Phone, ArrowRight, Sparkles, ChevronDown, GraduationCap, BookOpen } from "lucide-react";
+import { Menu, Phone, ArrowRight, Sparkles, ChevronDown, GraduationCap, BookOpen, MapPin } from "lucide-react";
 import { Logo } from "@/components/Logo";
 
 const navLinks = [
@@ -39,9 +39,31 @@ const boardLinks = [
   { href: "/wbsu-bsc-math", label: "WBSU" },
 ];
 
+const locationLinks = [
+  { href: "/math-tutor-belghoria", label: "Belghoria" },
+  { href: "/math-tutor-dunlop", label: "Dunlop" },
+  { href: "/math-tutor-sodepur", label: "Sodepur" },
+  { href: "/math-tutor-barrackpore", label: "Barrackpore" },
+  { href: "/math-tutor-dum-dum", label: "Dum Dum" },
+  { href: "/math-tutor-lake-town", label: "Lake Town" },
+  { href: "/math-tutor-shyambazar", label: "Shyambazar" },
+  { href: "/math-tutor-sinthi-more", label: "Sinthi More" },
+  { href: "/math-tutor-ariadaha", label: "Ariadaha" },
+  { href: "/math-tutor-sobha-bazar", label: "Sobha Bazar" },
+];
+
 export function Navbar() {
   const [open, setOpen] = useState(false);
-  const [coursesOpen, setCoursesOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
+  // Helper to get correct href for anchor links
+  const getAnchorHref = (href: string) => {
+    if (href.startsWith("#")) {
+      return isHomePage ? href : `/${href}`;
+    }
+    return href;
+  };
 
   return (
     <header className="relative z-50 pt-4 sm:pt-6">
@@ -65,16 +87,13 @@ export function Navbar() {
 
             {/* Desktop Nav - Pill style */}
             <nav className="hidden lg:flex items-center gap-1 px-2 py-1.5 rounded-full bg-background/50 border border-border/30">
-              {navLinks.slice(0, 1).map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="relative px-4 py-2 rounded-full text-sm text-muted-foreground font-medium hover:text-foreground transition-all duration-200 group"
-                >
-                  <span className="relative z-10">{link.label}</span>
-                  <span className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
-              ))}
+              <a
+                href={getAnchorHref("#why")}
+                className="relative px-4 py-2 rounded-full text-sm text-muted-foreground font-medium hover:text-foreground transition-all duration-200 group"
+              >
+                <span className="relative z-10">Why Us</span>
+                <span className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
               
               {/* Courses Dropdown */}
               <DropdownMenu>
@@ -83,7 +102,7 @@ export function Navbar() {
                   <ChevronDown className="w-3.5 h-3.5 relative z-10" />
                   <span className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56 bg-card border border-border shadow-lg z-[100]" align="center" sideOffset={8}>
+                <DropdownMenuContent className="w-56 bg-card border border-border shadow-lg z-[100] max-h-[70vh] overflow-y-auto" align="center" sideOffset={8}>
                   <DropdownMenuLabel className="flex items-center gap-2 text-primary">
                     <GraduationCap className="w-4 h-4" />
                     By Class
@@ -107,28 +126,58 @@ export function Navbar() {
                       </Link>
                     </DropdownMenuItem>
                   ))}
+                  <DropdownMenuSeparator />
+                  <DropdownMenuLabel className="flex items-center gap-2 text-primary">
+                    <MapPin className="w-4 h-4" />
+                    By Location
+                  </DropdownMenuLabel>
+                  {locationLinks.map((link) => (
+                    <DropdownMenuItem key={link.href} asChild>
+                      <Link to={link.href} className="cursor-pointer">
+                        {link.label}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              {navLinks.slice(1).map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="relative px-4 py-2 rounded-full text-sm text-muted-foreground font-medium hover:text-foreground transition-all duration-200 group"
-                >
-                  <span className="relative z-10">{link.label}</span>
-                  <span className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
-              ))}
+              <a
+                href={getAnchorHref("#process")}
+                className="relative px-4 py-2 rounded-full text-sm text-muted-foreground font-medium hover:text-foreground transition-all duration-200 group"
+              >
+                <span className="relative z-10">How It Works</span>
+                <span className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+              <a
+                href={getAnchorHref("#testimonials")}
+                className="relative px-4 py-2 rounded-full text-sm text-muted-foreground font-medium hover:text-foreground transition-all duration-200 group"
+              >
+                <span className="relative z-10">Reviews</span>
+                <span className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+              <a
+                href={getAnchorHref("#faq")}
+                className="relative px-4 py-2 rounded-full text-sm text-muted-foreground font-medium hover:text-foreground transition-all duration-200 group"
+              >
+                <span className="relative z-10">FAQ</span>
+                <span className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+              <a
+                href={getAnchorHref("#contact")}
+                className="relative px-4 py-2 rounded-full text-sm text-muted-foreground font-medium hover:text-foreground transition-all duration-200 group"
+              >
+                <span className="relative z-10">Contact</span>
+                <span className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
             </nav>
 
             {/* CTA Buttons */}
             <div className="hidden md:flex items-center gap-2">
               <Button variant="ghost" size="sm" asChild className="text-muted-foreground hover:text-foreground">
-                <a href="#courses">View Fees</a>
+                <a href={getAnchorHref("#courses")}>View Fees</a>
               </Button>
               <Button size="sm" asChild className="group rounded-full px-5 shadow-md shadow-primary/20">
-                <a href="#contact" className="flex items-center gap-2">
+                <a href={getAnchorHref("#contact")} className="flex items-center gap-2">
                   <Sparkles className="w-3.5 h-3.5" />
                   Book a Call
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -168,7 +217,7 @@ export function Navbar() {
                       {navLinks.map((link, i) => (
                         <a
                           key={link.href}
-                          href={link.href}
+                          href={getAnchorHref(link.href)}
                           onClick={() => setOpen(false)}
                           className="flex items-center justify-between px-4 py-3.5 rounded-xl bg-card/60 backdrop-blur-sm border border-border/30 text-foreground font-medium hover:bg-card hover:border-primary/30 hover:shadow-sm transition-all group"
                           style={{ animationDelay: `${i * 50}ms` }}
@@ -179,7 +228,7 @@ export function Navbar() {
                       ))}
                     </nav>
 
-                    {/* Courses Section */}
+                    {/* Classes Section */}
                     <div className="space-y-3">
                       <div className="flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-wider px-1">
                         <GraduationCap className="w-4 h-4" />
@@ -199,6 +248,7 @@ export function Navbar() {
                       </div>
                     </div>
 
+                    {/* Boards Section */}
                     <div className="space-y-3">
                       <div className="flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-wider px-1">
                         <BookOpen className="w-4 h-4" />
@@ -218,10 +268,30 @@ export function Navbar() {
                       </div>
                     </div>
 
+                    {/* Locations Section */}
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-wider px-1">
+                        <MapPin className="w-4 h-4" />
+                        Locations
+                      </div>
+                      <div className="grid grid-cols-2 gap-1.5">
+                        {locationLinks.map((link) => (
+                          <Link
+                            key={link.href}
+                            to={link.href}
+                            onClick={() => setOpen(false)}
+                            className="px-3 py-2.5 rounded-lg bg-card/60 border border-border/30 text-sm text-foreground font-medium hover:bg-card hover:border-primary/30 transition-all"
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+
                     {/* CTAs */}
                     <div className="space-y-2.5 pt-2">
                       <Button asChild className="w-full rounded-xl shadow-md" size="lg">
-                        <a href="#contact" onClick={() => setOpen(false)} className="flex items-center justify-center gap-2">
+                        <a href={getAnchorHref("#contact")} onClick={() => setOpen(false)} className="flex items-center justify-center gap-2">
                           <Sparkles className="w-4 h-4" />
                           Book Counselling
                         </a>
