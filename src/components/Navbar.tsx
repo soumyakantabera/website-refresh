@@ -1,19 +1,47 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
-import { Menu, Phone, ArrowRight, Sparkles } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Menu, Phone, ArrowRight, Sparkles, ChevronDown, GraduationCap, BookOpen } from "lucide-react";
 import { Logo } from "@/components/Logo";
+
 const navLinks = [
   { href: "#why", label: "Why Us" },
-  { href: "#courses", label: "Courses" },
   { href: "#process", label: "How It Works" },
   { href: "#testimonials", label: "Reviews" },
   { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Contact" },
 ];
 
+const classLinks = [
+  { href: "/class-7-math-tutor", label: "Class 7 Math" },
+  { href: "/class-8-math-tutor", label: "Class 8 Math" },
+  { href: "/class-9-math-tutor", label: "Class 9 Math" },
+  { href: "/class-10-math-tutor", label: "Class 10 Math" },
+  { href: "/class-11-math-tutor", label: "Class 11 Math" },
+  { href: "/class-12-math-tutor", label: "Class 12 Math" },
+  { href: "/bsc-math-tutor", label: "B.Sc Math" },
+];
+
+const boardLinks = [
+  { href: "/wbbse-math-tutor", label: "WBBSE/Madhyamik" },
+  { href: "/cbse-math-tutor", label: "CBSE Board" },
+  { href: "/icse-math-tutor", label: "ICSE Board" },
+  { href: "/calcutta-university-bsc-math", label: "Calcutta University" },
+  { href: "/wbsu-bsc-math", label: "WBSU" },
+];
+
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [coursesOpen, setCoursesOpen] = useState(false);
 
   return (
     <header className="relative z-50 pt-4 sm:pt-6">
@@ -25,7 +53,7 @@ export function Navbar() {
           
           <div className="relative flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 gap-3">
             {/* Logo */}
-            <a href="#top" className="flex items-center gap-2.5 sm:gap-3 group min-w-0">
+            <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group min-w-0">
               <div className="relative group-hover:scale-105 transition-transform duration-300">
                 <Logo size="md" className="drop-shadow-md" />
                 <div className="absolute inset-0 bg-primary/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity -z-10 rounded-full" />
@@ -33,18 +61,62 @@ export function Navbar() {
               <span className="font-heading font-bold text-foreground text-sm sm:text-base lg:text-lg">
                 Sucheta's Math Class
               </span>
-            </a>
+            </Link>
 
             {/* Desktop Nav - Pill style */}
             <nav className="hidden lg:flex items-center gap-1 px-2 py-1.5 rounded-full bg-background/50 border border-border/30">
-              {navLinks.map((link) => (
+              {navLinks.slice(0, 1).map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   className="relative px-4 py-2 rounded-full text-sm text-muted-foreground font-medium hover:text-foreground transition-all duration-200 group"
                 >
                   <span className="relative z-10">{link.label}</span>
-                  {/* Hover background */}
+                  <span className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              ))}
+              
+              {/* Courses Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="relative px-4 py-2 rounded-full text-sm text-muted-foreground font-medium hover:text-foreground transition-all duration-200 group flex items-center gap-1 outline-none">
+                  <span className="relative z-10">Courses</span>
+                  <ChevronDown className="w-3.5 h-3.5 relative z-10" />
+                  <span className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56 bg-card border border-border shadow-lg z-[100]" align="center" sideOffset={8}>
+                  <DropdownMenuLabel className="flex items-center gap-2 text-primary">
+                    <GraduationCap className="w-4 h-4" />
+                    By Class
+                  </DropdownMenuLabel>
+                  {classLinks.map((link) => (
+                    <DropdownMenuItem key={link.href} asChild>
+                      <Link to={link.href} className="cursor-pointer">
+                        {link.label}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                  <DropdownMenuSeparator />
+                  <DropdownMenuLabel className="flex items-center gap-2 text-primary">
+                    <BookOpen className="w-4 h-4" />
+                    By Board
+                  </DropdownMenuLabel>
+                  {boardLinks.map((link) => (
+                    <DropdownMenuItem key={link.href} asChild>
+                      <Link to={link.href} className="cursor-pointer">
+                        {link.label}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              {navLinks.slice(1).map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="relative px-4 py-2 rounded-full text-sm text-muted-foreground font-medium hover:text-foreground transition-all duration-200 group"
+                >
+                  <span className="relative z-10">{link.label}</span>
                   <span className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               ))}
@@ -106,6 +178,45 @@ export function Navbar() {
                         </a>
                       ))}
                     </nav>
+
+                    {/* Courses Section */}
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-wider px-1">
+                        <GraduationCap className="w-4 h-4" />
+                        Classes
+                      </div>
+                      <div className="grid grid-cols-2 gap-1.5">
+                        {classLinks.map((link) => (
+                          <Link
+                            key={link.href}
+                            to={link.href}
+                            onClick={() => setOpen(false)}
+                            className="px-3 py-2.5 rounded-lg bg-card/60 border border-border/30 text-sm text-foreground font-medium hover:bg-card hover:border-primary/30 transition-all"
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-wider px-1">
+                        <BookOpen className="w-4 h-4" />
+                        Boards
+                      </div>
+                      <div className="grid grid-cols-2 gap-1.5">
+                        {boardLinks.map((link) => (
+                          <Link
+                            key={link.href}
+                            to={link.href}
+                            onClick={() => setOpen(false)}
+                            className="px-3 py-2.5 rounded-lg bg-card/60 border border-border/30 text-sm text-foreground font-medium hover:bg-card hover:border-primary/30 transition-all"
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
 
                     {/* CTAs */}
                     <div className="space-y-2.5 pt-2">
