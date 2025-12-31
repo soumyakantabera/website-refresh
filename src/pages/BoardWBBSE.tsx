@@ -18,11 +18,11 @@ const BoardWBBSE = () => {
   return (
     <>
       <Helmet>
-        <title>Best WBBSE Math Tutor in Kolkata | Madhyamik Math Coaching | Sucheta's Math Class</title>
+        <title>Best WBBSE Math Tutor in Kolkata | Madhyamik Math Coaching | Math Class by Sucheta</title>
         <meta name="description" content="Expert WBBSE math tutor in Kolkata for Classes 5-10. Madhyamik math preparation with board-aligned syllabus, Bengali medium support. 1:1 coaching. Call +91-6290871215" />
         <meta name="keywords" content="wbbse math tutor kolkata, madhyamik math coaching, west bengal board math tuition, wbbse class 10 math, bengali medium math tutor, wbbse syllabus math, madhyamik preparation kolkata" />
         <link rel="canonical" href="https://mathclassbysucheta.com/wbbse-math-tutor" />
-        <meta property="og:title" content="Best WBBSE Math Tutor in Kolkata | Sucheta's Math Class" />
+        <meta property="og:title" content="Best WBBSE Math Tutor in Kolkata | Math Class by Sucheta" />
         <meta property="og:description" content="Expert WBBSE/Madhyamik math coaching in Kolkata. Board-aligned syllabus, previous year papers. Book free counselling!" />
         <meta property="og:url" content="https://mathclassbysucheta.com/wbbse-madhyamik-math-tutor" />
         <script type="application/ld+json">
@@ -33,7 +33,7 @@ const BoardWBBSE = () => {
             "description": "Expert math coaching for WBBSE/West Bengal Board students from Classes 5-10 including Madhyamik preparation",
             "provider": {
               "@type": "Organization",
-              "name": "Sucheta's Math Class",
+              "name": "Math Class by Sucheta",
               "url": "https://mathclassbysucheta.com/"
             },
             "educationalLevel": "Secondary School",

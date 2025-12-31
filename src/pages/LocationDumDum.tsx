@@ -16,18 +16,18 @@ const LocationDumDum = () => {
   return (
     <>
       <Helmet>
-        <title>Best Math Tutor in Dum Dum, Kolkata | 1:1 Private Coaching | Sucheta's Math Class</title>
-        <meta name="description" content="Looking for math tutor in Dum Dum, Kolkata? Sucheta's Math Class offers 1:1 private tuition for CBSE, ICSE, WBBSE Classes 7-12 & BSc Maths. Near Dum Dum Metro. Call +91-6290871215" />
+        <title>Best Math Tutor in Dum Dum, Kolkata | 1:1 Private Coaching | Math Class by Sucheta</title>
+        <meta name="description" content="Looking for math tutor in Dum Dum, Kolkata? Math Class by Sucheta offers 1:1 private tuition for CBSE, ICSE, WBBSE Classes 7-12 & BSc Maths. Near Dum Dum Metro. Call +91-6290871215" />
         <meta name="keywords" content="math tutor dum dum, maths tuition dum dum kolkata, private tutor dum dum, cbse math coaching dum dum, icse math tutor dum dum, home tuition dum dum, math teacher near dum dum metro" />
         <link rel="canonical" href="https://mathclassbysucheta.com/math-tutor-dum-dum" />
-        <meta property="og:title" content="Best Math Tutor in Dum Dum | Sucheta's Math Class" />
+        <meta property="og:title" content="Best Math Tutor in Dum Dum | Math Class by Sucheta" />
         <meta property="og:description" content="Expert 1:1 math coaching in Dum Dum for CBSE, ICSE, WBBSE. Classes 7-12 & BSc. Book free counselling!" />
         <meta property="og:url" content="https://mathclassbysucheta.com/math-tutor-dum-dum" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Sucheta's Math Class - Dum Dum",
+            "name": "Math Class by Sucheta - Dum Dum",
             "description": "Best math tutor in Dum Dum offering 1:1 private tuition for CBSE, ICSE, WBBSE Classes 7-12 and BSc Mathematics.",
             "url": "https://mathclassbysucheta.com/math-tutor-dum-dum",
             "telephone": "+916290871215",

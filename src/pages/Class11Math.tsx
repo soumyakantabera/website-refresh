@@ -15,11 +15,11 @@ const Class11Math = () => {
   return (
     <>
       <Helmet>
-        <title>Class 11 Math Tutor in Kolkata | CBSE ISC WBCHSE | Sucheta's Math Class</title>
+        <title>Class 11 Math Tutor in Kolkata | CBSE ISC WBCHSE | Math Class by Sucheta</title>
         <meta name="description" content="Expert Class 11 math tutor in Kolkata for CBSE, ISC, WBCHSE. Calculus, trigonometry, permutation combination. JEE foundation. 1:1 coaching. Call +91-6290871215" />
         <meta name="keywords" content="class 11 math tutor kolkata, class 11 maths tuition, cbse class 11 math, isc class 11 math, wbchse class 11 math, calculus tutor kolkata, jee math foundation" />
         <link rel="canonical" href="https://mathclassbysucheta.com/class-11-math-tutor" />
-        <meta property="og:title" content="Class 11 Math Tutor in Kolkata | Sucheta's Math Class" />
+        <meta property="og:title" content="Class 11 Math Tutor in Kolkata | Math Class by Sucheta" />
         <meta property="og:description" content="Expert Class 11 math coaching. CBSE, ISC, WBCHSE. Calculus, trigonometry & more. Book free counselling!" />
         <meta property="og:url" content="https://mathclassbysucheta.com/class-11-math-tutor" />
       </Helmet>

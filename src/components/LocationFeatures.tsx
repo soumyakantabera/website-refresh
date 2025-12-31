@@ -46,7 +46,7 @@ export function LocationFeatures({ areaName }: LocationFeaturesProps) {
             Why Choose Us for Math Tuition in {areaName}?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Parents from {areaName} and nearby areas trust Sucheta's Math Class for quality coaching and real results.
+            Parents from {areaName} and nearby areas trust Math Class by Sucheta for quality coaching and real results.
           </p>
         </div>
 

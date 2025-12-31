@@ -15,11 +15,11 @@ const BScMath = () => {
   return (
     <>
       <Helmet>
-        <title>BSc Maths Tutor in Kolkata | Honours & Pass | Sucheta's Math Class</title>
+        <title>BSc Maths Tutor in Kolkata | Honours & Pass | Math Class by Sucheta</title>
         <meta name="description" content="Expert BSc Mathematics tutor in Kolkata for Honours & Pass students. CU, WBSU affiliated colleges. Real Analysis, Linear Algebra, Abstract Algebra. 1:1 coaching. Call +91-6290871215" />
         <meta name="keywords" content="bsc math tutor kolkata, bsc honours math coaching, bsc pass math tuition, real analysis tutor, linear algebra tutor kolkata, abstract algebra coaching, university math tutor" />
         <link rel="canonical" href="https://mathclassbysucheta.com/bsc-math-tutor" />
-        <meta property="og:title" content="BSc Maths Tutor in Kolkata | Honours & Pass | Sucheta's Math Class" />
+        <meta property="og:title" content="BSc Maths Tutor in Kolkata | Honours & Pass | Math Class by Sucheta" />
         <meta property="og:description" content="Expert BSc Mathematics coaching. Honours & Pass. Real Analysis, Linear Algebra & more. Book now!" />
         <meta property="og:url" content="https://mathclassbysucheta.com/bsc-math-tutor" />
       </Helmet>

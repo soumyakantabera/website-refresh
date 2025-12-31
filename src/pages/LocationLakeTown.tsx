@@ -16,18 +16,18 @@ const LocationLakeTown = () => {
   return (
     <>
       <Helmet>
-        <title>Best Math Tutor in Lake Town, Kolkata | 1:1 Private Coaching | Sucheta's Math Class</title>
-        <meta name="description" content="Looking for math tutor in Lake Town, Kolkata? Sucheta's Math Class offers 1:1 private tuition for CBSE, ICSE, WBBSE Classes 7-12 & BSc Maths. Online classes available. Call +91-6290871215" />
+        <title>Best Math Tutor in Lake Town, Kolkata | 1:1 Private Coaching | Math Class by Sucheta</title>
+        <meta name="description" content="Looking for math tutor in Lake Town, Kolkata? Math Class by Sucheta offers 1:1 private tuition for CBSE, ICSE, WBBSE Classes 7-12 & BSc Maths. Online classes available. Call +91-6290871215" />
         <meta name="keywords" content="math tutor lake town, maths tuition lake town kolkata, private tutor lake town, cbse math coaching lake town, icse math tutor lake town, home tuition lake town, math teacher near lake town" />
         <link rel="canonical" href="https://mathclassbysucheta.com/math-tutor-lake-town" />
-        <meta property="og:title" content="Best Math Tutor in Lake Town | Sucheta's Math Class" />
+        <meta property="og:title" content="Best Math Tutor in Lake Town | Math Class by Sucheta" />
         <meta property="og:description" content="Expert 1:1 math coaching for Lake Town students. CBSE, ICSE, WBBSE. Classes 7-12 & BSc. Book free counselling!" />
         <meta property="og:url" content="https://mathclassbysucheta.com/math-tutor-lake-town" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Sucheta's Math Class - Lake Town",
+            "name": "Math Class by Sucheta - Lake Town",
             "description": "Best math tutor for Lake Town students offering 1:1 private tuition for CBSE, ICSE, WBBSE Classes 7-12 and BSc Mathematics.",
             "url": "https://mathclassbysucheta.com/math-tutor-lake-town",
             "telephone": "+916290871215",

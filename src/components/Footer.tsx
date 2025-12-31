@@ -84,7 +84,7 @@ export function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <Logo size="lg" className="drop-shadow-md" />
               <div>
-                <b className="block font-heading font-bold text-foreground text-lg">Sucheta's Math Class</b>
+                <b className="block font-heading font-bold text-foreground text-lg">Math Class by Sucheta</b>
                 <span className="block text-sm text-muted-foreground">1:1 Private Coaching</span>
               </div>
             </div>
@@ -177,7 +177,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">© {year} Sucheta's Math Class • All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© {year} Math Class by Sucheta • All rights reserved.</p>
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors font-medium"

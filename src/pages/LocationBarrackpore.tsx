@@ -16,18 +16,18 @@ const LocationBarrackpore = () => {
   return (
     <>
       <Helmet>
-        <title>Best Math Tutor in Barrackpore, Kolkata | 1:1 Private Coaching | Sucheta's Math Class</title>
-        <meta name="description" content="Looking for math tutor in Barrackpore, Kolkata? Sucheta's Math Class offers 1:1 private tuition for CBSE, ICSE, WBBSE Classes 7-12 & BSc Maths. Home tuition & online available. Call +91-6290871215" />
+        <title>Best Math Tutor in Barrackpore, Kolkata | 1:1 Private Coaching | Math Class by Sucheta</title>
+        <meta name="description" content="Looking for math tutor in Barrackpore, Kolkata? Math Class by Sucheta offers 1:1 private tuition for CBSE, ICSE, WBBSE Classes 7-12 & BSc Maths. Home tuition & online available. Call +91-6290871215" />
         <meta name="keywords" content="math tutor barrackpore, maths tuition barrackpore kolkata, private tutor barrackpore, cbse math coaching barrackpore, icse math tutor barrackpore, home tuition barrackpore, math teacher near barrackpore" />
         <link rel="canonical" href="https://mathclassbysucheta.com/math-tutor-barrackpore" />
-        <meta property="og:title" content="Best Math Tutor in Barrackpore | Sucheta's Math Class" />
+        <meta property="og:title" content="Best Math Tutor in Barrackpore | Math Class by Sucheta" />
         <meta property="og:description" content="Expert 1:1 math coaching near Barrackpore for CBSE, ICSE, WBBSE. Classes 7-12 & BSc. Book free counselling!" />
         <meta property="og:url" content="https://mathclassbysucheta.com/math-tutor-barrackpore" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Sucheta's Math Class - Barrackpore",
+            "name": "Math Class by Sucheta - Barrackpore",
             "description": "Best math tutor near Barrackpore offering 1:1 private tuition for CBSE, ICSE, WBBSE Classes 7-12 and BSc Mathematics.",
             "url": "https://mathclassbysucheta.com/math-tutor-barrackpore",
             "telephone": "+916290871215",
