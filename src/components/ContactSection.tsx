@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
 
 const COACHING = {
-  name: "Sucheta's Math Class",
+  name: "Math Class by Sucheta",
   phoneE164: "+916290871215",
   displayPhone: "+91 62908 71215",
   email: "berasucheta01@gmail.com",

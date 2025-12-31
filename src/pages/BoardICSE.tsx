@@ -16,11 +16,11 @@ const BoardICSE = () => {
   return (
     <>
       <Helmet>
-        <title>Best ICSE Math Tutor in Kolkata | ISC Math Coaching | Sucheta's Math Class</title>
+        <title>Best ICSE Math Tutor in Kolkata | ISC Math Coaching | Math Class by Sucheta</title>
         <meta name="description" content="Expert ICSE/ISC math tutor in Kolkata for Classes 7-12. Selina, ML Aggarwal solutions, board exam preparation. 1:1 private tuition. Call +91-6290871215" />
         <meta name="keywords" content="icse math tutor kolkata, isc math coaching kolkata, icse class 10 math, isc class 12 math, selina math solutions, ml aggarwal math tutor, icse board preparation kolkata" />
         <link rel="canonical" href="https://mathclassbysucheta.com/icse-math-tutor" />
-        <meta property="og:title" content="Best ICSE Math Tutor in Kolkata | Sucheta's Math Class" />
+        <meta property="og:title" content="Best ICSE Math Tutor in Kolkata | Math Class by Sucheta" />
         <meta property="og:description" content="Expert ICSE/ISC math coaching in Kolkata. Selina, ML Aggarwal aligned. Classes 7-12. Book free counselling!" />
         <meta property="og:url" content="https://mathclassbysucheta.com/icse-math-tutor" />
         <script type="application/ld+json">
@@ -31,7 +31,7 @@ const BoardICSE = () => {
             "description": "Expert math coaching for ICSE and ISC students from Classes 7-12 with comprehensive board exam preparation",
             "provider": {
               "@type": "Organization",
-              "name": "Sucheta's Math Class",
+              "name": "Math Class by Sucheta",
               "url": "https://mathclassbysucheta.com/"
             },
             "educationalLevel": "Secondary School",

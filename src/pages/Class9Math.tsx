@@ -15,11 +15,11 @@ const Class9Math = () => {
   return (
     <>
       <Helmet>
-        <title>Class 9 Math Tutor in Kolkata | CBSE ICSE WBBSE | Sucheta's Math Class</title>
+        <title>Class 9 Math Tutor in Kolkata | CBSE ICSE WBBSE | Math Class by Sucheta</title>
         <meta name="description" content="Expert Class 9 math tutor in Kolkata for CBSE, ICSE, WBBSE. Board exam preparation starts here. Polynomials, geometry, coordinate geometry. Call +91-6290871215" />
         <meta name="keywords" content="class 9 math tutor kolkata, class 9 maths tuition, cbse class 9 math, icse class 9 math, wbbse class 9 math, 9th class math coaching, board preparation tutor" />
         <link rel="canonical" href="https://mathclassbysucheta.com/class-9-math-tutor" />
-        <meta property="og:title" content="Class 9 Math Tutor in Kolkata | Sucheta's Math Class" />
+        <meta property="og:title" content="Class 9 Math Tutor in Kolkata | Math Class by Sucheta" />
         <meta property="og:description" content="Expert Class 9 math coaching for CBSE, ICSE, WBBSE. Board exam foundation. Book free counselling!" />
         <meta property="og:url" content="https://mathclassbysucheta.com/class-9-math-tutor" />
       </Helmet>

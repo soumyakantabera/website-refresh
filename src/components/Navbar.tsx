@@ -81,7 +81,7 @@ export function Navbar() {
                 <div className="absolute inset-0 bg-primary/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity -z-10 rounded-full" />
               </div>
               <span className="font-heading font-bold text-foreground text-sm sm:text-base lg:text-lg">
-                Sucheta's Math Class
+                Math Class by Sucheta
               </span>
             </Link>
 
@@ -202,7 +202,7 @@ export function Navbar() {
                     <SheetTitle className="flex items-center gap-3">
                       <Logo size="sm" className="drop-shadow-md" />
                       <div className="text-left">
-                        <div className="font-heading font-bold text-foreground">Sucheta's Math Class</div>
+                        <div className="font-heading font-bold text-foreground">Math Class by Sucheta</div>
                         <div className="flex items-center gap-1.5 text-sm text-muted-foreground font-medium">
                           <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                           Kolkata + Online
@@ -210,7 +210,7 @@ export function Navbar() {
                       </div>
                     </SheetTitle>
                     <SheetDescription className="sr-only">
-                      Navigation menu for Sucheta's Math Class
+                      Navigation menu for Math Class by Sucheta
                     </SheetDescription>
                   </SheetHeader>
                   

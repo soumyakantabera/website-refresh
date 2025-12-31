@@ -16,11 +16,11 @@ const BoardCU = () => {
   return (
     <>
       <Helmet>
-        <title>Calcutta University BSc Maths Tutor | CU Hons & Pass Coaching | Sucheta's Math Class</title>
+        <title>Calcutta University BSc Maths Tutor | CU Hons & Pass Coaching | Math Class by Sucheta</title>
         <meta name="description" content="Expert Calcutta University BSc Mathematics tutor in Kolkata. Honours & Pass course coaching, CU syllabus, exam preparation. 1:1 tuition for all semesters. Call +91-6290871215" />
         <meta name="keywords" content="calcutta university bsc math tutor, cu math honours coaching, cu math pass tuition, calcutta university math syllabus, bsc math tutor kolkata, cu semester exam preparation, real analysis tutor kolkata" />
         <link rel="canonical" href="https://mathclassbysucheta.com/calcutta-university-bsc-math" />
-        <meta property="og:title" content="Calcutta University BSc Maths Tutor | Sucheta's Math Class" />
+        <meta property="og:title" content="Calcutta University BSc Maths Tutor | Math Class by Sucheta" />
         <meta property="og:description" content="Expert CU BSc Mathematics coaching in Kolkata. Honours & Pass. All semesters. Book free counselling!" />
         <meta property="og:url" content="https://mathclassbysucheta.com/calcutta-university-bsc-math" />
         <script type="application/ld+json">
@@ -31,7 +31,7 @@ const BoardCU = () => {
             "description": "Expert coaching for Calcutta University BSc Mathematics Honours and Pass students covering all semesters",
             "provider": {
               "@type": "Organization",
-              "name": "Sucheta's Math Class",
+              "name": "Math Class by Sucheta",
               "url": "https://mathclassbysucheta.com/"
             },
             "educationalLevel": "Undergraduate",

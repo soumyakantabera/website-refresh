@@ -15,11 +15,11 @@ const Class7Math = () => {
   return (
     <>
       <Helmet>
-        <title>Class 7 Math Tutor in Kolkata | CBSE ICSE WBBSE | Sucheta's Math Class</title>
+        <title>Class 7 Math Tutor in Kolkata | CBSE ICSE WBBSE | Math Class by Sucheta</title>
         <meta name="description" content="Expert Class 7 math tutor in Kolkata for CBSE, ICSE, WBBSE. Build strong foundation with 1:1 coaching. Algebra, geometry basics. Call +91-6290871215" />
         <meta name="keywords" content="class 7 math tutor kolkata, class 7 maths tuition, cbse class 7 math, icse class 7 math, wbbse class 7 math, 7th class math coaching, foundation math tutor" />
         <link rel="canonical" href="https://mathclassbysucheta.com/class-7-math-tutor" />
-        <meta property="og:title" content="Class 7 Math Tutor in Kolkata | Sucheta's Math Class" />
+        <meta property="og:title" content="Class 7 Math Tutor in Kolkata | Math Class by Sucheta" />
         <meta property="og:description" content="Expert Class 7 math coaching for CBSE, ICSE, WBBSE. Strong foundation building. Book free counselling!" />
         <meta property="og:url" content="https://mathclassbysucheta.com/class-7-math-tutor" />
       </Helmet>

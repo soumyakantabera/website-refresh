@@ -55,7 +55,7 @@ export function LocationHero({ areaName, nearbyAreas, distance }: LocationHeroPr
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-              Looking for expert math coaching in {areaName}? Sucheta's Math Class offers personalized 1:1 tuition for Classes 7–12 and BSc Mathematics. 
+              Looking for expert math coaching in {areaName}? Math Class by Sucheta offers personalized 1:1 tuition for Classes 7–12 and BSc Mathematics. 
               {distance && ` Just ${distance} from ${areaName}.`} Home tuition & online classes available.
             </p>
 

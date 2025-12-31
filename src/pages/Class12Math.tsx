@@ -15,11 +15,11 @@ const Class12Math = () => {
   return (
     <>
       <Helmet>
-        <title>Class 12 Math Tutor in Kolkata | Board Exam & JEE | Sucheta's Math Class</title>
+        <title>Class 12 Math Tutor in Kolkata | Board Exam & JEE | Math Class by Sucheta</title>
         <meta name="description" content="Expert Class 12 math tutor in Kolkata for CBSE, ISC, WBCHSE. Calculus, 3D geometry, probability. Board exam & JEE preparation. 1:1 coaching. Call +91-6290871215" />
         <meta name="keywords" content="class 12 math tutor kolkata, class 12 board exam math, cbse class 12 math, isc class 12 math, wbchse class 12 math, calculus tutor kolkata, jee math coaching" />
         <link rel="canonical" href="https://mathclassbysucheta.com/class-12-math-tutor" />
-        <meta property="og:title" content="Class 12 Math Tutor in Kolkata | Board & JEE Expert | Sucheta's Math Class" />
+        <meta property="og:title" content="Class 12 Math Tutor in Kolkata | Board & JEE Expert | Math Class by Sucheta" />
         <meta property="og:description" content="Expert Class 12 math coaching. Board exam & JEE preparation. Calculus, 3D geometry. Book now!" />
         <meta property="og:url" content="https://mathclassbysucheta.com/class-12-math-tutor" />
       </Helmet>

@@ -15,11 +15,11 @@ const Class10Math = () => {
   return (
     <>
       <Helmet>
-        <title>Class 10 Math Tutor in Kolkata | Board Exam Preparation | Sucheta's Math Class</title>
+        <title>Class 10 Math Tutor in Kolkata | Board Exam Preparation | Math Class by Sucheta</title>
         <meta name="description" content="Expert Class 10 math tutor in Kolkata for CBSE, ICSE, WBBSE Madhyamik. Board exam preparation, previous year papers, mock tests. 1:1 coaching. Call +91-6290871215" />
         <meta name="keywords" content="class 10 math tutor kolkata, class 10 board exam preparation, cbse class 10 math, icse class 10 math, madhyamik math tutor, 10th class math coaching, board exam math tuition" />
         <link rel="canonical" href="https://mathclassbysucheta.com/class-10-math-tutor" />
-        <meta property="og:title" content="Class 10 Math Tutor in Kolkata | Board Exam Expert | Sucheta's Math Class" />
+        <meta property="og:title" content="Class 10 Math Tutor in Kolkata | Board Exam Expert | Math Class by Sucheta" />
         <meta property="og:description" content="Expert Class 10 board exam math coaching. CBSE, ICSE, Madhyamik. Previous year papers & mock tests. Book now!" />
         <meta property="og:url" content="https://mathclassbysucheta.com/class-10-math-tutor" />
       </Helmet>

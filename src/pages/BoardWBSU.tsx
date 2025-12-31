@@ -16,11 +16,11 @@ const BoardWBSU = () => {
   return (
     <>
       <Helmet>
-        <title>WBSU BSc Maths Tutor | West Bengal State University Math Coaching | Sucheta's Math Class</title>
+        <title>WBSU BSc Maths Tutor | West Bengal State University Math Coaching | Math Class by Sucheta</title>
         <meta name="description" content="Expert West Bengal State University BSc Mathematics tutor in Kolkata. Honours & Pass course coaching, WBSU syllabus, exam preparation. 1:1 tuition. Call +91-6290871215" />
         <meta name="keywords" content="wbsu bsc math tutor, west bengal state university math coaching, wbsu math honours tuition, wbsu math pass, bsc math tutor barasat, wbsu semester exam preparation, wbsu syllabus math" />
         <link rel="canonical" href="https://mathclassbysucheta.com/wbsu-bsc-math" />
-        <meta property="og:title" content="WBSU BSc Maths Tutor | Sucheta's Math Class" />
+        <meta property="og:title" content="WBSU BSc Maths Tutor | Math Class by Sucheta" />
         <meta property="og:description" content="Expert WBSU BSc Mathematics coaching in Kolkata. Honours & Pass. All semesters. Book free counselling!" />
         <meta property="og:url" content="https://mathclassbysucheta.com/wbsu-bsc-math" />
         <script type="application/ld+json">
@@ -31,7 +31,7 @@ const BoardWBSU = () => {
             "description": "Expert coaching for West Bengal State University BSc Mathematics Honours and Pass students covering all semesters",
             "provider": {
               "@type": "Organization",
-              "name": "Sucheta's Math Class",
+              "name": "Math Class by Sucheta",
               "url": "https://mathclassbysucheta.com/"
             },
             "educationalLevel": "Undergraduate",
