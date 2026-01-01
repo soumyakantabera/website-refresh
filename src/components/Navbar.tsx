@@ -84,7 +84,7 @@ export function Navbar() {
                 <span className="font-heading font-bold text-foreground text-sm sm:text-base lg:text-lg">
                   Math Class
                 </span>
-                <span className="text-xs sm:text-sm font-medium bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent transition-all duration-300 group-hover:from-purple-500 group-hover:to-primary">
+                <span className="text-xs sm:text-sm font-medium bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
                   by Sucheta
                 </span>
               </div>
@@ -207,7 +207,7 @@ export function Navbar() {
                     <SheetTitle className="flex items-center gap-3">
                       <Logo size="sm" className="drop-shadow-md" />
                       <div className="text-left">
-                        <div className="font-heading font-bold text-foreground group">Math Class <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent transition-all duration-300 group-hover:from-purple-500 group-hover:to-primary">by Sucheta</span></div>
+                        <div className="font-heading font-bold text-foreground">Math Class <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">by Sucheta</span></div>
                         <div className="flex items-center gap-1.5 text-sm text-muted-foreground font-medium">
                           <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                           Kolkata + Online
