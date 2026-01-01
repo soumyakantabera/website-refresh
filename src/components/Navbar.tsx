@@ -77,7 +77,7 @@ export function Navbar() {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group min-w-0">
               <div className="relative group-hover:scale-105 transition-transform duration-300">
-                <Logo size="md" className="drop-shadow-md" />
+                <Logo size="md" showText={false} className="drop-shadow-md" />
                 <div className="absolute inset-0 bg-primary/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity -z-10 rounded-full" />
               </div>
               <span className="font-heading font-bold text-foreground text-sm sm:text-base lg:text-lg">
