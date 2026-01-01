@@ -80,9 +80,14 @@ export function Navbar() {
                 <Logo size="md" showText={false} className="drop-shadow-md" />
                 <div className="absolute inset-0 bg-primary/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity -z-10 rounded-full" />
               </div>
-              <span className="font-heading font-bold text-foreground text-sm sm:text-base lg:text-lg">
-                Math Class by Sucheta
-              </span>
+              <div className="flex flex-col leading-tight">
+                <span className="font-heading font-bold text-foreground text-sm sm:text-base lg:text-lg">
+                  Math Class
+                </span>
+                <span className="text-xs sm:text-sm font-medium bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
+                  by Sucheta
+                </span>
+              </div>
             </Link>
 
             {/* Desktop Nav - Pill style */}
