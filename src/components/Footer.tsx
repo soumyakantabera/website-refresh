@@ -82,7 +82,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Logo size="lg" className="drop-shadow-md" showText={false} />
+              <Logo size="lg" className="drop-shadow-md transition-transform duration-300 hover:scale-110 hover:rotate-3" showText={false} />
               <div>
                 <span className="block text-sm text-muted-foreground">1:1 Private Coaching</span>
               </div>
