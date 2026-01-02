@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-teacher.jpg";
 import { Star, Users, Award, CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
+import { ImageWithSkeleton } from "@/components/ImageWithSkeleton";
 
 const trustBadges = [
   { icon: Users, label: "1:1 Private", desc: "Focused attention" },
@@ -112,10 +113,11 @@ export function HeroSection() {
           <div className="relative slide-right hidden lg:block">
             {/* Main image card */}
             <div className="relative rounded-3xl overflow-hidden border-2 border-border/50 shadow-xl">
-              <img 
+              <ImageWithSkeleton 
                 src={heroImage}
                 alt="Teacher explaining mathematical concepts"
                 className="w-full h-[500px] object-cover"
+                skeletonClassName="rounded-none"
               />
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />

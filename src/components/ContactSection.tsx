@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock, MessageCircle, Send, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
+import { IframeWithSkeleton } from "@/components/IframeWithSkeleton";
 
 const COACHING = {
   name: "Math Class by Sucheta",
@@ -235,14 +236,15 @@ export function ContactSection() {
             </div>
 
             {/* Map */}
-            <div className="rounded-2xl overflow-hidden border-2 border-border/50 shadow-lg">
-              <iframe
+            <div className="rounded-2xl overflow-hidden border-2 border-border/50 shadow-lg h-[200px]">
+              <IframeWithSkeleton
                 title="Location map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.691201789417!2d88.37257827508058!3d22.6652991794258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89da1f8973297%3A0x8e7ccc5a2ffa3eb3!2sMaa%20Basanti%20Varieties!5e0!3m2!1sen!2sit!4v1766610099780!5m2!1sen!2sit"
                 className="w-full h-[200px] border-0"
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                skeletonClassName="rounded-none"
               />
             </div>
 
