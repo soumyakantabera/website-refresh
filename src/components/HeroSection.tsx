@@ -44,11 +44,11 @@ export function HeroSection() {
             {/* Board badges */}
             <div className="flex flex-wrap gap-2">
               {["CBSE", "ICSE", "WBBSE"].map((board) => (
-                <span key={board} className="px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
+                <span key={board} className="px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider bg-primary/10 text-primary border border-primary/20 transition-all duration-200 hover:scale-105 hover:bg-primary/20 active:scale-95 cursor-default">
                   {board}
                 </span>
               ))}
-              <span className="px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider bg-secondary/10 text-secondary border border-secondary/20">
+              <span className="px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider bg-secondary/10 text-secondary border border-secondary/20 transition-all duration-200 hover:scale-105 hover:bg-secondary/20 active:scale-95 cursor-default">
                 Classes 7-12 + BSc
               </span>
             </div>
@@ -95,7 +95,7 @@ export function HeroSection() {
             {/* Trust badges */}
             <div className="grid grid-cols-1 xs:grid-cols-3 gap-2 sm:gap-4 pt-4">
               {trustBadges.map((badge, i) => (
-                <div key={i} className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl bg-card/80 border border-border/50 shadow-sm backdrop-blur-sm">
+                <div key={i} className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl bg-card/80 border border-border/50 shadow-sm backdrop-blur-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 hover:border-primary/30 active:scale-[0.98]">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary-foreground shadow-md flex-shrink-0">
                     <badge.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>

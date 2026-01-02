@@ -75,7 +75,7 @@ interface TestimonialCardProps {
 function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
     <div 
-      className="group relative p-6 md:p-8 rounded-3xl bg-card/80 border-2 border-border/50 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden h-full"
+      className="group relative p-6 md:p-8 rounded-3xl bg-card/80 border-2 border-border/50 shadow-lg hover:shadow-xl hover:-translate-y-2 active:scale-[0.98] transition-all duration-300 overflow-hidden h-full"
     >
       {/* Decorative gradient */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -227,7 +227,7 @@ export function TestimonialsSection() {
         <AnimatedSection delay={100}>
           <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-12 max-w-2xl mx-auto">
             {stats.map((stat, i) => (
-              <div key={i} className="text-center p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-card/80 border border-border/50 shadow-sm">
+              <div key={i} className="text-center p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-card/80 border border-border/50 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 hover:border-primary/30 active:scale-[0.98]">
                 <b className="block text-xl sm:text-3xl md:text-4xl font-black text-primary">{stat.value}</b>
                 <span className="text-xs sm:text-sm text-muted-foreground font-semibold">{stat.label}</span>
               </div>

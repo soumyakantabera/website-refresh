@@ -222,7 +222,7 @@ export function ContactSection() {
               {contactCards.map((card, i) => (
                 <div 
                   key={i}
-                  className={`p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-gradient-to-br from-${card.color}/10 via-card to-card border border-border/50 shadow-sm hover:shadow-md transition-shadow ${card.href ? "cursor-pointer" : ""}`}
+                  className={`p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-gradient-to-br from-${card.color}/10 via-card to-card border border-border/50 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 active:scale-[0.98] ${card.href ? "cursor-pointer hover:border-primary/30" : ""}`}
                   onClick={() => card.href && window.open(card.href, card.href.startsWith("tel") ? "_self" : "_blank")}
                 >
                   <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-${card.color} to-${card.color}/70 flex items-center justify-center text-primary-foreground shadow-md mb-2 sm:mb-3`}>

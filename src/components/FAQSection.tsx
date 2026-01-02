@@ -75,7 +75,7 @@ export function FAQSection() {
                 <AccordionItem 
                   key={i} 
                   value={`faq-${i}`}
-                  className="group border-2 border-border/50 rounded-2xl bg-card/80 shadow-sm hover:shadow-md transition-shadow overflow-hidden data-[state=open]:border-primary/30 data-[state=open]:shadow-lg"
+                  className="group border-2 border-border/50 rounded-2xl bg-card/80 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden data-[state=open]:border-primary/30 data-[state=open]:shadow-lg hover:-translate-y-0.5 active:scale-[0.995]"
                 >
                   <AccordionTrigger className="px-4 sm:px-6 py-4 sm:py-5 text-left font-bold text-foreground hover:no-underline hover:text-primary transition-colors [&>svg]:hidden">
                     <div className="flex items-center gap-3 sm:gap-4 w-full">
