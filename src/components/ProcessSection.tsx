@@ -131,7 +131,7 @@ export function ProcessSection() {
                   {whatYouGet.map((item, i) => (
                     <span 
                       key={i}
-                      className="px-4 py-2 rounded-full text-sm font-bold bg-card border border-border/50 text-foreground shadow-sm"
+                      className="px-4 py-2 rounded-full text-sm font-bold bg-card border border-border/50 text-foreground shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 hover:border-primary/30 hover:bg-primary/5 active:scale-95 cursor-default"
                     >
                       {item}
                     </span>
@@ -155,7 +155,7 @@ export function ProcessSection() {
                   {bestFor.map((item, i) => (
                     <div 
                       key={i} 
-                      className="flex gap-4 items-start p-4 rounded-2xl bg-card/80 border border-border/50 shadow-sm"
+                      className="flex gap-4 items-start p-4 rounded-2xl bg-card/80 border border-border/50 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 hover:border-secondary/40 active:scale-[0.98]"
                     >
                       <div className="w-8 h-8 rounded-lg bg-secondary/20 border border-secondary/30 flex items-center justify-center flex-shrink-0">
                         <Check className="w-4 h-4 text-secondary" />

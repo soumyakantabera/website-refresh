@@ -91,9 +91,9 @@ export function Footer() {
               Personalized coaching with daily practice, notes, and weekly tests. Building clarity and confidence.
             </p>
             <div className="flex gap-2">
-              <span className="px-3 py-1 rounded-lg text-xs font-bold bg-primary/10 text-primary border border-primary/20">CBSE</span>
-              <span className="px-3 py-1 rounded-lg text-xs font-bold bg-primary/10 text-primary border border-primary/20">ICSE</span>
-              <span className="px-3 py-1 rounded-lg text-xs font-bold bg-primary/10 text-primary border border-primary/20">WBBSE</span>
+              <span className="px-3 py-1 rounded-lg text-xs font-bold bg-primary/10 text-primary border border-primary/20 transition-all duration-200 hover:scale-105 hover:bg-primary/20 active:scale-95 cursor-default">CBSE</span>
+              <span className="px-3 py-1 rounded-lg text-xs font-bold bg-primary/10 text-primary border border-primary/20 transition-all duration-200 hover:scale-105 hover:bg-primary/20 active:scale-95 cursor-default">ICSE</span>
+              <span className="px-3 py-1 rounded-lg text-xs font-bold bg-primary/10 text-primary border border-primary/20 transition-all duration-200 hover:scale-105 hover:bg-primary/20 active:scale-95 cursor-default">WBBSE</span>
             </div>
           </div>
 
@@ -105,7 +105,7 @@ export function Footer() {
                 <a 
                   key={link.href}
                   href={link.href}
-                  className="block text-muted-foreground hover:text-foreground transition-colors font-medium"
+                  className="block text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 font-medium"
                 >
                   {link.label}
                 </a>
@@ -117,32 +117,32 @@ export function Footer() {
           <div>
             <h4 className="font-heading font-bold text-foreground mb-4">By Board</h4>
             <div className="flex flex-wrap gap-2 mb-4">
-              <a href="/wbbse-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">WBBSE</a>
-              <a href="/cbse-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">CBSE</a>
-              <a href="/icse-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">ICSE</a>
-              <a href="/calcutta-university-bsc-math" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">CU BSc</a>
-              <a href="/wbsu-bsc-math" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">WBSU BSc</a>
+              <a href="/wbbse-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">WBBSE</a>
+              <a href="/cbse-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">CBSE</a>
+              <a href="/icse-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">ICSE</a>
+              <a href="/calcutta-university-bsc-math" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">CU BSc</a>
+              <a href="/wbsu-bsc-math" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">WBSU BSc</a>
             </div>
             
             <h4 className="font-heading font-bold text-foreground mb-3">By Class</h4>
             <div className="flex flex-wrap gap-2 mb-4">
-              <a href="/class-7-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Class 7</a>
-              <a href="/class-8-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Class 8</a>
-              <a href="/class-9-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Class 9</a>
-              <a href="/class-10-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Class 10</a>
-              <a href="/class-11-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Class 11</a>
-              <a href="/class-12-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Class 12</a>
-              <a href="/bsc-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">BSc Math</a>
+              <a href="/class-7-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">Class 7</a>
+              <a href="/class-8-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">Class 8</a>
+              <a href="/class-9-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">Class 9</a>
+              <a href="/class-10-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">Class 10</a>
+              <a href="/class-11-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">Class 11</a>
+              <a href="/class-12-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">Class 12</a>
+              <a href="/bsc-math-tutor" className="px-3 py-1 rounded-lg text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">BSc Math</a>
             </div>
             
             <h4 className="font-heading font-bold text-foreground mb-3">Areas We Serve</h4>
             <div className="flex flex-wrap gap-2">
-              <a href="/math-tutor-belghoria" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Belghoria</a>
-              <a href="/math-tutor-dunlop" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Dunlop</a>
-              <a href="/math-tutor-sodepur" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Sodepur</a>
-              <a href="/math-tutor-barrackpore" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Barrackpore</a>
-              <a href="/math-tutor-dum-dum" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Dum Dum</a>
-              <a href="/math-tutor-shyambazar" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary transition-colors">Shyambazar</a>
+              <a href="/math-tutor-belghoria" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">Belghoria</a>
+              <a href="/math-tutor-dunlop" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">Dunlop</a>
+              <a href="/math-tutor-sodepur" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">Sodepur</a>
+              <a href="/math-tutor-barrackpore" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">Barrackpore</a>
+              <a href="/math-tutor-dum-dum" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">Dum Dum</a>
+              <a href="/math-tutor-shyambazar" className="px-2 py-0.5 rounded text-xs font-medium bg-muted hover:bg-primary/10 hover:text-primary hover:scale-105 active:scale-95 transition-all duration-200">Shyambazar</a>
             </div>
           </div>
 
@@ -150,11 +150,11 @@ export function Footer() {
           <div>
             <h4 className="font-heading font-bold text-foreground mb-4">Contact</h4>
             <div className="space-y-3">
-              <a href={`tel:${COACHING.phoneE164}`} className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
+              <a href={`tel:${COACHING.phoneE164}`} className="flex items-center gap-3 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200">
                 <Phone className="w-4 h-4 text-primary" />
                 <span className="font-medium">{COACHING.displayPhone}</span>
               </a>
-              <a href={`mailto:${COACHING.email}`} className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors min-w-0">
+              <a href={`mailto:${COACHING.email}`} className="flex items-center gap-3 text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 min-w-0">
                 <Mail className="w-4 h-4 text-primary flex-shrink-0" />
                 <span className="font-medium text-sm break-all min-w-0">{COACHING.email}</span>
               </a>
@@ -179,9 +179,9 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">© {year} Math Class by Sucheta • All rights reserved.</p>
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors font-medium"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-medium group"
           >
-            <ArrowUp className="w-4 h-4" />
+            <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-200" />
             Back to top
           </button>
         </div>

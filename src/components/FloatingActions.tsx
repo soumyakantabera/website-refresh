@@ -40,7 +40,7 @@ export function FloatingActions() {
         {/* Scroll to top */}
         <button 
           onClick={scrollToTop}
-          className={`w-12 h-12 rounded-full bg-card/95 border border-border shadow-lg backdrop-blur-xl flex items-center justify-center hover:-translate-y-1 transition-all cursor-pointer ${
+          className={`w-12 h-12 rounded-full bg-card/95 border border-border shadow-lg backdrop-blur-xl flex items-center justify-center hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 active:scale-95 transition-all cursor-pointer ${
             showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
           }`}
         >
@@ -91,7 +91,7 @@ export function FloatingActions() {
           {/* Mobile Scroll to Top */}
           <button 
             onClick={scrollToTop}
-            className={`h-11 w-11 flex-shrink-0 rounded-lg bg-muted border border-border flex items-center justify-center transition-all ${
+            className={`h-11 w-11 flex-shrink-0 rounded-lg bg-muted border border-border flex items-center justify-center transition-all active:scale-95 ${
               showScrollTop ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
