@@ -3,6 +3,7 @@ import studyNotesImage from "@/assets/study-notes.jpg";
 import onlineClassImage from "@/assets/online-class.jpg";
 import { CheckCircle2, Target, Brain, TrendingUp, Users, BookOpen, Clock, BarChart3 } from "lucide-react";
 import { AnimatedSection, StaggeredContainer } from "@/hooks/useScrollAnimation";
+import { ImageWithSkeleton } from "@/components/ImageWithSkeleton";
 
 const studentBenefits = [
   { icon: Brain, title: "Clear understanding", desc: "Not rote. We explain 'why' behind every concept." },
@@ -52,10 +53,11 @@ export function WhyUsSection() {
         <div className="grid md:grid-cols-2 gap-6 mb-16">
           <AnimatedSection animation="fade-left">
             <div className="group relative rounded-3xl overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-xl transition-shadow">
-              <img 
+              <ImageWithSkeleton 
                 src={studyNotesImage}
                 alt="Student studying with personalized notes"
                 className="w-full h-[300px] object-cover group-hover:scale-105 transition-transform duration-500"
+                skeletonClassName="rounded-none"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
@@ -70,10 +72,11 @@ export function WhyUsSection() {
           
           <AnimatedSection animation="fade-right" delay={100}>
             <div className="group relative rounded-3xl overflow-hidden border-2 border-border/50 shadow-lg hover:shadow-xl transition-shadow">
-              <img 
+              <ImageWithSkeleton 
                 src={onlineClassImage}
                 alt="Online tutoring session"
                 className="w-full h-[300px] object-cover group-hover:scale-105 transition-transform duration-500"
+                skeletonClassName="rounded-none"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
