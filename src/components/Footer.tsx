@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, MapPin, ArrowUp, MessageCircle, ArrowRight, Sparkles } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowUp, MessageCircle, ArrowRight, Sparkles, Download } from "lucide-react";
 import { Logo } from "@/components/Logo";
 
 const COACHING = {
@@ -17,6 +18,7 @@ const quickLinks = [
   { href: "#testimonials", label: "Reviews" },
   { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Contact" },
+  { href: "/brand-assets", label: "Download Posters", isRoute: true },
 ];
 
 const programs = [
@@ -102,13 +104,24 @@ export function Footer() {
             <h4 className="font-heading font-bold text-foreground mb-4">Quick Links</h4>
             <nav className="space-y-2">
               {quickLinks.map((link) => (
-                <a 
-                  key={link.href}
-                  href={link.href}
-                  className="block text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 font-medium"
-                >
-                  {link.label}
-                </a>
+                link.isRoute ? (
+                  <Link 
+                    key={link.href}
+                    to={link.href}
+                    className="flex items-center gap-2 text-primary hover:text-primary/80 hover:translate-x-1 transition-all duration-200 font-medium"
+                  >
+                    <Download className="w-4 h-4" />
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a 
+                    key={link.href}
+                    href={link.href}
+                    className="block text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 font-medium"
+                  >
+                    {link.label}
+                  </a>
+                )
               ))}
             </nav>
           </div>
