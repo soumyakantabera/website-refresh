@@ -31,6 +31,7 @@ import Class10Math from "./pages/Class10Math";
 import Class11Math from "./pages/Class11Math";
 import Class12Math from "./pages/Class12Math";
 import BScMath from "./pages/BScMath";
+import BrandAssets from "./pages/BrandAssets";
 
 const queryClient = new QueryClient();
 
@@ -68,6 +69,8 @@ const App = () => (
             <Route path="/class-11-math-tutor" element={<Class11Math />} />
             <Route path="/class-12-math-tutor" element={<Class12Math />} />
             <Route path="/bsc-math-tutor" element={<BScMath />} />
+            {/* Other pages */}
+            <Route path="/brand-assets" element={<BrandAssets />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
