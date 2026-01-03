@@ -10,7 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Menu, Phone, ArrowRight, Sparkles, ChevronDown, GraduationCap, BookOpen, MapPin } from "lucide-react";
+import { Menu, Phone, ArrowRight, Sparkles, ChevronDown, GraduationCap, BookOpen, MapPin, Download } from "lucide-react";
 import { Logo } from "@/components/Logo";
 
 const navLinks = [
@@ -19,6 +19,7 @@ const navLinks = [
   { href: "#testimonials", label: "Reviews" },
   { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Contact" },
+  { href: "/brand-assets", label: "Posters", isRoute: true },
 ];
 
 const classLinks = [
@@ -223,16 +224,32 @@ export function Navbar() {
                     {/* Navigation links */}
                     <nav className="space-y-1.5">
                       {navLinks.map((link, i) => (
-                        <a
-                          key={link.href}
-                          href={getAnchorHref(link.href)}
-                          onClick={() => setOpen(false)}
-                          className="flex items-center justify-between px-4 py-3.5 rounded-xl bg-card/60 backdrop-blur-sm border border-border/30 text-foreground font-medium hover:bg-card hover:border-primary/30 hover:shadow-sm transition-all group"
-                          style={{ animationDelay: `${i * 50}ms` }}
-                        >
-                          <span>{link.label}</span>
-                          <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
-                        </a>
+                        link.isRoute ? (
+                          <Link
+                            key={link.href}
+                            to={link.href}
+                            onClick={() => setOpen(false)}
+                            className="flex items-center justify-between px-4 py-3.5 rounded-xl bg-primary/10 border border-primary/30 text-foreground font-medium hover:bg-primary/20 hover:shadow-sm transition-all group"
+                            style={{ animationDelay: `${i * 50}ms` }}
+                          >
+                            <span className="flex items-center gap-2">
+                              <Download className="w-4 h-4 text-primary" />
+                              {link.label}
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-0.5 transition-all" />
+                          </Link>
+                        ) : (
+                          <a
+                            key={link.href}
+                            href={getAnchorHref(link.href)}
+                            onClick={() => setOpen(false)}
+                            className="flex items-center justify-between px-4 py-3.5 rounded-xl bg-card/60 backdrop-blur-sm border border-border/30 text-foreground font-medium hover:bg-card hover:border-primary/30 hover:shadow-sm transition-all group"
+                            style={{ animationDelay: `${i * 50}ms` }}
+                          >
+                            <span>{link.label}</span>
+                            <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                          </a>
+                        )
                       ))}
                     </nav>
 
