@@ -3,15 +3,30 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingActions } from "@/components/FloatingActions";
 import { Button } from "@/components/ui/button";
-import { Download, MapPin, Sparkles, Monitor, Smartphone, Share2, Calendar, PartyPopper, BookOpen, GraduationCap } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Download, MapPin, Sparkles, Monitor, Smartphone, Share2, Calendar, PartyPopper, Palette, Wand2 } from "lucide-react";
 import { useRef, useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { toast } from "sonner";
 import posterLandscapeBg from "@/assets/poster-promo-landscape.jpg";
 import posterPortraitBg from "@/assets/poster-promo-portrait.jpg";
 
 const CLASSES_TEXT = "Classes 7, 8, 9, 10, 11, 12 & B.Sc Math";
 const PHONE_NUMBER = "+91-6290871215";
 const WEBSITE = "mathclassbysucheta.com";
+
+// Color presets for custom poster generator
+const colorPresets = [
+  { id: "purple", name: "Purple", gradient: "from-violet-600 to-indigo-700", startColor: "#7c3aed", endColor: "#4338ca" },
+  { id: "pink", name: "Pink", gradient: "from-pink-600 to-rose-600", startColor: "#db2777", endColor: "#e11d48" },
+  { id: "blue", name: "Blue", gradient: "from-blue-600 to-cyan-600", startColor: "#2563eb", endColor: "#0891b2" },
+  { id: "green", name: "Green", gradient: "from-emerald-600 to-teal-600", startColor: "#059669", endColor: "#0d9488" },
+  { id: "orange", name: "Orange", gradient: "from-orange-500 to-red-600", startColor: "#f97316", endColor: "#dc2626" },
+  { id: "amber", name: "Gold", gradient: "from-amber-500 to-orange-600", startColor: "#f59e0b", endColor: "#ea580c" },
+  { id: "teal", name: "Teal", gradient: "from-teal-600 to-cyan-700", startColor: "#0d9488", endColor: "#0e7490" },
+  { id: "rose", name: "Rose", gradient: "from-rose-500 to-pink-600", startColor: "#f43f5e", endColor: "#db2777" },
+];
 
 const locations = [
   { name: "Belghoria", tagline: "Excel in Math, Right in Belghoria!", gradient: "from-violet-600 to-indigo-700" },
@@ -486,6 +501,282 @@ const FestivePosterCard = ({ poster, format, index }: FestivePosterCardProps) =>
   );
 };
 
+// Custom Poster Generator Component
+const CustomPosterGenerator = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [customTitle, setCustomTitle] = useState("Your Custom Title!");
+  const [customSubtitle, setCustomSubtitle] = useState("Add your own message here");
+  const [customEmoji, setCustomEmoji] = useState("✨");
+  const [selectedColor, setSelectedColor] = useState(colorPresets[0]);
+  const [customFormat, setCustomFormat] = useState<PosterFormat>("portrait");
+
+  const bgImage = customFormat === "landscape" ? posterLandscapeBg : posterPortraitBg;
+
+  const getCanvasSize = () => customFormat === "landscape" 
+    ? { width: 1920, height: 1080 } 
+    : { width: 1080, height: 1350 };
+
+  const downloadCustomPoster = () => {
+    // Validate inputs
+    const title = customTitle.trim();
+    const subtitle = customSubtitle.trim();
+    
+    if (!title) {
+      toast.error("Please enter a title for your poster");
+      return;
+    }
+    if (title.length > 50) {
+      toast.error("Title must be less than 50 characters");
+      return;
+    }
+    if (subtitle.length > 100) {
+      toast.error("Subtitle must be less than 100 characters");
+      return;
+    }
+
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const { width, height } = getCanvasSize();
+    canvas.width = width;
+    canvas.height = height;
+
+    const img = new window.Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => {
+      ctx.drawImage(img, 0, 0, width, height);
+      
+      const grd = ctx.createLinearGradient(0, 0, width, height);
+      grd.addColorStop(0, selectedColor.startColor + "E8");
+      grd.addColorStop(1, selectedColor.endColor + "F5");
+      ctx.fillStyle = grd;
+      ctx.fillRect(0, 0, width, height);
+
+      // Decorative elements
+      ctx.globalAlpha = 0.1;
+      ctx.fillStyle = "#ffffff";
+      ctx.beginPath();
+      ctx.arc(width * 0.9, height * 0.1, width * 0.2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(width * 0.05, height * 0.9, width * 0.15, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+
+      const isLandscape = customFormat === "landscape";
+      const scale = isLandscape ? 1.15 : 1;
+
+      // Brand name
+      ctx.fillStyle = "#ffffff";
+      ctx.textAlign = "center";
+      ctx.font = `bold ${Math.floor(56 * scale)}px system-ui, -apple-system, sans-serif`;
+      ctx.fillText("Math Class by Sucheta", width / 2, height * 0.10);
+
+      // Emoji
+      ctx.font = `${Math.floor(100 * scale)}px system-ui, -apple-system, sans-serif`;
+      ctx.fillText(customEmoji, width / 2, height * 0.26);
+      
+      // Custom title
+      ctx.font = `bold ${Math.floor(80 * scale)}px system-ui, -apple-system, sans-serif`;
+      wrapTextCustom(ctx, title, width / 2, height * 0.38, width * 0.85, 90 * scale);
+
+      // Custom subtitle
+      if (subtitle) {
+        ctx.font = `${Math.floor(42 * scale)}px system-ui, -apple-system, sans-serif`;
+        ctx.fillStyle = "rgba(255,255,255,0.95)";
+        wrapTextCustom(ctx, subtitle, width / 2, height * 0.50, width * 0.85, 50 * scale);
+      }
+
+      // Classes
+      ctx.fillStyle = "#ffffff";
+      ctx.font = `bold ${Math.floor(44 * scale)}px system-ui, -apple-system, sans-serif`;
+      ctx.fillText(`📚 ${CLASSES_TEXT}`, width / 2, height * 0.62);
+
+      // Features
+      ctx.font = `${Math.floor(30 * scale)}px system-ui, -apple-system, sans-serif`;
+      ctx.fillStyle = "rgba(255,255,255,0.9)";
+      ctx.fillText("✓ 1:1 Private Coaching  •  CBSE • ICSE • WBBSE  •  Daily Practice", width / 2, height * 0.72);
+
+      // Contact
+      ctx.fillStyle = "#ffffff";
+      ctx.font = `bold ${Math.floor(48 * scale)}px system-ui, -apple-system, sans-serif`;
+      ctx.fillText(`📞 ${PHONE_NUMBER}`, width / 2, height * 0.84);
+      ctx.font = `${Math.floor(32 * scale)}px system-ui, -apple-system, sans-serif`;
+      ctx.fillText(WEBSITE, width / 2, height * 0.92);
+
+      const link = document.createElement("a");
+      const safeName = title.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 30);
+      link.download = `mathclass-custom-${safeName}-${customFormat}.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+      toast.success("Custom poster downloaded!");
+    };
+    img.src = bgImage;
+  };
+
+  function wrapTextCustom(ctx: CanvasRenderingContext2D, text: string, x: number, y: number, maxWidth: number, lineHeight: number) {
+    const words = text.split(" ");
+    let line = "";
+    let lineY = y;
+    for (let n = 0; n < words.length; n++) {
+      const testLine = line + words[n] + " ";
+      const metrics = ctx.measureText(testLine);
+      if (metrics.width > maxWidth && n > 0) {
+        ctx.fillText(line.trim(), x, lineY);
+        line = words[n] + " ";
+        lineY += lineHeight;
+      } else {
+        line = testLine;
+      }
+    }
+    ctx.fillText(line.trim(), x, lineY);
+  }
+
+  return (
+    <div className="grid lg:grid-cols-2 gap-8">
+      {/* Form */}
+      <div className="space-y-6 bg-card rounded-2xl border border-border/50 p-6">
+        <div className="space-y-2">
+          <Label htmlFor="customTitle" className="text-sm font-medium">
+            Poster Title <span className="text-muted-foreground">(max 50 chars)</span>
+          </Label>
+          <Input
+            id="customTitle"
+            value={customTitle}
+            onChange={(e) => setCustomTitle(e.target.value.slice(0, 50))}
+            placeholder="Enter your title..."
+            className="text-lg"
+            maxLength={50}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="customSubtitle" className="text-sm font-medium">
+            Subtitle <span className="text-muted-foreground">(max 100 chars)</span>
+          </Label>
+          <Input
+            id="customSubtitle"
+            value={customSubtitle}
+            onChange={(e) => setCustomSubtitle(e.target.value.slice(0, 100))}
+            placeholder="Add a subtitle..."
+            maxLength={100}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="customEmoji" className="text-sm font-medium">
+            Emoji Icon
+          </Label>
+          <Input
+            id="customEmoji"
+            value={customEmoji}
+            onChange={(e) => setCustomEmoji(e.target.value.slice(0, 2))}
+            placeholder="✨"
+            className="text-2xl w-20 text-center"
+            maxLength={2}
+          />
+        </div>
+
+        <div className="space-y-3">
+          <Label className="text-sm font-medium flex items-center gap-2">
+            <Palette className="w-4 h-4" />
+            Color Theme
+          </Label>
+          <div className="grid grid-cols-4 gap-2">
+            {colorPresets.map((color) => (
+              <button
+                key={color.id}
+                onClick={() => setSelectedColor(color)}
+                className={`h-12 rounded-xl bg-gradient-to-br ${color.gradient} transition-all duration-200 ${
+                  selectedColor.id === color.id 
+                    ? "ring-2 ring-foreground ring-offset-2 ring-offset-background scale-105" 
+                    : "hover:scale-105"
+                }`}
+                title={color.name}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="space-y-3">
+          <Label className="text-sm font-medium">Format</Label>
+          <div className="flex gap-2">
+            <Button
+              variant={customFormat === "portrait" ? "default" : "outline"}
+              onClick={() => setCustomFormat("portrait")}
+              className="flex-1"
+            >
+              <Smartphone className="w-4 h-4 mr-2" />
+              Portrait
+            </Button>
+            <Button
+              variant={customFormat === "landscape" ? "default" : "outline"}
+              onClick={() => setCustomFormat("landscape")}
+              className="flex-1"
+            >
+              <Monitor className="w-4 h-4 mr-2" />
+              Landscape
+            </Button>
+          </div>
+        </div>
+
+        <Button onClick={downloadCustomPoster} className="w-full" size="lg">
+          <Download className="w-5 h-5 mr-2" />
+          Download Custom Poster
+        </Button>
+      </div>
+
+      {/* Live Preview */}
+      <div className="space-y-4">
+        <h3 className="font-semibold text-foreground flex items-center gap-2">
+          <Sparkles className="w-4 h-4 text-primary" />
+          Live Preview
+        </h3>
+        <div 
+          className={`${customFormat === "landscape" ? "aspect-video" : "aspect-[4/5] max-w-sm"} relative overflow-hidden rounded-2xl border border-border/50 shadow-lg mx-auto`}
+          style={{ 
+            backgroundImage: `url(${bgImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center"
+          }}
+        >
+          <div className={`absolute inset-0 bg-gradient-to-br ${selectedColor.gradient} opacity-92`} />
+          
+          <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
+          
+          <div className="relative z-10 h-full flex flex-col justify-between p-4 sm:p-5">
+            <div>
+              <p className="text-white/90 text-sm font-semibold">Math Class by Sucheta</p>
+            </div>
+            
+            <div className="text-center space-y-2">
+              <div className="text-3xl sm:text-4xl">{customEmoji}</div>
+              <h3 className="text-white font-bold text-lg sm:text-xl leading-tight px-2">
+                {customTitle || "Your Custom Title!"}
+              </h3>
+              {customSubtitle && (
+                <p className="text-white/90 text-sm px-2">{customSubtitle}</p>
+              )}
+              <p className="text-white font-semibold text-xs bg-white/15 rounded-full px-3 py-1.5 inline-block">
+                📚 {CLASSES_TEXT}
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <p className="text-white/90 text-xs font-medium">📞 {PHONE_NUMBER}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <canvas ref={canvasRef} className="hidden" />
+    </div>
+  );
+};
+
 const BrandAssets = () => {
   const [selectedFormat, setSelectedFormat] = useState<PosterFormat>("portrait");
 
@@ -600,6 +891,20 @@ const BrandAssets = () => {
                 </div>
               </TabsContent>
             </Tabs>
+          </section>
+
+          {/* Custom Poster Generator Section */}
+          <section className="container py-12 mt-4">
+            <div className="mb-8">
+              <h2 className="text-2xl font-heading font-bold text-foreground flex items-center gap-2">
+                <Wand2 className="w-6 h-6 text-primary" />
+                Custom Poster Generator
+              </h2>
+              <p className="text-muted-foreground mt-1">
+                Create your own poster with custom text and colors
+              </p>
+            </div>
+            <CustomPosterGenerator />
           </section>
 
           {/* Quick Download Section */}
