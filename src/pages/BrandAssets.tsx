@@ -3,7 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FloatingActions } from "@/components/FloatingActions";
 import { Button } from "@/components/ui/button";
-import { Download, MapPin, Sparkles, Monitor, Smartphone, Share2 } from "lucide-react";
+import { Download, MapPin, Sparkles, Monitor, Smartphone, Share2, Calendar, PartyPopper, BookOpen, GraduationCap } from "lucide-react";
 import { useRef, useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import posterLandscapeBg from "@/assets/poster-promo-landscape.jpg";
@@ -24,6 +24,91 @@ const locations = [
   { name: "Sinthi More", tagline: "Master Math Near Sinthi More!", gradient: "from-amber-600 to-orange-700" },
   { name: "Ariadaha", tagline: "Ariadaha's Favorite Math Tutor!", gradient: "from-green-600 to-emerald-700" },
   { name: "Sobha Bazar", tagline: "Sobha Bazar's Math Champion!", gradient: "from-fuchsia-600 to-purple-700" },
+];
+
+interface FestivePoster {
+  id: string;
+  name: string;
+  emoji: string;
+  title: string;
+  subtitle: string;
+  gradient: string;
+  accentColor: string;
+}
+
+const festivePoster: FestivePoster[] = [
+  { 
+    id: "durga-puja", 
+    name: "Durga Puja", 
+    emoji: "🪷",
+    title: "Shubho Bijoya!", 
+    subtitle: "Start Fresh This Puja Season - Enroll Now!",
+    gradient: "from-red-600 to-orange-500",
+    accentColor: "red-600"
+  },
+  { 
+    id: "diwali", 
+    name: "Diwali", 
+    emoji: "🪔",
+    title: "Happy Diwali!", 
+    subtitle: "Light Up Your Math Skills This Festival!",
+    gradient: "from-amber-500 to-orange-600",
+    accentColor: "amber-500"
+  },
+  { 
+    id: "new-year", 
+    name: "New Year", 
+    emoji: "🎉",
+    title: "Happy New Year!", 
+    subtitle: "New Year, New Goals - Master Math in 2025!",
+    gradient: "from-violet-600 to-indigo-600",
+    accentColor: "violet-600"
+  },
+  { 
+    id: "exam-season", 
+    name: "Exam Season", 
+    emoji: "📝",
+    title: "Exam Time!", 
+    subtitle: "Ace Your Exams with Expert Coaching!",
+    gradient: "from-blue-600 to-cyan-600",
+    accentColor: "blue-600"
+  },
+  { 
+    id: "board-exams", 
+    name: "Board Exams", 
+    emoji: "🎓",
+    title: "Board Exam Prep!", 
+    subtitle: "Crack Your Boards with Confidence!",
+    gradient: "from-emerald-600 to-teal-600",
+    accentColor: "emerald-600"
+  },
+  { 
+    id: "summer-batch", 
+    name: "Summer Batch", 
+    emoji: "☀️",
+    title: "Summer Batch Open!", 
+    subtitle: "Beat the Heat, Master Math This Summer!",
+    gradient: "from-yellow-500 to-orange-500",
+    accentColor: "yellow-500"
+  },
+  { 
+    id: "admission-open", 
+    name: "Admission Open", 
+    emoji: "📚",
+    title: "Admissions Open!", 
+    subtitle: "Limited Seats - Enroll Today!",
+    gradient: "from-purple-600 to-pink-600",
+    accentColor: "purple-600"
+  },
+  { 
+    id: "result-celebration", 
+    name: "Result Day", 
+    emoji: "🏆",
+    title: "Celebrate Success!", 
+    subtitle: "Our Students Top Every Year!",
+    gradient: "from-green-600 to-emerald-600",
+    accentColor: "green-600"
+  },
 ];
 
 type PosterFormat = "portrait" | "landscape";
@@ -224,6 +309,183 @@ const LocationPoster = ({ location, format, index }: LocationPosterProps) => {
   );
 };
 
+// Festive Poster Card Component
+interface FestivePosterCardProps {
+  poster: FestivePoster;
+  format: PosterFormat;
+  index: number;
+}
+
+const FestivePosterCard = ({ poster, format, index }: FestivePosterCardProps) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const bgImage = format === "landscape" ? posterLandscapeBg : posterPortraitBg;
+
+  const getCanvasSize = () => format === "landscape" 
+    ? { width: 1920, height: 1080 } 
+    : { width: 1080, height: 1350 };
+
+  const downloadPoster = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const { width, height } = getCanvasSize();
+    canvas.width = width;
+    canvas.height = height;
+
+    const img = new window.Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => {
+      ctx.drawImage(img, 0, 0, width, height);
+      
+      const colors = poster.gradient.replace("from-", "").replace("to-", " ").split(" ");
+      const grd = ctx.createLinearGradient(0, 0, width, height);
+      grd.addColorStop(0, getColorHex(colors[0]) + "E8");
+      grd.addColorStop(1, getColorHex(colors[1]) + "F5");
+      ctx.fillStyle = grd;
+      ctx.fillRect(0, 0, width, height);
+
+      // Decorative elements
+      ctx.globalAlpha = 0.1;
+      ctx.fillStyle = "#ffffff";
+      ctx.beginPath();
+      ctx.arc(width * 0.9, height * 0.1, width * 0.2, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(width * 0.05, height * 0.9, width * 0.15, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+
+      const isLandscape = format === "landscape";
+      const scale = isLandscape ? 1.15 : 1;
+
+      // Brand name
+      ctx.fillStyle = "#ffffff";
+      ctx.textAlign = "center";
+      ctx.font = `bold ${Math.floor(56 * scale)}px system-ui, -apple-system, sans-serif`;
+      ctx.fillText("Math Class by Sucheta", width / 2, height * 0.10);
+
+      // Festive emoji & title
+      ctx.font = `${Math.floor(100 * scale)}px system-ui, -apple-system, sans-serif`;
+      ctx.fillText(poster.emoji, width / 2, height * 0.26);
+      
+      ctx.font = `bold ${Math.floor(80 * scale)}px system-ui, -apple-system, sans-serif`;
+      ctx.fillText(poster.title, width / 2, height * 0.38);
+
+      // Subtitle
+      ctx.font = `${Math.floor(42 * scale)}px system-ui, -apple-system, sans-serif`;
+      ctx.fillStyle = "rgba(255,255,255,0.95)";
+      wrapTextFestive(ctx, poster.subtitle, width / 2, height * 0.48, width * 0.85, 50 * scale);
+
+      // Classes
+      ctx.fillStyle = "#ffffff";
+      ctx.font = `bold ${Math.floor(44 * scale)}px system-ui, -apple-system, sans-serif`;
+      ctx.fillText(`📚 ${CLASSES_TEXT}`, width / 2, height * 0.60);
+
+      // Features
+      ctx.font = `${Math.floor(30 * scale)}px system-ui, -apple-system, sans-serif`;
+      ctx.fillStyle = "rgba(255,255,255,0.9)";
+      ctx.fillText("✓ 1:1 Private Coaching  •  CBSE • ICSE • WBBSE  •  Daily Practice", width / 2, height * 0.70);
+
+      // Contact
+      ctx.fillStyle = "#ffffff";
+      ctx.font = `bold ${Math.floor(48 * scale)}px system-ui, -apple-system, sans-serif`;
+      ctx.fillText(`📞 ${PHONE_NUMBER}`, width / 2, height * 0.84);
+      ctx.font = `${Math.floor(32 * scale)}px system-ui, -apple-system, sans-serif`;
+      ctx.fillText(WEBSITE, width / 2, height * 0.92);
+
+      const link = document.createElement("a");
+      link.download = `mathclass-${poster.id}-${format}.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    };
+    img.src = bgImage;
+  };
+
+  function wrapTextFestive(ctx: CanvasRenderingContext2D, text: string, x: number, y: number, maxWidth: number, lineHeight: number) {
+    const words = text.split(" ");
+    let line = "";
+    let lineY = y;
+    for (let n = 0; n < words.length; n++) {
+      const testLine = line + words[n] + " ";
+      const metrics = ctx.measureText(testLine);
+      if (metrics.width > maxWidth && n > 0) {
+        ctx.fillText(line.trim(), x, lineY);
+        line = words[n] + " ";
+        lineY += lineHeight;
+      } else {
+        line = testLine;
+      }
+    }
+    ctx.fillText(line.trim(), x, lineY);
+  }
+
+  return (
+    <div 
+      className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+      style={{ animationDelay: `${index * 50}ms` }}
+    >
+      <div 
+        className={`${format === "landscape" ? "aspect-video" : "aspect-[4/5]"} relative overflow-hidden`}
+        style={{ 
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center"
+        }}
+      >
+        <div className={`absolute inset-0 bg-gradient-to-br ${poster.gradient} opacity-92`} />
+        
+        <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-white/25 backdrop-blur-sm rounded-full px-2.5 py-1 text-white text-xs font-medium">
+          <Calendar className="w-3 h-3" />
+          {poster.name}
+        </div>
+
+        <div className="absolute top-3 right-3 flex items-center gap-1 bg-white/20 backdrop-blur-sm rounded-full px-2.5 py-1 text-white text-xs font-medium">
+          {format === "landscape" ? <Monitor className="w-3 h-3" /> : <Smartphone className="w-3 h-3" />}
+          {format === "landscape" ? "Landscape" : "Portrait"}
+        </div>
+
+        <div className="absolute top-0 right-0 w-28 h-28 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-20 h-20 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
+        
+        <div className="relative z-10 h-full flex flex-col justify-between p-4 sm:p-5">
+          <div>
+            <p className="text-white/90 text-sm font-semibold">Math Class by Sucheta</p>
+          </div>
+          
+          <div className="text-center space-y-2">
+            <div className="text-4xl">{poster.emoji}</div>
+            <h3 className="text-white font-bold text-xl sm:text-2xl leading-tight">{poster.title}</h3>
+            <p className="text-white/90 text-sm px-2">{poster.subtitle}</p>
+            <p className="text-white font-semibold text-xs bg-white/15 rounded-full px-3 py-1.5 inline-block">
+              📚 {CLASSES_TEXT}
+            </p>
+          </div>
+          
+          <div className="text-center">
+            <p className="text-white/90 text-xs font-medium">📞 {PHONE_NUMBER}</p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="p-3 bg-card">
+        <Button 
+          onClick={downloadPoster} 
+          className="w-full rounded-xl text-sm"
+          variant="outline"
+          size="sm"
+        >
+          <Download className="w-4 h-4 mr-2" />
+          Download {format === "landscape" ? "Landscape" : "Portrait"}
+        </Button>
+      </div>
+      
+      <canvas ref={canvasRef} className="hidden" />
+    </div>
+  );
+};
+
 const BrandAssets = () => {
   const [selectedFormat, setSelectedFormat] = useState<PosterFormat>("portrait");
 
@@ -298,8 +560,50 @@ const BrandAssets = () => {
             </Tabs>
           </section>
 
+          {/* Festive/Seasonal Posters Section */}
+          <section className="container py-12 mt-4">
+            <div className="mb-8">
+              <h2 className="text-2xl font-heading font-bold text-foreground flex items-center gap-2">
+                <PartyPopper className="w-6 h-6 text-secondary" />
+                Festive & Seasonal Posters
+              </h2>
+              <p className="text-muted-foreground mt-1">
+                Special occasion posters to share during festivals, exams, and important times
+              </p>
+            </div>
+            
+            <Tabs defaultValue="portrait" className="w-full">
+              <TabsList className="grid grid-cols-2 w-full sm:w-auto mb-6">
+                <TabsTrigger value="portrait" className="flex items-center gap-2 px-6">
+                  <Smartphone className="w-4 h-4" />
+                  Portrait
+                </TabsTrigger>
+                <TabsTrigger value="landscape" className="flex items-center gap-2 px-6">
+                  <Monitor className="w-4 h-4" />
+                  Landscape
+                </TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="portrait" className="mt-0">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                  {festivePoster.map((poster, index) => (
+                    <FestivePosterCard key={poster.id} poster={poster} format="portrait" index={index} />
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="landscape" className="mt-0">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {festivePoster.map((poster, index) => (
+                    <FestivePosterCard key={poster.id} poster={poster} format="landscape" index={index} />
+                  ))}
+                </div>
+              </TabsContent>
+            </Tabs>
+          </section>
+
           {/* Quick Download Section */}
-          <section className="container py-12 mt-8">
+          <section className="container py-12 mt-4">
             <div className="bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/10 rounded-3xl p-8 sm:p-10 border border-primary/20">
               <div className="text-center mb-8">
                 <h2 className="text-2xl font-heading font-bold text-foreground mb-2">
